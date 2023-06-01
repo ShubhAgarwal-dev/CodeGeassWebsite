@@ -1,14 +1,18 @@
- .navBarWrapper{
+@import url('https://fonts.googleapis.com/css2?family=family=Inconsolata');
+
+.navBarWrapper{
    width:100%;
    height:6rem;
    z-index:99; 
    display: flex;
-   color:var(--text-black);
+   color:var(--text-white);
+   /* color:var(--text-black); */
    align-items: center;
    justify-content: center;
    position: fixed;
    top:0;
-   background-color: var(--text-white);
+   background-color: #212830;
+   /* background-color: var(--text-white); */
    border-bottom: 3px solid var(--text-black);
    transition: all 0.2s ease-in-out;
 }
@@ -35,12 +39,13 @@
   cursor: pointer;
   font-weight: 500;
   font-size:1.25rem;
+  font-family: Inconsolata;
   position: relative;
  }
 
  .option a {
   text-decoration: none;
-  color: black;
+  color: #FAFCFF;
  }
 
  .logoImg{
@@ -53,7 +58,7 @@
  }
 
  .activeOption{
-   color:var(--primary-purple);
+   color:var(--primary-gray);
  }
 
  .option::before {
@@ -63,7 +68,7 @@
   bottom: -2px;
   width: 0;
   height: 2px;
-  background-color: var(--primary-purple);
+  background-color: var(--primary-gray);
   transition: all 0.2s ease-in-out;
  }
  

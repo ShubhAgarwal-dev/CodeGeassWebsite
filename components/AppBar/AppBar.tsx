@@ -4,13 +4,14 @@ import { useState, useEffect } from "react"
 import Image from 'next/image'
 import Link from "next/link"
 import styles from './AppBar.module.css'
+import club_image from '../../public/Logo4x.png'
 
 const prefix = process.env.NEXT_PUBLIC_BASE_PATH || ""
 
 export default function AppBar () {
     const [active, setActive] = useState(false)
     const clickHandler = () => {
-        setActive(!active)
+        setActive(prevActive => !prevActive)
     }
 
     const [visible, setVisible] = useState(true)
@@ -35,16 +36,15 @@ export default function AppBar () {
             >
             <div className={styles.navBarMain}>
                 <div className={styles.logoWrapper}>
-                {/* <h1>SOI</h1> */}
-                {/*
-                <Image
-                    src={`${prefix + "/SOI-logo.png"}`}
-                    width={70}
-                    height={50}
-                    alt="Picture of the author"
-                    priority
-                />
-    */}
+                    <Link href={`${prefix + "/soi"}`}>
+                    <Image
+                        src="/Logo4x.png"
+                        width={70}
+                        height={50}
+                        alt="Picture of the club"
+                        priority
+                    />
+                    </Link>
                 </div>
                 <div className={styles.optionsWrapper}>
                 <div
@@ -67,8 +67,8 @@ export default function AppBar () {
                         <div>Timeline</div>
                     </Link>
                     </div>
-                    <div className={styles.option} style={{ pointerEvents: "none" }}>
-                    <Link href="/team" style={{ pointerEvents: "none" }}>
+                    <div className={styles.option}>
+                    <Link href="/team" scroll={false}>
                         <div>Team</div>
                     </Link>
                     </div>

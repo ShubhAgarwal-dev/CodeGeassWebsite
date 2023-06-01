@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&family=Inconsolata&family=VT323');
+
+.heroWrapper {
+    position: relative;
+    width: 100vw;
+    height: calc(100vh + 6rem);
+    overflow-x: hidden;
+    color: var(--text-black);
+    background-color: var(--primary-light-pastel-gray);
+    background-size: cover;
+    /* background-image: url('/Hero/bg_img.jpg'); */
+  }
+  
+  .hero {
+    position: relative;
+    height: 100%;
+    width: calc(100% - 160px);
+    margin: 0 auto;
+    max-width: 1100px;
+    font-family: var(--font-fancy);
+  }
+  
+  .heroContentWrapper {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    top: 50%;
+    transform: translateY(-50%);
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .heroMain {
+    width: 100%;
+    max-width: 600px;
+    padding-right: 2rem;
+  }
+  
+  .heroMain h1 {
+    font-size: 4rem;
+  }
+  
+  .heroQuoteWrapper {
+    display: flex;
+    align-items: center;
+    padding: 1rem 0;
+  }
+  
+  .Quote {
+    font-size: 1.5rem;
+  }
+  
+  .styleBar {
+    height: 2px;
+    width: 80px;
+    background-color: var(--primary-gray);
+    margin: 0 8px;
+  }
+  
+  .heroArtWrapper {
+    position: relative;
+    width: 500px;
+    height: 500px;
+  }
+  
+  /*------------------Overview Section --------------------*/
+  .aboutWrapper {
+    position: relative;
+    background-color: var(--primary-gray);
+    padding: 8rem 0;
+  }
+  
+  .aboutWheelWrapper {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    top: -100px;
+    right: 20px;
+  }
+  
+  .aboutMain {
+    position: relative;
+    z-index: 20;
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: var(--text-white);
+    padding: 2rem 2rem 4rem;
+    border-radius: 24px;
+    border: 2px solid var(--text-black);
+    box-shadow: 6px 6px 0 0 var(--text-black);
+  }
+  
+  .aboutStyleStar {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: -50px;
+    left: -40px;
+  }
+  
+  .aboutTitle {
+    margin: 1rem 0;
+    text-align: center;
+    font-family: Roboto;
+  }
+  
+  .aboutContent {
+    line-height: 1.25rem;
+    font-family: VT323;
+  }
+  
+  .aboutBgWrapper {
+    position: absolute;
+    width: 100%;
+    height: 400px;
+    bottom: 0;
+  }
+  
+  @media (max-width: 900px) {
+    .hero {
+      position: relative;
+      height: 100%;
+      width: calc(100% - 60px);
+      margin: 0 auto;
+      max-width: 1100px;
+    }
+  
+    .styleBar {
+      width: 50px;
+    }
+  
+    .heroArtWrapper {
+      width: 400px;
+      height: 400px;
+    }
+  
+    .Quote {
+      font-size: 1rem;
+    }
+  
+    .heroMain h1 {
+      font-size: 3rem;
+    }
+  
+    .heroArtWrapper {
+      width: 100%;
+      max-height: 400px;
+    }
+    .aboutWheelWrapper {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      top: -100px;
+      right: -50px;
+    }
+  }
+  
+  @media (max-width: 540px) {
+    .heroContentWrapper {
+      display: block;
+    }
+  
+    .heroArtWrapper {
+      position: relative;
+      width: 100%;
+      height: 300px;
+    }
+  }
