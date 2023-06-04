@@ -49,7 +49,7 @@ export default function Hero () {
                 <h1>Coding Club,<br/> IIT Dharwad</h1>
                 <div className={styles.heroQuoteWrapper}>
                 <div className={styles.styleBar}></div>
-                <div className={styles.Quote}>Think, code and conquer!</div>
+                <div className={styles.Quote}>Put your thinking caps on, it's time to code!</div>
                 </div>
             </div>
             <div className={styles.heroArtWrapper}>

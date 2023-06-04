@@ -4,7 +4,6 @@ import { useState, useEffect } from "react"
 import Image from 'next/image'
 import Link from "next/link"
 import styles from './AppBar.module.css'
-import club_image from '../../public/Logo4x.png'
 
 const prefix = process.env.NEXT_PUBLIC_BASE_PATH || ""
 
