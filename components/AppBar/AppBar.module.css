@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=family=Inconsolata');
+@import url('https://fonts.googleapis.com/css2?family=Syne+Mono');
 
 .navBarWrapper{
    width:100%;
@@ -37,9 +37,9 @@
 
  .option{
   cursor: pointer;
-  font-weight: 500;
+  font-weight: 400;
   font-size:1.25rem;
-  font-family: Inconsolata;
+  font-family: 'Syne Mono', monospace;
   position: relative;
  }
 

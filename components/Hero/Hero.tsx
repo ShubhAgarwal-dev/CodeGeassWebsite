@@ -1,10 +1,10 @@
 "use client"
 
-import { useRef } from "react"
-import { useEffect } from "react"
-import GSAP, { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
-import TweenTarget from "gsap"
+// import { useRef } from "react"
+// import { useEffect } from "react"
+// import GSAP, { gsap } from "gsap"
+// import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
+// import TweenTarget from "gsap"
 import styles from './Hero.module.css'
 import Image from "next/image"
 
@@ -12,28 +12,28 @@ const prefix = process.env.NEXT_PUBLIC_BASE_PATH || ""
 
 export default function Hero () {
     
-    const wheelRef = useRef()
+    // const wheelRef = useRef()
 
-    GSAP.registerPlugin(ScrollTrigger)
-    useEffect(() => {
-        const wheel = wheelRef.current
-        const timeLine = GSAP.timeline({
-        scrollTrigger: {
-            trigger: wheel,
-            start: "top bottom",
-            end: "bottom top",
-            scrub: 1,
-        },
-        })
-        timeLine.to(wheel, {
-            rotation: -30,
-          })
-        }, [])
+    // GSAP.registerPlugin(ScrollTrigger)
+    // useEffect(() => {
+    //     const wheel = wheelRef.current
+    //     const timeLine = GSAP.timeline({
+    //     scrollTrigger: {
+    //         trigger: wheel,
+    //         start: "top bottom",
+    //         end: "bottom top",
+    //         scrub: 1,
+    //     },
+    //     })
+    //     timeLine.to(wheel, {
+    //         rotation: -30,
+    //       })
+    //     }, [])
 
     return (
         <>
         <div className={`${styles.heroWrapper}`} id="hero">
-        <div className={styles.heroBgContainer}>
+        {/* <div className={styles.heroBgContainer}>
             <Image
             src="/Hero/hero-bg.svg"
             priority
@@ -41,15 +41,15 @@ export default function Hero () {
             style={{ objectFit: "cover" }}
             alt="background"
             />
-        </div>
+        </div> */}
 
         <div className={`${styles.hero}`}>
             <div className={styles.heroContentWrapper}>
             <div className={styles.heroMain}>
-                <h1>Summer of Innovation 2023</h1>
+                <h1>Coding Club,<br/> IIT Dharwad</h1>
                 <div className={styles.heroQuoteWrapper}>
                 <div className={styles.styleBar}></div>
-                <div className={styles.Quote}>This Summer Conquer your fallacies and carve your finesse.</div>
+                <div className={styles.Quote}>Think, code and conquer!</div>
                 </div>
             </div>
             <div className={styles.heroArtWrapper}>
@@ -59,14 +59,14 @@ export default function Hero () {
         </div>
         </div>
         <div className={styles.aboutWrapper}>
-        <div className={styles.aboutWheelWrapper} ref={wheelRef}>
+        {/* <div className={styles.aboutWheelWrapper} ref={wheelRef}>
             <Image
             src="/Events/Blue_Wheel_Spcok.svg"
             fill
             priority
             alt="background"
             />
-        </div>
+        </div> */}
         <div className={`page-wrapper`}>
             <div className={styles.aboutMain}>
             <div className={styles.aboutStyleStar}>
