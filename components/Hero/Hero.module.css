@@ -144,6 +144,7 @@
   
     .heroMain h1 {
       font-size: 3rem;
+      font-family: Inconsolata;
     }
   
     .heroArtWrapper {
@@ -162,6 +163,7 @@
   @media (max-width: 540px) {
     .heroContentWrapper {
       display: block;
+      font-family: Inconsolata;
     }
   
     .heroArtWrapper {

@@ -62,13 +62,13 @@ export default function AppBar () {
                     </Link>
                     </div>
                     <div className={styles.option}>
-                    <Link href="/#timeline" scroll={false}>
-                        <div>Timeline</div>
+                    <Link href="/projects" scroll={false}>
+                        <div>Projects</div>
                     </Link>
                     </div>
                     <div className={styles.option}>
-                    <Link href="/team" scroll={false}>
-                        <div>Team</div>
+                    <Link href="/members" scroll={false}>
+                        <div>Members</div>
                     </Link>
                     </div>
                     <div className={styles.option}>

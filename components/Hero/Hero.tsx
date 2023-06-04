@@ -1,5 +1,3 @@
-"use client"
-
 // import { useRef } from "react"
 // import { useEffect } from "react"
 // import GSAP, { gsap } from "gsap"
