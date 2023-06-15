@@ -37,7 +37,7 @@ export default function AppBar () {
                 <div className={styles.logoWrapper}>
                     <Link href={`${prefix + "/soi"}`}>
                     <Image
-                        src="/Logo4x.png"
+                        src="/Logo4xWithoutFade.png"
                         width={70}
                         height={50}
                         alt="Picture of the club"
@@ -52,12 +52,12 @@ export default function AppBar () {
                     }`}
                 >
                     <div className={styles.option}>
-                    <Link href="/#hero" scroll={false}>
+                    <Link href="/" scroll={false}>
                         <div>Home</div>
                     </Link>
                     </div>
                     <div className={styles.option}>
-                    <Link href="/#eventsId" scroll={false}>
+                    <Link href="/events" scroll={false}>
                         <div>Events</div>
                     </Link>
                     </div>
@@ -72,8 +72,8 @@ export default function AppBar () {
                     </Link>
                     </div>
                     <div className={styles.option}>
-                    <Link href="/#footer" scroll={false}>
-                        <div>Contact</div>
+                    <Link href="/sponsors" scroll={false}>
+                        <div>Sponsors</div>
                     </Link>
                     </div>
                 </div>

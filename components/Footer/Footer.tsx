@@ -33,7 +33,7 @@ export default function Footer () {
               aria-current="page"
               className={`${classes.footerlink} ${classes.navLink}`}
             >
-              Home
+              Homek
             </div>
             <div
               onClick={() => handleOnClick("eventsId")}
@@ -69,7 +69,7 @@ export default function Footer () {
                 className={classes.footerlink}
               >
                 <img
-                  src="https://img.icons8.com/ios-filled/48/github.png" 
+                  src="https://img.icons8.com/3d-fluency/48/github.png" 
                   alt="github"
                   loading="lazy"
                   className="socialmediaicon"
@@ -81,7 +81,7 @@ export default function Footer () {
                 className={classes.footerlink}
               >
                 <img
-                  src="https://img.icons8.com/ios-filled/48/github.png" 
+                  src="https://img.icons8.com/3d-fluency/48/github.png" 
                   alt="github"
                   loading="lazy"
                   className="socialmediaicon"
