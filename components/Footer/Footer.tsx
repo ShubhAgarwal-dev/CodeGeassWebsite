@@ -33,10 +33,10 @@ export default function Footer () {
               aria-current="page"
               className={`${classes.footerlink} ${classes.navLink}`}
             >
-              Homek
+              Home
             </div>
             <div
-              onClick={() => handleOnClick("eventsId")}
+              onClick={() => handleOnClick("/events")}
               className={`${classes.footerlink} ${classes.navLink}`}
             >
               Events

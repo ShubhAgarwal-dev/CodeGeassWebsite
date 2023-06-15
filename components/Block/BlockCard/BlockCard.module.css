@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
+
+/* They were originally events card but we have to reuse them 
+for projects and events so we converted them to block */
+
+.blockCardWrapper{
+    position: relative;
+    max-width: 1100px;
+    margin:0 auto;
+    background-color: var(--text-white);
+    padding:3rem 3rem 3rem;
+    border-radius: 24px;
+    border:2px solid var(--text-black);
+    box-shadow: 6px 6px 0 0 var(--text-black);
+    line-height: 1.5rem;
+  }
+  
+  .blockCardWrapper + .blockCardWrapper{
+    margin-top:6rem;
+  }
+  
+  .blockCardMain{
+    display: grid;
+    min-height: 350px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "info image";
+  }
+  
+  .blockInfo{
+    grid-area:info;
+    position: relative;
+    box-sizing: border-box;
+    padding-bottom: 1.5rem;
+    font-family: 'Inconsolata', monospace;
+  }
+  
+  .blockInfoLeft{
+    grid-area: image;
+  }
+  
+  .blockImageWrapper{
+    grid-area: image;
+    display: flex;
+    box-sizing: border-box;
+    padding-left: 3rem;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  
+  .blockImageWrapperLeft{
+    grid-area:info;
+    padding-left:0;
+    padding-right:3rem;
+  }
+  
+  .blockNumber{
+    padding:2rem 0;
+    position: relative;
+    z-index: 5;
+  }
+  
+  .blockNumber h1{
+    font-size: 4rem;
+    font-family: 'Inconsolata', monospace;
+  }
+  
+  .blockName{
+    margin:1rem 0;
+    font-family: 'Inconsolata', monospace;
+  }
+
+  .blockName h1{
+    font-weight: 600;
+    font-size: 2rem;
+  }
+  
+  .blockName h3{
+    font-weight: 600;
+    font-size: 1.25rem;
+  }
+  
+  .knowMore{
+    position: absolute;
+    bottom: 0;
+  }
+  
+  .knowMore a{
+    display: flex;
+    align-items: center;
+    font-size: 1.25rem;
+    font-weight: 500;
+    text-decoration: none;
+    color:var(--primary-gray);
+  }
+  
+  .styleDiv{
+    position:absolute;
+    z-index:-1;
+    top:50px;
+    left:0;
+    background-color: var(--primary-gray);
+    width:60px;
+    height:30px;
+  }
+  
+  
+  .buttonImage{
+    position: relative;
+    width:18px;
+    height:18px;
+  }
+  
+  .blockImageCard{
+    position: relative;
+    background-color: var(--primary-gray);
+    border:2px solid var(--text-black);
+    overflow: hidden;
+    width:100%;
+    padding-top:75%;
+    border-radius: 24px;
+  }
+  
+  @media(max-width:768px){
+    .blockCardWrapper{
+      padding:1.5rem 1.5rem 1.5rem;
+    }
+  
+    .blockCardMain{
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto;
+      grid-template-areas: "image" "info";
+    }
+  
+    .blockInfoLeft{
+      grid-area:info;
+    }
+  
+    .blockImageWrapper{
+      padding-left: 0;
+    }
+  
+    .blockImageWrapperLeft{
+      grid-area: image;
+      padding-right:0;
+    }
+  }
+  
+  

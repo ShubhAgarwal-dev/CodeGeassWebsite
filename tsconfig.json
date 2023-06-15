@@ -23,6 +23,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/Hero/Hero.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/Hero/Hero.tsx", "components/Block/BlockCard/BlockCard.jsx", "components/Block/Block.jsx"],
   "exclude": ["node_modules"]
 }
