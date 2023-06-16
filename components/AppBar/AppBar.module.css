@@ -1,68 +1,68 @@
-@import url('https://fonts.googleapis.com/css2?family=Syne+Mono');
+@import url("https://fonts.googleapis.com/css2?family=Syne+Mono");
 
-.navBarWrapper{
-   width:100%;
-   height:6rem;
-   z-index:99; 
-   display: flex;
-   color:var(--text-white);
-   /* color:var(--text-black); */
-   align-items: center;
-   justify-content: center;
-   position: fixed;
-   top:0;
-   background-color: #212830;
-   /* background-color: var(--text-white); */
-   border-bottom: 3px solid var(--text-black);
-   transition: all 0.2s ease-in-out;
+.navBarWrapper {
+  width: 100%;
+  height: 6rem;
+  z-index: 99;
+  display: flex;
+  color: var(--text-white);
+  /* color:var(--text-black); */
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  background-color: #212830;
+  /* background-color: var(--text-white); */
+  border-bottom: 3px solid var(--text-black);
+  transition: all 0.2s ease-in-out;
 }
 
- .navBarMain{
-   display: flex;
-   width:100%;
-   max-width: 1600px;
-   padding:0rem 4rem;
-   align-items: center;
-   justify-content: space-between;
- }
+.navBarMain {
+  display: flex;
+  width: 100%;
+  max-width: 1600px;
+  padding: 0rem 4rem;
+  align-items: center;
+  justify-content: space-between;
+}
 
- .optionsWrapper{
-   display:flex;
-   align-items: center;
- }
+.optionsWrapper {
+  display: flex;
+  align-items: center;
+}
 
- .optionsMenu{
-   display:flex;
-  }
+.optionsMenu {
+  display: flex;
+}
 
- .option{
+.option {
   cursor: pointer;
   font-weight: 400;
-  font-size:1.25rem;
-  font-family: 'Syne Mono', monospace;
+  font-size: 1.25rem;
+  font-family: "Syne Mono", monospace;
   position: relative;
- }
+}
 
- .option a {
+.option a {
   text-decoration: none;
-  color: #FAFCFF;
- }
+  color: #fafcff;
+}
 
- .logoImg{
+.logoImg {
   width: 200;
   height: 150;
- }
+}
 
- .option + .option{
-   margin-left:1.6rem;
- }
+.option + .option {
+  margin-left: 1.6rem;
+}
 
- .activeOption{
-   color:var(--primary-gray);
- }
+.activeOption {
+  color: var(--primary-gray);
+}
 
- .option::before {
-  content: '';
+.option::before {
+  content: "";
   position: absolute;
   left: 0;
   bottom: -2px;
@@ -70,30 +70,29 @@
   height: 2px;
   background-color: var(--primary-gray);
   transition: all 0.2s ease-in-out;
- }
- 
- .option:hover::before{
-  width: 100%;
- }
-
-
- /*------------Hamburger Implementations-------------------*/
- .hamBurgerWrapper{
-   display: none;
-   width:80px;
-   height:52px;
 }
 
- .hamburger {
+.option:hover::before {
+  width: 100%;
+}
+
+/*------------Hamburger Implementations-------------------*/
+.hamBurgerWrapper {
+  display: none;
+  width: 80px;
+  height: 52px;
+}
+
+.hamburger {
   position: absolute;
   width: 80px;
   cursor: pointer;
- }
+}
 
 .spans {
   display: block;
   width: 100%;
-  
+
   border-radius: 3px;
   height: 8px;
   background: var(--text-black);
@@ -105,9 +104,9 @@
   margin-top: 14px;
 }
 
-.active .spans{
-   background-color: var(--text-black);
- }
+.active .spans {
+  background-color: var(--text-black);
+}
 
 .active .spans:nth-child(1) {
   animation: ease 0.7s topBar forwards;
@@ -227,52 +226,47 @@
   }
 }
 
-
-
-@media(max-width:900px){
-  .navBarWrapper{
+@media (max-width: 900px) {
+  .navBarWrapper {
     height: 5rem;
   }
-  .navBarMain{
-    padding:0 0.5rem;
-    
-   }
-
-   .hamBurgerWrapper{
-     display:block;
-     transform: scale(0.7);
-   }
-
-   .optionsMenu{
-     display: block;
-     position:fixed;
-     background-color: #212830;
-     top:0;
-     right:-150%;
-     color:var(--text-black);
-     height:100vh;
-     width:100%;
-     max-width:280px;
-     padding-top:10rem;
-     padding-right:2rem;
-     transition:all 0.7s ease-in-out;
-     border-left:4px solid var(--text-black);
+  .navBarMain {
+    padding: 0 0.5rem;
   }
 
-   .option{
-     text-align: right;
-     font-size: 2rem;
-     margin-left:1.5rem;
-     padding-top:1rem;
+  .hamBurgerWrapper {
+    display: block;
+    transform: scale(0.7);
   }
 
-   .option + .option{
-     margin-top:1rem;
-     
-   }
+  .optionsMenu {
+    display: block;
+    position: fixed;
+    background-color: #212830;
+    top: 0;
+    right: -150%;
+    color: var(--text-black);
+    height: 100vh;
+    width: 100%;
+    max-width: 280px;
+    padding-top: 10rem;
+    padding-right: 2rem;
+    transition: all 0.7s ease-in-out;
+    border-left: 4px solid var(--text-black);
+  }
 
-   .activeSidebar{
-     right:0;
-   }
- }
+  .option {
+    text-align: right;
+    font-size: 2rem;
+    margin-left: 1.5rem;
+    padding-top: 1rem;
+  }
 
+  .option + .option {
+    margin-top: 1rem;
+  }
+
+  .activeSidebar {
+    right: 0;
+  }
+}

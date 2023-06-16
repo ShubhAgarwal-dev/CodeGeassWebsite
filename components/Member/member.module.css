@@ -1,6 +1,9 @@
-.memberbody{
-    background-color: var(--primary-light-pastel-gray);
-    margin: 0;
-    padding: 0;
-    background-image: url(/Members/cartographer.png);
+.memberbody {
+  background-color: var(--primary-light-pastel-gray);
+  margin: 0;
+  padding: 0;
+}
+
+.memberbody h1 {
+  font-size: 10rem;
 }

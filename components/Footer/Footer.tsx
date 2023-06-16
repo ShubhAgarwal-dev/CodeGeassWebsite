@@ -1,22 +1,22 @@
-"use client"
+"use client";
 
-import React from "react"
-import Image from "next/image"
-import classes from "./Footer.module.css"
-import Link from "next/link"
+import React from "react";
+import Image from "next/image";
+import classes from "./Footer.module.css";
+import Link from "next/link";
 
-const prefix = process.env.NEXT_PUBLIC_BASE_PATH || ""
+const prefix = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
-export default function Footer () {
+export default function Footer() {
   const handleOnClick = (id: string) => {
-    const element = document.getElementById(id)
+    const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
+      element.scrollIntoView({ behavior: "smooth" });
     }
-  }
+  };
 
-  const date = new Date()
-  const year = date.getFullYear()
+  const date = new Date();
+  const year = date.getFullYear();
 
   return (
     <div id="footer">
@@ -24,7 +24,12 @@ export default function Footer () {
         <div className={classes.footerDiv}>
           <div className={classes.footerImageWrapper}>
             <Link href="#">
-              <Image src = "/Footer/Logo4x.png" fill priority alt="coding_club_logo"/>
+              <Image
+                src="/Footer/Logo4x.png"
+                fill
+                priority
+                alt="coding_club_logo"
+              />
             </Link>
           </div>
           <div className={classes.footerLinksWrapper}>
@@ -53,10 +58,7 @@ export default function Footer () {
               </a>
             </div>
             <div>
-              <a
-                href="mailto:oss@iitdh.ac.in"
-                className={classes.footerlink}
-              >
+              <a href="mailto:oss@iitdh.ac.in" className={classes.footerlink}>
                 oss@iitdh.ac.in
               </a>
             </div>
@@ -69,7 +71,7 @@ export default function Footer () {
                 className={classes.footerlink}
               >
                 <img
-                  src="https://img.icons8.com/3d-fluency/48/github.png" 
+                  src="https://img.icons8.com/3d-fluency/48/github.png"
                   alt="github"
                   loading="lazy"
                   className="socialmediaicon"
@@ -81,7 +83,7 @@ export default function Footer () {
                 className={classes.footerlink}
               >
                 <img
-                  src="https://img.icons8.com/3d-fluency/48/github.png" 
+                  src="https://img.icons8.com/3d-fluency/48/github.png"
                   alt="github"
                   loading="lazy"
                   className="socialmediaicon"
@@ -93,5 +95,5 @@ export default function Footer () {
         </div>
       </div>
     </div>
-  )
+  );
 }

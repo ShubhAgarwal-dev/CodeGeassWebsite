@@ -1,10 +1,10 @@
-import styles from './BlockCard.module.css'
-import Image from 'next/image'
+import styles from "./BlockCard.module.css";
+import Image from "next/image";
 
 export default function BlockCard({ leftSideImage, data, number }) {
-    return (
-        <>
-        <div className={styles.blockCardWrapper}>
+  return (
+    <>
+      <div className={styles.blockCardWrapper}>
         <div className={styles.blockCardMain}>
           <div
             className={`${styles.blockInfo} ${
@@ -16,7 +16,8 @@ export default function BlockCard({ leftSideImage, data, number }) {
               <div className={styles.styleDiv}></div>
             </div>
             <div className={styles.blockName}>
-              <h1>{data.heading}</h1><br />
+              <h1>{data.heading}</h1>
+              <br />
               <h3>{data.time}</h3>
             </div>
             <div className={styles.blockInfo}>{data.content}</div>
@@ -25,8 +26,8 @@ export default function BlockCard({ leftSideImage, data, number }) {
                 <div>Know More</div>
                 <div className={styles.buttonImage}>
                   <Image
-                    alt='button'
-                    src='/Events/event-button.svg'
+                    alt="button"
+                    src="/Events/event-button.svg"
                     fill
                     priority
                   />
@@ -40,11 +41,11 @@ export default function BlockCard({ leftSideImage, data, number }) {
             }`}
           >
             <div className={styles.blockImageCard}>
-              <Image src={data.image} fill alt='user provided image'/>
+              <Image src={data.image} fill alt="user provided image" />
             </div>
           </div>
         </div>
       </div>
-        </>
-    )
+    </>
+  );
 }

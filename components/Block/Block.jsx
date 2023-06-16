@@ -1,10 +1,10 @@
-import styles from './Block.module.css'
-import BlockCard from './BlockCard/BlockCard'
+import styles from "./Block.module.css";
+import BlockCard from "./BlockCard/BlockCard";
 
-export default function Block({ title, blocksData}) {
-    return (
-        <>
-        <div id="blocksId" className={styles.blocksWrapper}>
+export default function Block({ title, blocksData }) {
+  return (
+    <>
+      <div id="blocksId" className={styles.blocksWrapper}>
         {/* <div className={styles.blockSunWrapper} ref={SunRef}>
           <Image src="/blocks/blocks-sun-1.svg" fill priority alt='' />
         </div> */}
@@ -23,11 +23,11 @@ export default function Block({ title, blocksData}) {
                   number={index + 1}
                   leftSideImage={index % 2 ? false : true}
                 />
-              )
+              );
             })}
           </div>
         </div>
       </div>
-        </>
-    )
+    </>
+  );
 }
