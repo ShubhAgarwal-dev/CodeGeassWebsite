@@ -1,14 +1,15 @@
-import AppBar from '@/components/AppBar/AppBar'
-import Footer from '@/components/Footer/Footer'
 import Block from '@/components/Block/Block'
 import data from './data'
+
+export const metadata = {
+    title: 'Projects for Coding Club',
+    description: 'Coded by Shubh Agarwal (https://github.com/ShubhAgarwal-dev)',
+}
 
 export default function Project () {
     return (
         <>
-        <AppBar />
         <Block title='Projects' blocksData={data} />
-        <Footer />
         </>
     )
 }
