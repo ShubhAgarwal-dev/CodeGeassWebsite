@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -20,9 +24,22 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"]
+      "@/*": [
+        "./*"
+      ]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/Hero/Hero.tsx", "components/Block/BlockCard/BlockCard.jsx", "components/Block/Block.jsx"],
-  "exclude": ["node_modules", "./components/Member/Members.tsx" ]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "components/Hero/Hero.tsx",
+    "components/Block/BlockCard/BlockCard.jsx",
+    "components/Block/Block.jsx"
+  ],
+  "exclude": [
+    "node_modules",
+    "./components/Member/Members.tsx"
+  ]
 }

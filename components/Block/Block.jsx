@@ -1,6 +1,17 @@
 import styles from "./Block.module.css";
 import BlockCard from "./BlockCard/BlockCard";
 
+// interface datablock {
+//   heading: string
+//   content: string
+//   knowMoreLink: string
+//   image: string
+// }
+
+// interface blockdata {
+//   [id: number] : datablock
+// }
+
 export default function Block({ title, blocksData }) {
   return (
     <>

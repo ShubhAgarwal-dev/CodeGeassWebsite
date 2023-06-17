@@ -1,5 +1,6 @@
 .memberbody {
-  background-color: var(--primary-light-pastel-gray);
+  /* background-color: var(--primary-light-pastel-gray); */
+  background-color: darkorchid;
   margin: 0;
   padding: 0;
 }

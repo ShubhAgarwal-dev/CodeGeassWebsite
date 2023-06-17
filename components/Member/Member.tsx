@@ -7,7 +7,7 @@ export default function Member() {
         className={styles.memberbody}
         style={{ backgroundImage: "/Members/cartographer.png" }}
       >
-        <h1>This shall work</h1>
+        <h1>Why is this not fucking working</h1>
       </div>
     </>
   );
