@@ -78,7 +78,8 @@ html {
 }
 
 .vertical-timeline-element-icon {
-  box-shadow: 0 0 0 4px var(--text-black), inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05) !important;
+  box-shadow: 0 0 0 4px var(--text-black), inset 0 2px 0 rgba(0, 0, 0, 0.08),
+    0 3px 0 4px rgba(0, 0, 0, 0.05) !important;
 }
 
 @media (max-width: 900px) {

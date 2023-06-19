@@ -6,6 +6,6 @@ const data = [
     knowMoreLink: 'https://www.granddecoder.mit.edu/',
     image: '/Projects/Images/GRAND.png',
   },
-];
+]
 
-export default data;
+export default data

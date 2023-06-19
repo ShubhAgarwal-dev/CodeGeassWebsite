@@ -1,6 +1,6 @@
-import styles from './member.module.css';
-import bg from '../../public/Members/bgimg.png';
-import { url } from 'inspector';
+import styles from './member.module.css'
+import bg from '../../public/Members/bgimg.png'
+import { url } from 'inspector'
 
 export default function Member() {
   return (
@@ -14,5 +14,5 @@ export default function Member() {
         <h1>Why is this not fucking working</h1>
       </div>
     </>
-  );
+  )
 }

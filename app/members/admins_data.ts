@@ -1,4 +1,4 @@
-import { admin_data } from '@/components/Member/admins.types';
+import { admin_data } from '@/components/Member/admins.types'
 
 const admin_data_val: admin_data = [
   {
@@ -15,6 +15,6 @@ const admin_data_val: admin_data = [
     linkedIn: 'https://youtu.be/dQw4w9WgXcQ',
     instagram: 'https://www.instagram.com/virat.kohli/',
   },
-];
+]
 
-export default admin_data_val;
+export default admin_data_val
