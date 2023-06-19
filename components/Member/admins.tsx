@@ -1,4 +1,3 @@
-import { NextPage } from 'next'
 import { admin_data } from './admins.types'
 import styles from './admins.module.css'
 import Image from 'next/image'
@@ -10,7 +9,7 @@ interface Props {
   team_details: admin_data
 }
 
-const Admins: NextPage<Props> = ({heading, team_details}) => {
+const Admins = ({heading, team_details}: Props) => {
   return (
     <div key={heading} className='styles.teamContainer'>
       <h2>{heading}</h2>
@@ -36,12 +35,13 @@ const Admins: NextPage<Props> = ({heading, team_details}) => {
                         styles.linkImageWrapper + " " + styles.email
                       }
                     >
-                      <Image
+                      <img
                         className={styles.linkImage}
-                        src= {gmail_img.src}
+                        // src= {gmail_img}
+                        src= "https://img.icons8.com/plasticine/20/gmail-new.png"
                         width={20}
                         height={20}
-                        alt="Team Member Logo"
+                        alt="Gmail New"
                       />
                     </a>
                     {member.linkedIn && (
@@ -53,9 +53,9 @@ const Admins: NextPage<Props> = ({heading, team_details}) => {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        <Image
+                        <img
                           className={styles.linkImage}
-                          src="/Team/Logo/linkedin1.png"
+                          src="https://img.icons8.com/plasticine/100/linkedin.png"
                           width={20}
                           height={20}
                           alt="Link Image"
@@ -71,9 +71,9 @@ const Admins: NextPage<Props> = ({heading, team_details}) => {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        <Image
+                        <img
                           className={styles.linkImage}
-                          src="/Team/Logo/instagram.png"
+                          src="https://img.icons8.com/fluency/20/instagram-new.png"
                           width={20}
                           height={20}
                           alt='insta images'
