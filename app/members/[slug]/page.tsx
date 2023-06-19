@@ -1,9 +1,9 @@
-import { NextPage } from 'next'
+import { NextPage } from 'next';
 
 interface Props {}
 
 const Page: NextPage<Props> = ({}) => {
-  return <div></div>
-}
+  return <div></div>;
+};
 
-export default Page
+export default Page;

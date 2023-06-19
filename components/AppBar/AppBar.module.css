@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Syne+Mono");
+@import url('https://fonts.googleapis.com/css2?family=Syne+Mono');
 
 .navBarWrapper {
   width: 100%;
@@ -39,7 +39,7 @@
   cursor: pointer;
   font-weight: 400;
   font-size: 1.25rem;
-  font-family: "Syne Mono", monospace;
+  font-family: 'Syne Mono', monospace;
   position: relative;
 }
 
@@ -62,7 +62,7 @@
 }
 
 .option::before {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   bottom: -2px;

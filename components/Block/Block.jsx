@@ -1,5 +1,5 @@
-import styles from "./Block.module.css";
-import BlockCard from "./BlockCard/BlockCard";
+import styles from './Block.module.css';
+import BlockCard from './BlockCard/BlockCard';
 
 // interface datablock {
 //   heading: string
@@ -27,14 +27,7 @@ export default function Block({ title, blocksData }) {
           </div>
           <div className={styles.blocksCardWrapper}>
             {blocksData.map((data, index) => {
-              return (
-                <BlockCard
-                  data={data}
-                  key={index}
-                  number={index + 1}
-                  leftSideImage={index % 2 ? false : true}
-                />
-              );
+              return <BlockCard data={data} key={index} number={index + 1} leftSideImage={index % 2 ? false : true} />;
             })}
           </div>
         </div>

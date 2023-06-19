@@ -1,10 +1,10 @@
 const data = [
   {
-    heading: "GrandChip Replication",
+    heading: 'GrandChip Replication',
     content:
-      "We will try to replicate GRAND Chip, or try to get near that to make a universal encoding and decoding FPGA",
-    knowMoreLink: "https://www.granddecoder.mit.edu/",
-    image: "/Projects/Images/GRAND.png",
+      'We will try to replicate GRAND Chip, or try to get near that to make a universal encoding and decoding FPGA',
+    knowMoreLink: 'https://www.granddecoder.mit.edu/',
+    image: '/Projects/Images/GRAND.png',
   },
 ];
 

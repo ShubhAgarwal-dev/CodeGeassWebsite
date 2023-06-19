@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inconsolata&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
 
 /* They were originally events card but we have to reuse them 
 for projects and events so we converted them to block */
@@ -24,7 +24,7 @@ for projects and events so we converted them to block */
   min-height: 350px;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
-  grid-template-areas: "info image";
+  grid-template-areas: 'info image';
 }
 
 .blockInfo {
@@ -32,7 +32,7 @@ for projects and events so we converted them to block */
   position: relative;
   box-sizing: border-box;
   padding-bottom: 1.5rem;
-  font-family: "Inconsolata", monospace;
+  font-family: 'Inconsolata', monospace;
 }
 
 .blockInfoLeft {
@@ -62,12 +62,12 @@ for projects and events so we converted them to block */
 
 .blockNumber h1 {
   font-size: 4rem;
-  font-family: "Inconsolata", monospace;
+  font-family: 'Inconsolata', monospace;
 }
 
 .blockName {
   margin: 1rem 0;
-  font-family: "Inconsolata", monospace;
+  font-family: 'Inconsolata', monospace;
 }
 
 .blockName h1 {
@@ -129,7 +129,7 @@ for projects and events so we converted them to block */
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
-    grid-template-areas: "image" "info";
+    grid-template-areas: 'image' 'info';
   }
 
   .blockInfoLeft {
