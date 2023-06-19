@@ -1,0 +1,83 @@
+.teamContainer + .teamContainer {
+  margin-top: 4rem;
+}
+
+.teamContainer h2 {
+  font-size: 30px;
+  text-align: center;
+}
+
+/*------------------ Cards --------------------*/
+.teamCardWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.teamCardContainer {
+  padding: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.teamCard {
+  background-color: white;
+  position: relative;
+  width: 200px;
+  height: 300px;
+  margin: 1rem;
+  border: 2px solid black;
+  border-radius: 15px;
+  box-shadow: 6px 6px 0 0 black;
+  line-height: 1;
+  max-width: 100%;
+  padding: 10px;
+}
+
+.memberImage {
+  width: 100%;
+  height: auto;
+  margin-bottom: 5px;
+  border: 2px solid black;
+  border-radius: 15px;
+}
+
+.memberInfo h3 {
+  padding: 10px 10px;
+  text-align: center;
+}
+
+/*------------------ Links --------------------*/
+.memberLinks {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+.linkImageWrapper {
+  border: 2px solid black;
+  padding: 4px;
+  border-radius: 50%;
+  transition: all 0.2s ease-out;
+}
+
+.linkImageWrapper:hover {
+  transform: translate(-5px, -5px);
+  box-shadow: 2px 2px #000;
+}
+
+.email:hover {
+  background-color: #bb001b;
+}
+
+.linkedin:hover {
+  background-color: #0072b1;
+}
+
+.twitter:hover {
+  background-color: #00acee;
+}
+
+.instagram:hover {
+  background-color: #d62976;
+}
