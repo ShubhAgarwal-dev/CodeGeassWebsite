@@ -4,17 +4,9 @@ import React from 'react'
 import Image from 'next/image'
 import classes from './Footer.module.css'
 import Link from 'next/link'
-
-const prefix = process.env.NEXT_PUBLIC_BASE_PATH || ''
+import Leaderboard from '../../app/leaderboard/page'
 
 export default function Footer() {
-  const handleOnClick = (id: string) => {
-    const element = document.getElementById(id)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-    }
-  }
-
   const date = new Date()
   const year = date.getFullYear()
 
@@ -34,17 +26,13 @@ export default function Footer() {
           </div>
           <div className={classes.footerLinksWrapper}>
             <div
-              onClick={() => handleOnClick('hero')}
               aria-current='page'
               className={`${classes.footerlink} ${classes.navLink}`}
             >
-              Home
+              <Link href='/leaderboard'>Home</Link>
             </div>
-            <div
-              onClick={() => handleOnClick('/events')}
-              className={`${classes.footerlink} ${classes.navLink}`}
-            >
-              Events
+            <div className={`${classes.footerlink} ${classes.navLink}`}>
+              <Link href='/leaderboard'>Leaderboard</Link>
             </div>
           </div>
 
@@ -71,7 +59,7 @@ export default function Footer() {
                 className={classes.footerlink}
               >
                 <img
-                  src='https://img.icons8.com/3d-fluency/48/github.png'
+                  src='https://img.icons8.com/plumpy/48/github.png'
                   alt='github'
                   loading='lazy'
                   className='socialmediaicon'
@@ -83,7 +71,7 @@ export default function Footer() {
                 className={classes.footerlink}
               >
                 <img
-                  src='https://img.icons8.com/3d-fluency/48/github.png'
+                  src='https://img.icons8.com/plumpy/48/github.png'
                   alt='github'
                   loading='lazy'
                   className='socialmediaicon'

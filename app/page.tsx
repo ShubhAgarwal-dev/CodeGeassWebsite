@@ -1,5 +1,5 @@
+import AdminMembers from '@/components/Admins/AdminMember'
 import Hero from '@/components/Hero/Hero'
-import Member from '@/components/Member/Member'
 import Image from 'next/image'
 
 export const metadata = {
@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <Member />
+      <AdminMembers />
     </>
   )
 }

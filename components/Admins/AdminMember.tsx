@@ -6,7 +6,7 @@ import club_admis from './data/admins_data'
 
 import bg from '../../public/Member/cartographer.png'
 
-export default function Member() {
+export default function AdminMembers() {
   return (
     <>
       <div
@@ -15,10 +15,8 @@ export default function Member() {
           backgroundImage: `url(${bg.src})`,
         }}
       >
-        <div>
-          <Admins heading='Secretary' team_details={sec_data} />
-          <Admins heading='Club Admins' team_details={club_admis} />
-        </div>
+        <Admins heading='Secretary' team_details={sec_data} />
+        <Admins heading='Club Admins' team_details={club_admis} />
       </div>
     </>
   )

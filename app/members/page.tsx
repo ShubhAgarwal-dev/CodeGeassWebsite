@@ -1,9 +1,9 @@
-import Member from '@/components/Member/Member'
+import { NextPage } from 'next'
 
-export default function Members() {
-  return (
-    <>
-      <Member />
-    </>
-  )
+interface Props {}
+
+const Page: NextPage<Props> = ({}) => {
+  return <div></div>
 }
+
+export default Page

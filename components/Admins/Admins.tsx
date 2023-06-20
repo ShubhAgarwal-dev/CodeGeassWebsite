@@ -19,9 +19,13 @@ const icons8Loader = ({ src, width }: icon8LoaderInterface) => {
 
 const Admins = ({ heading, team_details }: Props) => {
   return (
-    <div key={heading} className='styles.teamContainer'>
-      <h2>{heading}</h2>
-      <div className='teamCardWrapper'>
+    <div key={heading} className={styles.teamContainer}>
+      <div className={styles.MemberWrapper}>
+        <div className={styles.MemberHeader}>
+          <h2>{heading}</h2>
+        </div>
+      </div>
+      <div className={styles.teamCardWrapper}>
         {team_details.map(member => (
           <div key={member.name} className={styles.teamCardContainer}>
             <div key={member.name} className={styles.teamCard}>

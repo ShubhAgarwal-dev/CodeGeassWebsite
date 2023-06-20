@@ -1,45 +1,12 @@
-// import { useRef } from "react"
-// import { useEffect } from "react"
-// import GSAP, { gsap } from "gsap"
-// import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
-// import TweenTarget from "gsap"
 import styles from './Hero.module.css'
 import Image from 'next/image'
 
 const prefix = process.env.NEXT_PUBLIC_BASE_PATH || ''
 
 export default function Hero() {
-  // const wheelRef = useRef()
-
-  // GSAP.registerPlugin(ScrollTrigger)
-  // useEffect(() => {
-  //     const wheel = wheelRef.current
-  //     const timeLine = GSAP.timeline({
-  //     scrollTrigger: {
-  //         trigger: wheel,
-  //         start: "top bottom",
-  //         end: "bottom top",
-  //         scrub: 1,
-  //     },
-  //     })
-  //     timeLine.to(wheel, {
-  //         rotation: -30,
-  //       })
-  //     }, [])
-
   return (
     <>
       <div className={`${styles.heroWrapper}`} id='hero'>
-        {/* <div className={styles.heroBgContainer}>
-            <Image
-            src="/Hero/hero-bg.svg"
-            priority
-            fill
-            style={{ objectFit: "cover" }}
-            alt="background"
-            />
-        </div> */}
-
         <div className={`${styles.hero}`}>
           <div className={styles.heroContentWrapper}>
             <div className={styles.heroMain}>
@@ -63,14 +30,6 @@ export default function Hero() {
         </div>
       </div>
       <div className={styles.aboutWrapper}>
-        {/* <div className={styles.aboutWheelWrapper} ref={wheelRef}>
-            <Image
-            src="/Events/Blue_Wheel_Spcok.svg"
-            fill
-            priority
-            alt="background"
-            />
-        </div> */}
         <div className={`page-wrapper`}>
           <div className={styles.aboutMain}>
             <div className={styles.aboutStyleStar}>

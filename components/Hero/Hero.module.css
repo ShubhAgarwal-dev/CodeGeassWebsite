@@ -38,7 +38,8 @@
 
 .heroMain h1 {
   font-size: 4rem;
-  font-family: Roboto;
+  font-family: 'Inconsolata', monospace;
+  font-weight: 600;
 }
 
 .heroQuoteWrapper {
@@ -69,14 +70,6 @@
   position: relative;
   background-color: var(--primary-gray);
   padding: 8rem 0;
-}
-
-.aboutWheelWrapper {
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  top: -100px;
-  right: 20px;
 }
 
 .aboutMain {

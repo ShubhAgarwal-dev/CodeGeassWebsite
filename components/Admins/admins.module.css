@@ -1,5 +1,27 @@
-.teamContainer + .teamContainer {
-  margin-top: 4rem;
+.MemberWrapper {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.MemberHeader {
+  display: inline-block;
+  font-size: 24px;
+  font-weight: bold;
+  border: 2px solid black;
+  padding: 10px 30px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 4px 4px 0 0 black;
+  line-height: 1;
+  max-width: 100%;
+}
+
+.teamContainer {
+  position: relative;
+  width: calc(100% - 160px);
+  margin: 0 auto;
+  max-width: 1100px;
+  padding-bottom: 50px;
 }
 
 .teamContainer h2 {
@@ -72,10 +94,6 @@
 
 .linkedin:hover {
   background-color: #0072b1;
-}
-
-.twitter:hover {
-  background-color: #00acee;
 }
 
 .instagram:hover {
