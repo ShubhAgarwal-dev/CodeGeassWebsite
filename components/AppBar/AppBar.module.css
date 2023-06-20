@@ -6,13 +6,11 @@
   z-index: 99;
   display: flex;
   color: var(--text-white);
-  /* color:var(--text-black); */
   align-items: center;
   justify-content: center;
   position: fixed;
   top: 0;
   background-color: #212830;
-  /* background-color: var(--text-white); */
   border-bottom: 3px solid var(--text-black);
   transition: all 0.2s ease-in-out;
 }
@@ -38,8 +36,8 @@
 .option {
   cursor: pointer;
   font-weight: 400;
-  font-size: 1.25rem;
-  font-family: 'Syne Mono', monospace;
+  font-size: 2rem;
+  font-family: 'redwinglight', 'Syne Mono', monospace;
   position: relative;
 }
 

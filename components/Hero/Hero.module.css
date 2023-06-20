@@ -37,9 +37,8 @@
 }
 
 .heroMain h1 {
-  font-size: 4rem;
-  font-family: 'Inconsolata', monospace;
-  font-weight: 600;
+  font-family: 'redwinglight', monospace;
+  font-size: 5rem;
 }
 
 .heroQuoteWrapper {
@@ -134,7 +133,7 @@
 
   .heroMain h1 {
     font-size: 3rem;
-    font-family: Inconsolata;
+    font-family: 'redwinglight', monospace;
   }
 
   .heroArtWrapper {
@@ -160,5 +159,26 @@
     position: relative;
     width: 100%;
     height: 300px;
+  }
+}
+
+.typing_demo {
+  width: 47ch;
+  animation: typing 3s steps(47), blink 0.5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid;
+  font-family: monospace;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
   }
 }

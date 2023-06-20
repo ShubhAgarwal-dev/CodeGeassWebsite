@@ -14,6 +14,7 @@ model Members {
   id          String      @id @default(uuid())
   name        String
   roll_number Int         @unique
+  wing        Wing
   created_at  DateTime    @default(now())
   updated_at  DateTime    @updatedAt
   codeforces  Codeforces?
@@ -29,7 +30,6 @@ model Codeforces {
   handle           String  @unique
   rating           Int
   num_participants Int
-  wing             Wing
   member           Members @relation(fields: [member_id], references: [id])
   member_id        String  @unique
 }

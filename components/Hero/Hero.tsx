@@ -17,9 +17,9 @@ export default function Hero() {
               <div className={styles.heroQuoteWrapper}>
                 <div className={styles.styleBar}></div>
                 <div className={styles.Quote}>
-                  Put your thinking caps on,
-                  <br />
-                  It's time to code!
+                  <div className={styles.typing_demo}>
+                    Put your thinking caps on, <br /> It's time to code!
+                  </div>
                 </div>
               </div>
             </div>

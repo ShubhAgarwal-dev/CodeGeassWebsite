@@ -4,7 +4,6 @@ import React from 'react'
 import Image from 'next/image'
 import classes from './Footer.module.css'
 import Link from 'next/link'
-import Leaderboard from '../../app/leaderboard/page'
 
 export default function Footer() {
   const date = new Date()
