@@ -44,3 +44,30 @@ from the creators of Next.js.
 Check out our
 [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more
 details.
+
+## Note
+
+Change `schema.prisma` from
+
+```prisma
+model Codeforces {
+  id               Int     @id @default(autoincrement())
+  handle           String  @unique
+  rating           Int
+  num_participants Int
+  member           Members @relation(fields: [member_id], references: [id])
+  member_id        String  @unique
+}
+```
+
+to
+
+```prisma
+model Codeforces {
+  id               Int     @id @default(autoincrement())
+  handle           String  @unique
+  rating           Int
+  member           Members @relation(fields: [member_id], references: [id])
+  member_id        String  @unique
+}
+```
