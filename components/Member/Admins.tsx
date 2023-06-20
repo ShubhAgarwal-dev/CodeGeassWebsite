@@ -2,11 +2,19 @@ import { admin_data } from './admins.types'
 import styles from './admins.module.css'
 import Image from 'next/image'
 
-import gmail_img from '../../public/Team/Logo/gmail1.png'
-
 interface Props {
   heading: string
   team_details: admin_data
+}
+
+interface icon8LoaderInterface {
+  src: string
+  width: number
+}
+
+const icons8Loader = ({ src, width }: icon8LoaderInterface) => {
+  const relativeSrc = (src: string) => src.split('/').pop()
+  return `'https://img.icons8.com/plasticine/${width}/${relativeSrc(src)}`
 }
 
 const Admins = ({ heading, team_details }: Props) => {
@@ -24,6 +32,7 @@ const Admins = ({ heading, team_details }: Props) => {
                   width={200}
                   height={200}
                   className={styles.memberImage}
+                  // priority
                 />
               </div>
               <div className={styles.memberInfo}>

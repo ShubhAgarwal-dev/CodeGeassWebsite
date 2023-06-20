@@ -1,6 +1,10 @@
 import styles from './member.module.css'
-import bg from '../../public/Members/bgimg.png'
-import { url } from 'inspector'
+import Admins from './Admins'
+
+import sec_data from './data/seceretary'
+import club_admis from './data/admins_data'
+
+import bg from '../../public/Member/cartographer.png'
 
 export default function Member() {
   return (
@@ -11,7 +15,10 @@ export default function Member() {
           backgroundImage: `url(${bg.src})`,
         }}
       >
-        <h1>Why is this not fucking working</h1>
+        <div>
+          <Admins heading='Secretary' team_details={sec_data} />
+          <Admins heading='Club Admins' team_details={club_admis} />
+        </div>
       </div>
     </>
   )
