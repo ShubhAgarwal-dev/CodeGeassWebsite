@@ -29,7 +29,7 @@ export default function Footer() {
               aria-current='page'
               className={`${classes.footerlink} ${classes.navLink}`}
             >
-              <Link href='/leaderboard'>Home</Link>
+              <Link href='/'>Home</Link>
             </div>
             <div className={`${classes.footerlink} ${classes.navLink}`}>
               <Link href='/leaderboard'>Leaderboard</Link>

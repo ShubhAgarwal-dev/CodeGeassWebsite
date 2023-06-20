@@ -1,9 +1,37 @@
-import { admin_data } from '@/components/Member/admins.types'
+import { admin_data } from '../admins.types'
 import xyz from '../../../public/Member/xyz.jpg'
 
 const club_admis: admin_data = [
   {
-    name: 'Saksham Chhim',
+    name: 'Saksham Chhimwal',
+    img: xyz.src,
+    email: '',
+    linkedIn: 'https://youtu.be/dQw4w9WgXcQ',
+    instagram: 'https://www.instagram.com/virat.kohli/',
+  },
+  {
+    name: 'Sarth Rajain',
+    img: xyz.src,
+    email: '',
+    linkedIn: 'https://youtu.be/dQw4w9WgXcQ',
+    instagram: 'https://www.instagram.com/virat.kohli/',
+  },
+  {
+    name: 'Aryan Bandaru',
+    img: xyz.src,
+    email: '',
+    linkedIn: 'https://youtu.be/dQw4w9WgXcQ',
+    instagram: 'https://www.instagram.com/virat.kohli/',
+  },
+  {
+    name: 'Ayush Singhi',
+    img: xyz.src,
+    email: '',
+    linkedIn: 'https://youtu.be/dQw4w9WgXcQ',
+    instagram: 'https://www.instagram.com/virat.kohli/',
+  },
+  {
+    name: 'Arvind Kumar',
     img: xyz.src,
     email: '',
     linkedIn: 'https://youtu.be/dQw4w9WgXcQ',
