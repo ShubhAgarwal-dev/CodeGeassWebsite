@@ -1,5 +1,5 @@
-import { admin_data } from '../admins.types'
 import xyz from '../../../public/Member/xyz.jpg'
+import { admin_data } from '@/Types/Admins/admins.types'
 
 const club_admis: admin_data = [
   {

@@ -1,4 +1,4 @@
-import { admin_data } from './admins.types'
+import { admin_data } from '../../Types/Admins/admins.types'
 import styles from './admins.module.css'
 import Image from 'next/image'
 

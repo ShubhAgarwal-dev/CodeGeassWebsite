@@ -1,4 +1,4 @@
-import { admin_data } from '../admins.types'
+import { admin_data } from '@/Types/Admins/admins.types'
 import xyz from '../../../public/Member/xyz.jpg'
 
 const sec_data: admin_data = [
