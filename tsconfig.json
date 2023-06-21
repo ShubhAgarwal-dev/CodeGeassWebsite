@@ -30,7 +30,7 @@
     ".next/types/**/*.ts",
     "components/Hero/Hero.tsx",
     "components/Block/BlockCard/BlockCard.jsx",
-    "components/Block/Block.jsx"
+    "components/Block/Block.tsx"
   ],
   "exclude": ["node_modules", "./components/Member/Members.tsx"]
 }

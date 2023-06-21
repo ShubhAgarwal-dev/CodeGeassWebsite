@@ -1,7 +1,14 @@
 import styles from './Block.module.css'
 import BlockCard from './BlockCard/BlockCard'
 
-export default function Block({ title, blocksData }) {
+import blocksData from '@/Types/Block/blockCard.types'
+
+interface Props {
+  title: string
+  blocksData: blocksData
+}
+
+export default function Block({ title, blocksData }: Props) {
   return (
     <>
       <div id='blocksId' className={styles.blocksWrapper}>

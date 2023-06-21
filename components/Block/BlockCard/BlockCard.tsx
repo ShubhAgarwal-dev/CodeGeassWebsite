@@ -1,7 +1,14 @@
 import styles from './BlockCard.module.css'
 import Image from 'next/image'
+import { ind_block_data } from '@/Types/Block/blockCard.types'
 
-export default function BlockCard({ leftSideImage, data, number }) {
+interface Props {
+  leftSideImage: boolean
+  data: ind_block_data
+  number: number
+}
+
+export default function BlockCard({ leftSideImage, data, number }: Props) {
   return (
     <>
       <div className={styles.blockCardWrapper}>

@@ -1,11 +1,15 @@
-const data = [
+import blocksData from '@/Types/Block/blockCard.types'
+
+import basic_img from '@/public/Projects/Images/GRAND.png'
+
+const data: blocksData = [
   {
     heading: 'AlgoUniversity Code Rush',
     time: 'May',
     content:
       'We will try to replicate GRAND Chip, or try to get near that to make a universal encoding and decoding FPGA',
     knowMoreLink: 'https://www.granddecoder.mit.edu/',
-    image: '/Projects/Images/GRAND.png',
+    image: basic_img.src,
   },
   {
     heading: 'Toolset Unbounded',
@@ -13,7 +17,7 @@ const data = [
     content:
       'We will try to replicate GRAND Chip, or try to get near that to make a universal encoding and decoding FPGA',
     knowMoreLink: 'https://www.granddecoder.mit.edu/',
-    image: '/Projects/Images/GRAND.png',
+    image: basic_img.src,
   },
 ]
 
