@@ -1,5 +1,5 @@
-import { admin_data } from '@/Types/Admins/admins.types'
-import xyz from '../../../public/Member/xyz.jpg'
+import { admin_data } from '@/types/Admins/admins.types'
+import xyz from '@/public/Member/xyz.jpg'
 
 const sec_data: admin_data = [
   {

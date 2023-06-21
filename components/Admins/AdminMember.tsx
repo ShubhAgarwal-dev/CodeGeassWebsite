@@ -4,7 +4,7 @@ import Admins from './Admins'
 import sec_data from './data/seceretary'
 import club_admis from './data/admins_data'
 
-import bg from '../../public/Member/cartographer.png'
+import bg from '@/public/Member/cartographer.png'
 
 export default function AdminMembers() {
   return (

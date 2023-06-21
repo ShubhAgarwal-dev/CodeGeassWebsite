@@ -1,18 +1,18 @@
-import xyz from '../../../public/Member/xyz.jpg'
-import { admin_data } from '@/Types/Admins/admins.types'
+import xyz from '@/public/Member/xyz.jpg'
+import { admin_data } from '@/types/Admins/admins.types'
 
 const club_admis: admin_data = [
   {
     name: 'Saksham Chhimwal',
     img: xyz.src,
-    email: '',
+    email: '210010046@iitdh.ac.in',
     linkedIn: 'https://youtu.be/dQw4w9WgXcQ',
     instagram: 'https://www.instagram.com/virat.kohli/',
   },
   {
     name: 'Sarth Rajain',
     img: xyz.src,
-    email: '',
+    email: '210010048@iitdh.ac.in',
     linkedIn: 'https://youtu.be/dQw4w9WgXcQ',
     instagram: 'https://www.instagram.com/virat.kohli/',
   },
