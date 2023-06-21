@@ -1,4 +1,4 @@
-import blocksData from '@/Types/Block/blockCard.types'
+import blocksData from '@/types/Block/blockCard.types'
 
 import basic_img from '@/public/Projects/Images/GRAND.png'
 

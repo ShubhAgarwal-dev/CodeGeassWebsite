@@ -1,6 +1,7 @@
 import styles from './BlockCard.module.css'
 import Image from 'next/image'
-import { ind_block_data } from '@/Types/Block/blockCard.types'
+
+import { ind_block_data } from '@/types/Block/blockCard.types'
 
 interface Props {
   leftSideImage: boolean

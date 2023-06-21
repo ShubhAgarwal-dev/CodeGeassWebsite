@@ -1,7 +1,7 @@
 import styles from './Block.module.css'
 import BlockCard from './BlockCard/BlockCard'
 
-import blocksData from '@/Types/Block/blockCard.types'
+import blocksData from '@/types/Block/blockCard.types'
 
 interface Props {
   title: string
