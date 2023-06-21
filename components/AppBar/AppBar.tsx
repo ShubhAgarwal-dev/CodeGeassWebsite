@@ -5,8 +5,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import styles from './AppBar.module.css'
 
-const prefix = process.env.NEXT_PUBLIC_BASE_PATH || ''
-
 export default function AppBar() {
   const [active, setActive] = useState(false)
   const clickHandler = () => {
@@ -35,7 +33,7 @@ export default function AppBar() {
       >
         <div className={styles.navBarMain}>
           <div className={styles.logoWrapper}>
-            <Link href={`${prefix + '/soi'}`}>
+            <Link href={`/`}>
               <Image
                 src='/Logo4xWithoutFade.png'
                 width={70}

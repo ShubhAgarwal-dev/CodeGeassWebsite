@@ -17,7 +17,8 @@ export default function Footer() {
             <Link href='#'>
               <Image
                 src='/Footer/Logo4x.png'
-                fill
+                width={180}
+                height={180}
                 priority
                 alt='coding_club_logo'
               />
