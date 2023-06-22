@@ -8,8 +8,8 @@ import { useEffect, useState } from 'react'
 import styles from './RegBlock.module.css'
 
 interface Props {
-  title: string,
-  inputs: reg_inputs,
+  title: string
+  inputs: reg_inputs
   handleChangeInput: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
@@ -32,11 +32,11 @@ const RegBlock: NextPage<Props> = ({ title, inputs, handleChangeInput }) => {
 
   return (
     <>
-    <div className={styles.FormHeading}>
-            <div className={styles.text_block}>
-              <h2>{title}</h2>
-            </div>
-          </div>
+      <div className={styles.FormHeading}>
+        <div className={styles.text_block}>
+          <h2>{title}</h2>
+        </div>
+      </div>
       <div className={`${styles.formWrapper}`}>
         <form className='w-full max-w-sm'>
           <div className='md:flex md:items-center mb-6'>
@@ -50,7 +50,7 @@ const RegBlock: NextPage<Props> = ({ title, inputs, handleChangeInput }) => {
             </div>
             <div className='md:w-2/3'>
               <input
-                className='bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-500'
+                className='bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-slate-900'
                 id='inline-full-name'
                 type='text'
                 value={inputs.fullName}
@@ -70,7 +70,7 @@ const RegBlock: NextPage<Props> = ({ title, inputs, handleChangeInput }) => {
             </div>
             <div className='md:w-2/3'>
               <input
-                className='bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-500'
+                className='bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-slate-900'
                 id='inline-full-name'
                 type='text'
                 value={inputs.rollNumber}
@@ -90,7 +90,7 @@ const RegBlock: NextPage<Props> = ({ title, inputs, handleChangeInput }) => {
             </div>
             <div className='md:w-2/3'>
               <input
-                className='bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-500'
+                className='bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-slate-900'
                 id='inline-full-name'
                 type='text'
                 value={inputs.userHandle}
