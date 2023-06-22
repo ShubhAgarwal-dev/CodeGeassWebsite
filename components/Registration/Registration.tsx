@@ -3,6 +3,7 @@
 import { NextPage } from 'next'
 import RegBlock from './RegBlock/RegBlock'
 import { useState, useContext } from 'react'
+import styles from './Registration.module.css'
 
 interface Props {}
 
@@ -37,15 +38,19 @@ const Registration: NextPage<Props> = ({}) => {
 
   return (
     <>
-      <div className='grid gap-flow-col grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2'>
+      <div
+        className={`${styles.RegWrapper} grid gap-flow-col grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2`}
+      >
         <div>
           <RegBlock
+          title='Codeforces'
             inputs={inputs_cf}
             handleChangeInput={handleChangeInput_cf}
           />
         </div>
         <div>
           <RegBlock
+          title='Leetcode'
             inputs={inputs_lt}
             handleChangeInput={handleChangeInput_lt}
           />

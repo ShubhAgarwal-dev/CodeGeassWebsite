@@ -1,0 +1,16 @@
+.RegWrapper {
+  position: relative;
+  background-color: var(--primary-light-pastel-gray);
+  overflow-x: hidden;
+  padding-top: 7rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 3rem;
+}
+
+@media (max-width: 768px) {
+  .RegWrapper {
+    padding-top: 5rem;
+    padding-bottom: 1rem;
+  }
+}

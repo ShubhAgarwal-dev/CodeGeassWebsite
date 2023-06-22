@@ -74,6 +74,11 @@ export default function AppBar() {
                   <div>Sponsors</div>
                 </Link>
               </div>
+              <div className={styles.option}>
+                <Link href='/register' scroll={false}>
+                  <div>Register</div>
+                </Link>
+              </div>
             </div>
             <div className={styles.hamBurgerWrapper}>
               <div

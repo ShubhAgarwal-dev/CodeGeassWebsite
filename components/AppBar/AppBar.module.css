@@ -39,6 +39,7 @@
   font-size: 2rem;
   font-family: 'redwinglight', 'Syne Mono', monospace;
   position: relative;
+  border-bottom: #000000;
 }
 
 .option a {

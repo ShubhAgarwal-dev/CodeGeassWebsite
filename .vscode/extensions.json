@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "pkief.material-icon-theme",
+    "christian-kohler.path-intellisense",
+    "esbenp.prettier-vscode",
+    "prisma.prisma",
+    "loiane.ts-extension-pack",
+    "loczek.next-js-ts-snippets"
+  ]
+}
