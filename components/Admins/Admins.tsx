@@ -41,7 +41,7 @@ const Admins = ({ heading, team_details }: Props) => {
               <div className={styles.memberInfo}>
                 <h3 style={{ fontWeight: 900 }}>{member.name}</h3>
                 <br />
-                {member.division &&  <h4>{member.division}</h4>}
+                {member.division && <h4>{member.division}</h4>}
                 <div className={styles.memberLinks}>
                   <a
                     href={`mailto:${member.email}`}

@@ -14,7 +14,7 @@
 }
 
 .formHeading {
-  background-color: var(--text-white);
+  background-color: var(--even-softer-gray);
   font-family: 'Recursive', sans-serif;
 }
 
@@ -31,7 +31,7 @@
   font-weight: bold;
   border: 2px solid black;
   padding: 10px 30px;
-  background-color: white;
+  background-color:var(--even-softer-gray);
   border-radius: 5px;
   box-shadow: 4px 4px 0 0 black;
   line-height: 1;
@@ -41,5 +41,6 @@
 @media (max-width: 768px) {
   .formWrapper {
     padding: 1.5rem 1.5rem 1.5rem;
+    box-shadow: 5px 5px 0 0 #000000;
   }
 }

@@ -7,7 +7,7 @@ for projects and events so we converted them to block */
   position: relative;
   max-width: 1100px;
   margin: 0 auto;
-  background-color: var(--text-white);
+  background-color: var(--even-softer-gray);
   padding: 3rem 3rem 3rem;
   border-radius: 24px;
   border: 2px solid var(--text-black);
