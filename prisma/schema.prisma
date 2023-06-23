@@ -72,3 +72,28 @@ enum Role {
   STORY_WRITING
   ENV_DES
 }
+
+model CodeforcesLeaderBoard {
+  id              String   @id @default(uuid())
+  name            String
+  rollNumber      BigInt   @unique
+  userHandle      String   @unique
+  rating          Int
+  contests        Int
+  last_contest_id Int
+  created_at      DateTime @default(now())
+  updated_at      DateTime @updatedAt
+
+  @@index([rollNumber])
+}
+
+model LeetCodeLeaderBoard {
+  id         String   @id @default(uuid())
+  name       String
+  rollNumber BigInt   @unique
+  userHandle String   @unique
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  @@index([rollNumber])
+}

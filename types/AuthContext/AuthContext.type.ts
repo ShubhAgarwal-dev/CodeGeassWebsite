@@ -2,10 +2,10 @@ import { reg_inputs } from '../Registration/RegBlock.types'
 
 export interface State {
   loading: boolean
-  error?: string
-  data?: reg_inputs
+  error: string | null
+  data: reg_inputs | null
 }
 
-export interface AuthState extends State {
+export default interface AuthState extends State {
   setAuthState: React.Dispatch<React.SetStateAction<State>>
 }
