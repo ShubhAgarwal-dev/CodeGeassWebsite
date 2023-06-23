@@ -92,6 +92,8 @@ model LeetCodeLeaderBoard {
   name       String
   rollNumber BigInt   @unique
   userHandle String   @unique
+  ranking    Int
+  stars      Int
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 

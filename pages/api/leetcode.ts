@@ -1,9 +1,10 @@
+import { LeetCode } from 'leetcode-query'
 import { PrismaClient } from '@prisma/client'
-import { CodeForcesAPI } from 'codeforces-api-ts'
 import { NextApiRequest, NextApiResponse } from 'next'
 import validator from 'validator'
 
 const prisma = new PrismaClient()
+const leetcode = new LeetCode()
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === 'POST') {
@@ -40,7 +41,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     const email_id: String = `${rollNumber}@iitdh.ac.in`
 
     try {
-      const userWithRollNumber = await prisma.codeforcesLeaderBoard.findUnique({
+      const userWithRollNumber = await prisma.leetCodeLeaderBoard.findUnique({
         where: { rollNumber: BigInt(rollNumber) },
       })
       if (userWithRollNumber) {
@@ -50,40 +51,44 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
         })
       }
     } catch (err) {
-      console.error(err)
+      console.log(err)
       return res.status(400).json({
         errorMessage:
           'Our database is offline, Please try again after sometime or mail to oss@iitdh.ac.in if the issue persists',
       })
     }
 
-    let num_contest = 0
-    let last_contest = 0
-    let rating = 0
+    let ranking = 1000000
+    let points = 0
 
     try {
-      const userData = await CodeForcesAPI.user.rating({ handle: userHandle })
-      num_contest = userData.result.length
-      last_contest = userData.result[num_contest - 1].contestId
-      rating = userData.result[num_contest - 1].newRating
+      const user = await leetcode.user(userHandle)
+
+      if (user.matchedUser == null){
+        return res.status(400).json({
+          errorMessage: "Plese check your userHandle, no such user found on Leetcode"
+        })
+      }
+
+      const userDetails = user.matchedUser
+      points = userDetails.contributions.points
+      ranking = userDetails.profile.ranking
     } catch (err) {
-      console.log(userHandle)
       res.status(400).json({
         errorMessage:
-          'We are experiencing some issues with Codeforces server, please try after some time',
+          'We are experiencing some issues with Leetcode API, please try after some time',
       })
     }
 
     try {
-      const coder = await prisma.codeforcesLeaderBoard.create({
+      const coder = await prisma.leetCodeLeaderBoard.create({
         data: {
           name: fullName,
           rollNumber: BigInt(rollNumber),
-          rating: Number(rating),
-          last_contest_id: Number(last_contest),
-          contests: Number(num_contest),
           userHandle: userHandle,
-        },
+          ranking: ranking,
+          stars: points
+        }
       })
     } catch (err) {
       return res.status(400).json({
@@ -94,9 +99,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
     return res.status(200).json({
       message: 'Succefully got the request',
-      num_contest: num_contest,
-      last_contest_ID: last_contest,
-      rating: rating,
+      ranking: ranking,
+      stars: points
     })
   }
 
