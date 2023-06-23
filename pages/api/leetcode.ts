@@ -1,9 +1,8 @@
 import { LeetCode } from 'leetcode-query'
-import { PrismaClient } from '@prisma/client'
 import { NextApiRequest, NextApiResponse } from 'next'
 import validator from 'validator'
+import prisma from '@/prisma/client'
 
-const prisma = new PrismaClient()
 const leetcode = new LeetCode()
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {

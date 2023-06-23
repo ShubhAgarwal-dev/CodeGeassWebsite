@@ -1,12 +1,23 @@
-'use client'
+import prisma from '@/prisma/client'
 
-import { useState } from 'react'
-import { PrismaClient } from '@prisma/client'
-
-const prisma = new PrismaClient()
+// https://www.prisma.io/docs/concepts/components/prisma-client/pagination
 
 interface Props {}
 
-export default async function CFLeaderboard<Props> ({}) {
-  return <></>
+export default async function CFLeaderboard({}) {
+  const cf_ppl = await prisma.codeforcesLeaderBoard.findMany({
+    orderBy: {
+      rating: 'desc',
+    },
+    select: {
+      name: true,
+      rollNumber: true,
+      userHandle: true,
+      contests: true,
+      rating: true,
+    },
+  })
+
+  console.log(cf_ppl)
+  return <h1> Hii </h1>
 }

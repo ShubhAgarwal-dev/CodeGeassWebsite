@@ -1,9 +1,8 @@
-import { PrismaClient } from '@prisma/client'
 import { CodeForcesAPI } from 'codeforces-api-ts'
 import { NextApiRequest, NextApiResponse } from 'next'
 import validator from 'validator'
 
-const prisma = new PrismaClient()
+import prisma from '@/prisma/client'
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === 'POST') {

@@ -1,9 +1,14 @@
+import CFLeaderboard from '@/components/Leaderboard/CFLeaderboard'
 import { NextPage } from 'next'
 
 interface Props {}
 
 const Page: NextPage<Props> = ({}) => {
-  return <div></div>
+  return (
+    <>
+      <CFLeaderboard />
+    </>
+  )
 }
 
 export default Page
