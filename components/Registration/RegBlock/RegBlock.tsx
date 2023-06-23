@@ -17,7 +17,7 @@ const RegBlock: NextPage<Props> = ({ title, inputs, handleChangeInput }) => {
   const [disabled, setDisabled] = useState(true)
 
   useEffect(() => {
-    if (inputs.fullName && inputs.rollNumber && inputs.userHandle) {
+    if (inputs.fullName && String(inputs.rollNumber).length > 9 && inputs.userHandle) {
       return setDisabled(false)
     }
   })

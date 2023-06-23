@@ -1,6 +1,5 @@
 .blocksWrapper {
   position: relative;
-  background-color: var(--primary-light-pastel-gray);
   overflow-x: hidden;
   padding-top: 6rem;
 }

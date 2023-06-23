@@ -8,13 +8,7 @@ const club_admis: admin_data = [
     email: '210010046@iitdh.ac.in',
     linkedIn: 'https://youtu.be/dQw4w9WgXcQ',
     instagram: 'https://www.instagram.com/virat.kohli/',
-  },
-  {
-    name: 'Sarth Rajain',
-    img: xyz.src,
-    email: '210010048@iitdh.ac.in',
-    linkedIn: 'https://youtu.be/dQw4w9WgXcQ',
-    instagram: 'https://www.instagram.com/virat.kohli/',
+    division: 'FOSS',
   },
   {
     name: 'Aryan Bandaru',
@@ -22,6 +16,7 @@ const club_admis: admin_data = [
     email: '',
     linkedIn: 'https://youtu.be/dQw4w9WgXcQ',
     instagram: 'https://www.instagram.com/virat.kohli/',
+    division: 'GameDev Wing',
   },
   {
     name: 'Ayush Singhi',
@@ -29,6 +24,7 @@ const club_admis: admin_data = [
     email: '',
     linkedIn: 'https://youtu.be/dQw4w9WgXcQ',
     instagram: 'https://www.instagram.com/virat.kohli/',
+    division: 'GameDev Wing',
   },
   {
     name: 'Arvind Kumar',
@@ -36,6 +32,15 @@ const club_admis: admin_data = [
     email: '',
     linkedIn: 'https://youtu.be/dQw4w9WgXcQ',
     instagram: 'https://www.instagram.com/virat.kohli/',
+    division: 'Competive Coding',
+  },
+  {
+    name: 'Sarth Rajain',
+    img: xyz.src,
+    email: '210010048@iitdh.ac.in',
+    linkedIn: 'https://youtu.be/dQw4w9WgXcQ',
+    instagram: 'https://www.instagram.com/virat.kohli/',
+    division: 'Competetive Coding',
   },
 ]
 

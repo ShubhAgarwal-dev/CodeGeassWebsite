@@ -1,4 +1,4 @@
-import { admin_data } from '../../Types/Admins/admins.types'
+import { admin_data } from '@/types/Admins/admins.types'
 import styles from './admins.module.css'
 import Image from 'next/image'
 
@@ -36,11 +36,12 @@ const Admins = ({ heading, team_details }: Props) => {
                   width={200}
                   height={200}
                   className={styles.memberImage}
-                  // priority
                 />
               </div>
               <div className={styles.memberInfo}>
-                <h3>{member.name}</h3>
+                <h3 style={{ fontWeight: 900 }}>{member.name}</h3>
+                <br />
+                <h4>{member.division}</h4>
                 <div className={styles.memberLinks}>
                   <a
                     href={`mailto:${member.email}`}

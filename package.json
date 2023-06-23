@@ -1,6 +1,6 @@
 {
   "name": "code_geass_website",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -35,5 +35,10 @@
   "devDependencies": {
     "eslint": "8.43.0",
     "eslint-config-next": "13.4.6"
+  },
+  "author": {
+    "name": "Shubh Agarwal",
+    "email": "shubhagarwal539@gmail.com",
+    "url": "https://shubhagarwal-dev.github.io"
   }
 }

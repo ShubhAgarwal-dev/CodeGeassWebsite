@@ -45,8 +45,7 @@
 .teamCard {
   background-color: white;
   position: relative;
-  width: 220px;
-  height: 310px;
+  width: 225px;
   margin: 1rem;
   border: 2px solid black;
   border-radius: 15px;
@@ -65,7 +64,12 @@
 }
 
 .memberInfo h3 {
-  padding: 10px 10px;
+  padding: 10px 10px 2px;
+  text-align: center;
+}
+
+.memberInfo h4 {
+  padding: 3px 10px 10px;
   text-align: center;
 }
 
