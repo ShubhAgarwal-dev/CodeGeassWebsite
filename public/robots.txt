@@ -1,6 +1,7 @@
 # Allow all user agents.
 User-agent: *
-Allow: /register
+Allow: /
+Disallow: /register
 Crawl-delay: 30
 
 # User agent "Googlebot" should not crawl the `http://example.com/nogooglebot/` folder or any of its subdirectories.

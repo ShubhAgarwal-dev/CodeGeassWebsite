@@ -11,7 +11,8 @@
   position: fixed;
   top: 0;
   background-color: #212830;
-  border-bottom: 3px solid var(--text-black);
+  border-bottom: 3px solid #000000;
+  /* border-bottom: 3px solid var(--text-black); */
   transition: all 0.2s ease-in-out;
 }
 

@@ -1,0 +1,5 @@
+[Code]
+Thanks to https://www.udemy.com/course/the-nextjs-13-bootcamp-the-complete-developer-guide/ (paid course) for the NEXT JS knowledge it provided.
+
+[background]
+Credits to www.svgbackgrounds.com/ (free) for awsome SVG background.

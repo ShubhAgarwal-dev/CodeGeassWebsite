@@ -64,9 +64,10 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     try {
       const user = await leetcode.user(userHandle)
 
-      if (user.matchedUser == null){
+      if (user.matchedUser == null) {
         return res.status(400).json({
-          errorMessage: "Plese check your userHandle, no such user found on Leetcode"
+          errorMessage:
+            'Plese check your userHandle, no such user found on Leetcode',
         })
       }
 
@@ -87,8 +88,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
           rollNumber: BigInt(rollNumber),
           userHandle: userHandle,
           ranking: ranking,
-          stars: points
-        }
+          stars: points,
+        },
       })
     } catch (err) {
       return res.status(400).json({
@@ -100,7 +101,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     return res.status(200).json({
       message: 'Succefully got the request',
       ranking: ranking,
-      stars: points
+      stars: points,
     })
   }
 
