@@ -32,5 +32,9 @@
     "components/Block/BlockCard/BlockCard.jsx",
     "components/Block/Block.tsx"
   ],
-  "exclude": ["node_modules", "./components/Member/Members.tsx"]
+  "exclude": [
+    "node_modules",
+    "./components/Member/Members.tsx",
+    "pages/_error.js"
+  ]
 }

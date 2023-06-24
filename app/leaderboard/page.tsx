@@ -1,6 +1,7 @@
 import styles from './page.module.css'
 import prisma from '@/prisma/client'
 import InfoTable from '@/components/Table/InfoTable'
+import { reg_inputs } from '../../types/Registration/RegBlock.types'
 
 interface Props {}
 
