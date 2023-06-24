@@ -1,3 +1,6 @@
 .LeaderboardWrapper {
   padding-top: 6rem;
+  background-color: var(--primary-light-pastel-gray);
+  background-image: url('/Events/tactile_noise.png');
+  padding-bottom: 3rem;
 }

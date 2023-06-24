@@ -6,17 +6,16 @@ import InfoTable from '@/components/Table/InfoTable'
 interface Props {}
 
 export default async function CFLeaderboard({}) {
-  const cf_ppl = await prisma.codeforcesLeaderBoard.findMany({
+  const cf_ppl = await prisma.leetCodeLeaderBoard.findMany({
     orderBy: {
-      rating: 'desc',
+      ranking: 'desc',
     },
     select: {
       rollNumber: true,
       name: true,
       userHandle: true,
-      rating: true,
-      contests: true,
-      last_contest_id: true,
+      ranking: true,
+      stars: true,
     },
   })
 
@@ -24,9 +23,8 @@ export default async function CFLeaderboard({}) {
     'rollNumber',
     'fullName',
     'userHandle',
-    'Rating',
-    'Contests',
-    'Last Contest',
+    'Ranking',
+    'Stars',
   ]
   const arr: string[][] = []
   cf_ppl.forEach(element => {
@@ -35,11 +33,7 @@ export default async function CFLeaderboard({}) {
 
   return (
     <>
-      <InfoTable
-        table_heading='Codeforces'
-        headings={headings}
-        row_data={arr}
-      />
+      <InfoTable table_heading='LeetCode' headings={headings} row_data={arr} />
     </>
   )
 }
