@@ -5,5 +5,8 @@
     "editor.defaultFormatter": "Prisma.prisma"
   },
   "editor.tabSize": 2,
-  "files.autoSave": "onFocusChange"
+  "files.autoSave": "onFocusChange",
+  "editor.quickSuggestions": {
+    "strings": true
+  }
 }
