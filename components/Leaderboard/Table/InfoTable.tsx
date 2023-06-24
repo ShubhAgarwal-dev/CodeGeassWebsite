@@ -14,7 +14,7 @@ const InfoTable = ({}: Props) => {
   const data_reg2: string[] = ['2100200048', 'RoopikaKaPreemi', '1169', '1812']
   return (
     <>
-      <div className='flex justify-center'>
+      <div className='flex justify-center bg-transparent'>
         <div className='relative overflow-x-auto shadow-md px-4 sm:px-8 md:px-12 lg:px-36 xl:px-56'>
           <table className='w-full text-sm text-left text-gray-500 dark:text-gray-400'></table>
           <Heading headings={heading_cf} />
