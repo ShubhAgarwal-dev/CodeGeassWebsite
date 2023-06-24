@@ -8,6 +8,12 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === 'POST') {
     const { fullName, rollNumber, userHandle } = req.body
 
+    if (String(rollNumber)[0] !== '2') {
+      return res.status(400).json({
+        errorMessage: 'Enter a valid RollNumber',
+      })
+    }
+
     const errors: string[] = []
 
     const validtionSchema = [

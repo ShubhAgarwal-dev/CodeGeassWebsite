@@ -1,3 +1,4 @@
+import Loading from '@/components/Loading/Loading'
 import Heading from './Heading'
 import IndividualCol from './IndividualCol'
 import styles from './InfoTable.module.css'
@@ -25,11 +26,15 @@ const InfoTable = ({ table_heading, headings, row_data }: Props) => {
           <div className={styles.tableWrapper}>
             <table className='w-full text-sm text-left text-slate-900 dark:text-white-900'>
               <Heading headings={headings} />
-              <tbody>
-                {row_data.map((row, index) => {
-                  return <IndividualCol data_items={row} index_row={index} />
-                })}
-              </tbody>
+              {row_data ? (
+                <tbody>
+                  {row_data.map((row, index) => {
+                    return <IndividualCol data_items={row} index_row={index} />
+                  })}
+                </tbody>
+              ) : (
+                <Loading />
+              )}
             </table>
           </div>
         </div>

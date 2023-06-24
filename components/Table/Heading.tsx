@@ -5,7 +5,7 @@ interface Props {
 const Heading = ({ headings }: Props) => {
   return (
     <thead className='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-slate-900 dark:text-gray-400'>
-      <tr>
+      <tr key={'HEADING'}>
         {headings.map(heading => {
           return (
             <th scope='col' className='px-6 py-3 md:px-10'>
