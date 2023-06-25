@@ -1,7 +1,7 @@
 import { LeetCode } from 'leetcode-query'
 import { NextApiRequest, NextApiResponse } from 'next'
 import validator from 'validator'
-import prisma from '@/prisma/client'
+import { prisma } from '@/prisma/client'
 
 const leetcode = new LeetCode()
 
@@ -53,6 +53,24 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
         return res.status(400).json({
           errorMessage:
             'This roll number is already present on the leaderboard',
+        })
+      }
+    } catch (err) {
+      console.log(err)
+      return res.status(400).json({
+        errorMessage:
+          'Our database is offline, Please try again after sometime or mail to oss@iitdh.ac.in if the issue persists',
+      })
+    }
+
+    try {
+      const userWithUserHandle = await prisma.leetCodeLeaderBoard.findUnique({
+        where: { userHandle: userHandle },
+      })
+      if (userWithUserHandle) {
+        return res.status(400).json({
+          errorMessage:
+            'User with this username already present on the leaderboard',
         })
       }
     } catch (err) {

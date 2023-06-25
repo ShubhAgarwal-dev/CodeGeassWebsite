@@ -1,9 +1,12 @@
+'use client'
+
 import styles from './page.module.css'
-import prisma from '@/prisma/client'
+import { prisma } from '@/prisma/client'
 import InfoTable from '@/components/Table/InfoTable'
-import { reg_inputs } from '../../types/Registration/RegBlock.types'
 
 interface Props {}
+
+const base_path = process.env.NEXT_PUBLIC_BASE_PATH || 'localhost:3000'
 
 const fetchCodeforcesUsers = async () => {
   const cf_ppl = await prisma.codeforcesLeaderBoard.findMany({
@@ -50,7 +53,17 @@ const fetchLeetcodeUsers = async () => {
   return arr
 }
 
+const fetchLeetcodeUsersByAPI = async () => {
+  const res = await fetch(`${base_path}/api/fetch/leetcode`, {
+    next: { revalidate: 60 },
+    method: 'GET',
+  })
+  const data = await res.json()
+  console.log(data)
+}
+
 const Page = async ({}) => {
+  fetchLeetcodeUsersByAPI()
   const headings_cf: string[] = [
     'rollNumber',
     'fullName',

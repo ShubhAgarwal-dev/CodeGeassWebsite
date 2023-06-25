@@ -2,7 +2,7 @@ import { CodeForcesAPI } from 'codeforces-api-ts'
 import { NextApiRequest, NextApiResponse } from 'next'
 import validator from 'validator'
 
-import prisma from '@/prisma/client'
+import { prisma } from '@/prisma/client'
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === 'POST') {
@@ -56,6 +56,24 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       }
     } catch (err) {
       console.error(err)
+      return res.status(400).json({
+        errorMessage:
+          'Our database is offline, Please try again after sometime or mail to oss@iitdh.ac.in if the issue persists',
+      })
+    }
+
+    try {
+      const userWithUserHandle = await prisma.codeforcesLeaderBoard.findUnique({
+        where: { userHandle: userHandle },
+      })
+      if (userWithUserHandle) {
+        return res.status(400).json({
+          errorMessage:
+            'User with this username already present on the leaderboard',
+        })
+      }
+    } catch (err) {
+      console.log(err)
       return res.status(400).json({
         errorMessage:
           'Our database is offline, Please try again after sometime or mail to oss@iitdh.ac.in if the issue persists',
