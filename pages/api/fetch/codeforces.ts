@@ -7,7 +7,6 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>,
 ) {
-  console.log('Hi recieved request')
   if (req.method === 'GET') {
     let cf_ppl // just so that typescript stops complaining
 
@@ -33,7 +32,9 @@ export default async function handler(
     }
 
     return res.status(200).json({
-      leetcode: JSON.stringify(cf_ppl),
+      codeforces: JSON.stringify(cf_ppl, (key, value) => {
+        return typeof value === 'bigint' ? value.toString() : value
+      }),
     })
   }
   return res.status(404).json('Unknown endpoint')

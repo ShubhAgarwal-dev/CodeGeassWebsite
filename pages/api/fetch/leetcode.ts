@@ -7,7 +7,6 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>,
 ) {
-  console.log('Hi recieved request')
   if (req.method === 'GET') {
     let lt_ppl
 
