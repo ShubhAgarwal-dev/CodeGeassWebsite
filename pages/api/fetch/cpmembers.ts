@@ -9,20 +9,30 @@ export default async function handler(
 ) {
   console.log('Got Request')
   if (req.method === 'GET') {
-    let cf_ppl // just so that typescript stops complaining
+    let cf_mem_ppl
+    let lt_mem_ppl
 
     try {
-      cf_ppl = await prisma.codeforcesLeaderBoard.findMany({
-        orderBy: {
-          rating: 'desc',
-        },
+      cf_mem_ppl = await prisma.codeforces.findMany({
         select: {
-          rollNumber: true,
-          name: true,
-          userHandle: true,
-          rating: true,
-          contests: true,
-          last_contest_id: true,
+          member: {
+            select: {
+              name: true,
+              roll_number: true,
+            },
+          },
+          handle: true,
+        },
+      })
+      lt_mem_ppl = await prisma.leetcode.findMany({
+        select: {
+          member: {
+            select: {
+              name: true,
+              roll_number: true,
+            },
+          },
+          handle: true,
         },
       })
     } catch (error) {
@@ -33,7 +43,10 @@ export default async function handler(
     }
 
     return res.status(200).json({
-      codeforces: JSON.stringify(cf_ppl, (key, value) => {
+      codeforces: JSON.stringify(cf_mem_ppl, (key, value) => {
+        return typeof value === 'bigint' ? value.toString() : value
+      }),
+      leetcode: JSON.stringify(lt_mem_ppl, (key, value) => {
         return typeof value === 'bigint' ? value.toString() : value
       }),
     })

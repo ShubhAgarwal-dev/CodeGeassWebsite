@@ -1,0 +1,11 @@
+.loadingWrapper {
+  background-color: var(--primary-light-pastel-gray);
+  background-image: url('/Events/double-bubble-dark.png');
+}
+
+.membersWrapper {
+  padding-top: 6rem;
+  background-color: var(--primary-light-pastel-gray);
+  background-image: url('/Events/double-bubble-dark.png');
+  padding-bottom: 3rem;
+}

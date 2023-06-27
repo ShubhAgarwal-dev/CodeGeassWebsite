@@ -9,20 +9,18 @@ export default async function handler(
 ) {
   console.log('Got Request')
   if (req.method === 'GET') {
-    let cf_ppl // just so that typescript stops complaining
+    let foss_ppl
 
     try {
-      cf_ppl = await prisma.codeforcesLeaderBoard.findMany({
-        orderBy: {
-          rating: 'desc',
-        },
+      foss_ppl = await prisma.fOSS.findMany({
         select: {
-          rollNumber: true,
-          name: true,
-          userHandle: true,
-          rating: true,
-          contests: true,
-          last_contest_id: true,
+          member: {
+            select: {
+              name: true,
+              roll_number: true,
+            },
+          },
+          github_uname: true,
         },
       })
     } catch (error) {
@@ -32,8 +30,11 @@ export default async function handler(
       })
     }
 
+    let foo = JSON.stringify(foss_ppl)
+    console.log(foo)
+
     return res.status(200).json({
-      codeforces: JSON.stringify(cf_ppl, (key, value) => {
+      foss: JSON.stringify(foss_ppl, (key, value) => {
         return typeof value === 'bigint' ? value.toString() : value
       }),
     })
