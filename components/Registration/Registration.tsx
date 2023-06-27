@@ -46,6 +46,7 @@ const Registration: NextPage<Props> = ({}) => {
             title='Codeforces'
             inputs={inputs_cf}
             handleChangeInput={handleChangeInput_cf}
+            type={0}
           />
         </div>
         <div>
@@ -53,6 +54,7 @@ const Registration: NextPage<Props> = ({}) => {
             title='Leetcode'
             inputs={inputs_lt}
             handleChangeInput={handleChangeInput_lt}
+            type={1}
           />
         </div>
       </div>

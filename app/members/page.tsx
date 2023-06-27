@@ -3,7 +3,7 @@
 import { Tabs, type TabsRef } from 'flowbite-react'
 import Loading from '@/components/Loading/Loading'
 import InfoTable from '@/components/Table/InfoTable'
-import { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 
 import styles from './page.module.css'
 
@@ -11,6 +11,10 @@ import { FOSS } from '@/types/Members/foss.types'
 import { CP } from '@/types/Members/cp.types'
 import { GD } from '@/types/Members/gd.types'
 import { members } from '@/types/Members/members.types'
+
+import { SiBmcsoftware, SiCodeforces } from 'react-icons/si'
+import { IoGameController } from 'react-icons/io5'
+import { IoIosPeople } from 'react-icons/io'
 
 const MEMBERS_REVALIDATION_TIME = 3600
 // Keep this very high in the deployed version
@@ -163,7 +167,7 @@ const Page = async () => {
           className='bg-transparent px-4 pt-2 sm:pt-6'
           onActiveTabChange={tab => props.setActiveTab(tab)}
         >
-          <Tabs.Item active title='Members'>
+          <Tabs.Item active title='Members' icon={IoIosPeople}>
             {memArr ? (
               <InfoTable
                 headings={headings_mem}
@@ -174,7 +178,7 @@ const Page = async () => {
               <Loading />
             )}
           </Tabs.Item>
-          <Tabs.Item active title='FOSS'>
+          <Tabs.Item title='Free & Open Source Software' icon={SiBmcsoftware}>
             {fossArr ? (
               <InfoTable
                 headings={headings_foss}
@@ -185,7 +189,7 @@ const Page = async () => {
               <Loading />
             )}
           </Tabs.Item>
-          <Tabs.Item active title='Competetive Programming'>
+          <Tabs.Item title='Competetive Programming' icon={SiCodeforces}>
             {cpArr ? (
               <InfoTable
                 headings={headings_cp}
@@ -196,7 +200,7 @@ const Page = async () => {
               <Loading />
             )}
           </Tabs.Item>
-          <Tabs.Item active title='Game Dev'>
+          <Tabs.Item title='Game Dev' icon={IoGameController}>
             {gdArr ? (
               <InfoTable
                 headings={headings_gd}

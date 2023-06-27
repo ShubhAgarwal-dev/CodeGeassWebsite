@@ -1,9 +1,8 @@
 'use client'
 
-import React from 'react'
-import { NextPage } from 'next'
 import { reg_inputs } from '@/types/Registration/RegBlock.types'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
 
 import styles from './RegBlock.module.css'
 
@@ -11,9 +10,10 @@ interface Props {
   title: string
   inputs: reg_inputs
   handleChangeInput: (e: React.ChangeEvent<HTMLInputElement>) => void
+  type: number // 0 for Codeforces and 1 for Leetcode
 }
 
-const RegBlock: NextPage<Props> = ({ title, inputs, handleChangeInput }) => {
+const RegBlock = ({ title, inputs, handleChangeInput, type }: Props) => {
   const [disabled, setDisabled] = useState(true)
 
   useEffect(() => {
@@ -32,6 +32,21 @@ const RegBlock: NextPage<Props> = ({ title, inputs, handleChangeInput }) => {
 
   const handleClick = () => {
     return handleClose()
+  }
+
+  const url_cf = `/api/codeforces`
+  const url_lt = `/api/leetcode`
+  const handleSubmit = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    event.preventDefault()
+
+    try {
+      const data = axios({
+        url: type ? url_lt : url_cf,
+        method: 'POST',
+      })
+    } catch (err) {
+      console.log(err)
+    }
   }
 
   return (
@@ -60,6 +75,7 @@ const RegBlock: NextPage<Props> = ({ title, inputs, handleChangeInput }) => {
                 value={inputs.fullName}
                 onChange={handleChangeInput}
                 name='fullName'
+                required
               />
             </div>
           </div>
@@ -80,6 +96,9 @@ const RegBlock: NextPage<Props> = ({ title, inputs, handleChangeInput }) => {
                 value={inputs.rollNumber}
                 onChange={handleChangeInput}
                 name='rollNumber'
+                required
+                minLength={9}
+                maxLength={9}
               />
             </div>
           </div>
@@ -100,6 +119,7 @@ const RegBlock: NextPage<Props> = ({ title, inputs, handleChangeInput }) => {
                 value={inputs.userHandle}
                 onChange={handleChangeInput}
                 name='userHandle'
+                required
               />
             </div>
           </div>

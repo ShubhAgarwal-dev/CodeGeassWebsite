@@ -3,7 +3,7 @@
 import { Tabs, type TabsRef } from 'flowbite-react'
 import Loading from '@/components/Loading/Loading'
 import InfoTable from '@/components/Table/InfoTable'
-import { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { SiLeetcode, SiCodeforces } from 'react-icons/si'
 
 import styles from './page.module.css'
