@@ -7,7 +7,6 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>,
 ) {
-  console.log('Got Request')
   if (req.method === 'GET') {
     let foss_ppl
 
@@ -29,9 +28,6 @@ export default async function handler(
           'We have a problem with our database, please try again after some time',
       })
     }
-
-    let foo = JSON.stringify(foss_ppl)
-    console.log(foo)
 
     return res.status(200).json({
       foss: JSON.stringify(foss_ppl, (key, value) => {

@@ -90,7 +90,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       last_contest = userData.result[num_contest - 1].contestId
       rating = userData.result[num_contest - 1].newRating
     } catch (err) {
-      console.log(userHandle)
       res.status(400).json({
         errorMessage:
           'We are experiencing some issues with Codeforces server, please try after some time',

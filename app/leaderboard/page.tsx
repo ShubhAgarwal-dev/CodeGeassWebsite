@@ -8,6 +8,8 @@ import { SiLeetcode, SiCodeforces } from 'react-icons/si'
 
 import styles from './page.module.css'
 
+const LEADERBOARD_REVALIDATION_TIME = 60
+
 const Page = async () => {
   const [activeTab, setActiveTab] = useState<number>(0)
   const [arrLt, setArrlt] = useState<string[][]>([[]])
@@ -19,7 +21,7 @@ const Page = async () => {
     console.log('Leetocde Fetch')
     const fetchData = async () => {
       const res = await fetch(`/api/fetch/leetcode`, {
-        next: { revalidate: 60 },
+        next: { revalidate: LEADERBOARD_REVALIDATION_TIME },
         method: 'GET',
       })
       if (res.status !== 200) {
@@ -43,7 +45,7 @@ const Page = async () => {
     console.log('Codeforce Fetch')
     const fetchData = async () => {
       const res = await fetch(`/api/fetch/codeforces`, {
-        next: { revalidate: 60 },
+        next: { revalidate: LEADERBOARD_REVALIDATION_TIME },
         method: 'GET',
       })
       if (res.status === 400) {

@@ -7,7 +7,6 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>,
 ) {
-  console.log('Got Request')
   if (req.method === 'GET') {
     let cf_mem_ppl
     let lt_mem_ppl

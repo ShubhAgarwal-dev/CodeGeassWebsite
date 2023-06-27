@@ -12,6 +12,9 @@ import { CP } from '@/types/Members/cp.types'
 import { GD } from '@/types/Members/gd.types'
 import { members } from '@/types/Members/members.types'
 
+const MEMBERS_REVALIDATION_TIME = 3600
+// Keep this very high in the deployed version
+
 const Page = async () => {
   const [memArr, setMemArr] = useState<string[][]>([[]])
   const [cpArr, setCpArr] = useState<string[][]>([[]])
@@ -25,7 +28,7 @@ const Page = async () => {
     const fetchData = async () => {
       const res = await fetch(`/api/fetch/members`, {
         next: {
-          revalidate: 3600,
+          revalidate: MEMBERS_REVALIDATION_TIME,
         },
         method: 'GET',
       })
@@ -47,7 +50,7 @@ const Page = async () => {
     const fetchData = async () => {
       const res = await fetch(`/api/fetch/cpmembers`, {
         next: {
-          revalidate: 3600,
+          revalidate: MEMBERS_REVALIDATION_TIME,
         },
         method: 'GET',
       })
@@ -89,7 +92,7 @@ const Page = async () => {
     const fetchData = async () => {
       const res = await fetch(`/api/fetch/gdmembers`, {
         next: {
-          revalidate: 3600,
+          revalidate: MEMBERS_REVALIDATION_TIME,
         },
         method: 'GET',
       })
@@ -119,7 +122,7 @@ const Page = async () => {
     const fetchData = async () => {
       const res = await fetch(`/api/fetch/fossmembers`, {
         next: {
-          revalidate: 3600,
+          revalidate: MEMBERS_REVALIDATION_TIME,
         },
         method: 'GET',
       })
