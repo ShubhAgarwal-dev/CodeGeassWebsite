@@ -18,7 +18,7 @@ const InfoTable = ({ table_heading, headings, row_data }: Props) => {
       <div className='flex justify-center bg-transparent'>
         <div className='relative overflow-x-auto shadow-md px-4'>
           <div className={styles.tableWrapper}>
-            <table className='w-full text-sm text-left text-slate-900 dark:text-white-900'>
+            <table className='w-full text-sm text-left text-white-900'>
               <Heading headings={headings} />
               {row_data ? (
                 <tbody>

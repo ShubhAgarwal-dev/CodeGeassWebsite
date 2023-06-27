@@ -8,7 +8,7 @@ interface Props {
 const IndividualCol = ({ index_row, data_items }: Props) => {
   return (
     <tr
-      className='border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-500 even:dark:bg-gray-400'
+      className='border-b bg-gray-800 odd:bg-gray-500 even:bg-gray-400'
       key={index_row}
     >
       {data_items.map((item, index) => {
@@ -16,7 +16,7 @@ const IndividualCol = ({ index_row, data_items }: Props) => {
           return (
             <th
               scope='row'
-              className='px-6 py-4 md:px-10 font-medium text-gray-900 dark:text-white whitespace-nowrap'
+              className='px-6 py-4 md:px-10 font-medium text-white whitespace-nowrap'
             >
               {item}
             </th>

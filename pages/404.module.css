@@ -1,0 +1,34 @@
+.bodyWrapper {
+  background: #0000aa;
+  color: #ffffff;
+  font-family: courier;
+  font-size: 14pt;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+.neg {
+  background: #fff;
+  color: #0000aa;
+  padding: 2px 8px;
+  font-weight: bold;
+}
+
+.pWrapper {
+  margin: 30px 100px;
+  text-align: left;
+}
+
+.LinkWrapper,
+.LinkWrapper:hover {
+  color: inherit;
+  font: inherit;
+}
+
+.menu {
+  text-align: center;
+  margin-top: 50px;
+}
