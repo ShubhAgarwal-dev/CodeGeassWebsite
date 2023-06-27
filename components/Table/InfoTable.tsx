@@ -10,12 +10,6 @@ interface Props {
 }
 
 const InfoTable = ({ table_heading, headings, row_data }: Props) => {
-  const heading_cf: string[] = [
-    'RollNumber',
-    'User Handle',
-    'Rating',
-    'Contests',
-  ]
   return (
     <>
       <div className={styles.headingWrapper}>

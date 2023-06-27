@@ -3,9 +3,7 @@
   background-color: var(--primary-light-pastel-gray);
   background-image: url('/Events/tactile_noise.png');
   padding-bottom: 3rem;
-}
-
-.loadingWrapper {
-  background-color: var(--primary-light-pastel-gray);
-  background-image: url('/Events/tactile_noise.png');
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
 }

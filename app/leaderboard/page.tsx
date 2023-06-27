@@ -1,79 +1,67 @@
 'use client'
 
-import styles from './page.module.css'
-import { prisma } from '@/prisma/client'
+import { Tabs, type TabsRef } from 'flowbite-react'
+import Loading from '@/components/Loading/Loading'
 import InfoTable from '@/components/Table/InfoTable'
+import { useState, useRef, useEffect } from 'react'
+import { SiLeetcode, SiCodeforces } from 'react-icons/si'
 
-interface Props {}
+import styles from './page.module.css'
 
-const base_path = process.env.NEXT_PUBLIC_BASE_PATH || 'localhost:3000'
+const Page = async () => {
+  const [activeTab, setActiveTab] = useState<number>(0)
+  const [arrLt, setArrlt] = useState<string[][]>([[]])
+  const [arrCf, setArrCf] = useState<string[][]>([[]])
+  const tabsRef = useRef<TabsRef>(null)
+  const props = { setActiveTab, tabsRef }
 
-const fetchCodeforcesUsers = async () => {
-  const cf_ppl = await prisma.codeforcesLeaderBoard.findMany({
-    orderBy: {
-      rating: 'desc',
-    },
-    select: {
-      rollNumber: true,
-      name: true,
-      userHandle: true,
-      rating: true,
-      contests: true,
-      last_contest_id: true,
-    },
-  })
+  useEffect(() => {
+    console.log('Leetocde Fetch')
+    const fetchData = async () => {
+      const res = await fetch(`/api/fetch/leetcode`, {
+        next: { revalidate: 60 },
+        method: 'GET',
+      })
+      if (res.status !== 200) {
+        console.log('Leetocde Fetch NO RESPONCE')
+        setArrlt([[]])
+      }
+      console.log('Leetocde Fetch WITH RESPONCE')
+      const data = await res.json()
+      const dict_data: object[] = JSON.parse(data.leetcode)
 
-  const arr: string[][] = []
-  cf_ppl.forEach(element => {
-    arr.push(Object.values(element).map(e => e.toString()))
-  })
+      const arr: string[][] = []
+      dict_data.forEach(element => {
+        arr.push(Object.values(element).map(e => e.toString()))
+      })
+      setArrlt(arr)
+    }
+    fetchData()
+  }, [])
 
-  return arr
-}
+  useEffect(() => {
+    console.log('Codeforce Fetch')
+    const fetchData = async () => {
+      const res = await fetch(`/api/fetch/codeforces`, {
+        next: { revalidate: 60 },
+        method: 'GET',
+      })
+      if (res.status === 400) {
+        console.log('Codeforce Fetch NO RESPONCE')
+        setArrCf([[]])
+      }
+      console.log('Codeforce Fetch WITH RESPONCE')
+      const data = await res.json()
+      const dict_data: object[] = JSON.parse(data.codeforces)
 
-const fetchLeetcodeUsers = async () => {
-  const lt_ppl = await prisma.leetCodeLeaderBoard.findMany({
-    orderBy: {
-      ranking: 'desc',
-    },
-    select: {
-      rollNumber: true,
-      name: true,
-      userHandle: true,
-      ranking: true,
-      stars: true,
-    },
-  })
-
-  const arr: string[][] = []
-  lt_ppl.forEach(element => {
-    arr.push(Object.values(element).map(e => e.toString()))
-  })
-
-  return arr
-}
-
-const fetchLeetcodeUsersByAPI = async () => {
-  const res = await fetch(`${base_path}/api/fetch/leetcode`, {
-    next: { revalidate: 60 },
-    method: 'GET',
-  })
-  const data = await res.json()
-  console.log(data)
-}
-
-const Page = async ({}) => {
-  fetchLeetcodeUsersByAPI()
-  const headings_cf: string[] = [
-    'rollNumber',
-    'fullName',
-    'userHandle',
-    'Rating',
-    'Contests',
-    'Last Contest',
-  ]
-
-  const row_data_cf = await fetchCodeforcesUsers()
+      const arr: string[][] = []
+      dict_data.forEach(element => {
+        arr.push(Object.values(element).map(e => e.toString()))
+      })
+      setArrCf(arr)
+    }
+    fetchData()
+  }, [])
 
   const headings_lt: string[] = [
     'rollNumber',
@@ -83,21 +71,54 @@ const Page = async ({}) => {
     'Stars',
   ]
 
-  const row_data_lt = await fetchLeetcodeUsers()
+  // fetchLeetcodeUsersByAPI()
+  const headings_cf: string[] = [
+    'rollNumber',
+    'fullName',
+    'userHandle',
+    'Rating',
+    'Contests',
+    'Last Contest',
+  ]
 
   return (
     <>
       <div className={styles.LeaderboardWrapper}>
-        <InfoTable
-          table_heading='Codeforces'
-          headings={headings_cf}
-          row_data={row_data_cf}
-        />
-        <InfoTable
-          table_heading='LeetCode'
-          headings={headings_lt}
-          row_data={row_data_lt}
-        />
+        <Tabs.Group
+          aria-label='Default tabs'
+          style='default'
+          ref={props.tabsRef}
+          className='bg-transparent px-4 pt-2 sm:pt-6'
+          onActiveTabChange={tab => props.setActiveTab(tab)}
+        >
+          <Tabs.Item
+            active
+            title='Leetcode'
+            icon={SiLeetcode}
+            className='active:border-gray-500'
+          >
+            {arrLt ? (
+              <InfoTable
+                headings={headings_lt}
+                row_data={arrLt}
+                table_heading='Leetcode'
+              />
+            ) : (
+              <Loading />
+            )}
+          </Tabs.Item>
+          <Tabs.Item title='Codeforces' icon={SiCodeforces}>
+            {arrCf ? (
+              <InfoTable
+                headings={headings_cf}
+                row_data={arrCf}
+                table_heading='Codeforces'
+              />
+            ) : (
+              <Loading />
+            )}
+          </Tabs.Item>
+        </Tabs.Group>
       </div>
     </>
   )
