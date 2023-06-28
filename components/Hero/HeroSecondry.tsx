@@ -8,7 +8,7 @@ const HeroSecondry = ({}) => {
   return (
     <>
       <section className="bg-center bg-no-repeat bg-[url('/Hero/JumbotronImages/1080_img.jpg')]  sm:bg-[url('/Hero/JumbotronImages/1080_img.jpg')] md:bg-[url('/Hero/JumbotronImages/1080_img.jpg')] lg:bg-[url('/Hero/JumbotronImages/1080_img.jpg')] xl:bg-[url('/Hero/JumbotronImages/1080_img.jpg')] bg-gray-700 bg-blend-multiply">
-        <div className='px-4 mx-auto h-screen max-w-screen-xl text-center py-36 md:py-40 lg:py-80'>
+        <div className='px-4 mx-auto min-h-screen max-w-screen-xl text-center py-36 md:py-40 lg:py-80'>
           <h1 className='mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-100 md:text-7xl lg:text-6xl'>
             Coding Club, IIT Dharwad
           </h1>
