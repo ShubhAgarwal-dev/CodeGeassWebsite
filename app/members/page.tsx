@@ -16,7 +16,7 @@ import { SiBmcsoftware, SiCodeforces } from 'react-icons/si'
 import { IoGameController } from 'react-icons/io5'
 import { IoIosPeople } from 'react-icons/io'
 
-const MEMBERS_REVALIDATION_TIME = 3600
+const MEMBERS_REVALIDATION_TIME = 60 * 60 * 12
 // Keep this very high in the deployed version
 
 const Page = async () => {

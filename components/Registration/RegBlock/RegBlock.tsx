@@ -1,10 +1,14 @@
 'use client'
 
-import { reg_inputs } from '@/types/Registration/RegBlock.types'
 import React, { useEffect, useState } from 'react'
-import axios from 'axios'
+import Loading from '@/components/Loading/Loading'
+import useAuth from '@/hooks/useAuth'
+import { useRouter } from 'next/router'
 
 import styles from './RegBlock.module.css'
+
+import { State } from '@/types/AuthContext/AuthContext.type'
+import { reg_inputs } from '@/types/Registration/RegBlock.types'
 
 interface Props {
   title: string
@@ -14,7 +18,14 @@ interface Props {
 }
 
 const RegBlock = ({ title, inputs, handleChangeInput, type }: Props) => {
-  const [disabled, setDisabled] = useState(true)
+  const [authState, setAuthState] = useState<State>({
+    loading: true,
+    data: null,
+    error: null,
+  })
+  const [disabled, setDisabled] = useState<boolean>(true)
+  const { registerIn } = useAuth()
+  const router = useRouter()
 
   useEffect(() => {
     if (
@@ -26,37 +37,45 @@ const RegBlock = ({ title, inputs, handleChangeInput, type }: Props) => {
     }
   })
 
-  const [open, setOpen] = useState(false)
-  const handleOpen = () => setOpen(true)
-  const handleClose = () => setOpen(false)
-
-  const handleClick = () => {
-    return handleClose()
-  }
-
   const url_cf = `/api/codeforces`
   const url_lt = `/api/leetcode`
-  const handleSubmit = async (event: React.ChangeEvent<HTMLInputElement>) => {
-    event.preventDefault()
 
-    try {
-      const data = axios({
-        url: type ? url_lt : url_cf,
-        method: 'POST',
-      })
-    } catch (err) {
-      console.log(err)
+  const handleSubmit = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+  ) => {
+    event.preventDefault()
+    const url = type ? url_lt : url_cf
+    registerIn(
+      {
+        fullName: inputs.fullName,
+        rollNumber: inputs.rollNumber,
+        userHandle: inputs.userHandle,
+        url: url,
+      },
+      setAuthState,
+    )
+    if (authState.data) {
+      router.push('/leaderboard')
     }
   }
 
   return (
     <>
+      {authState.loading ? <Loading /> : null}
       <div className={styles.FormHeading}>
         <div className={styles.text_block}>
           <h2>{title}</h2>
         </div>
       </div>
       <div className={`${styles.formWrapper}`}>
+        {authState.error ? (
+          <div
+            className='p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400'
+            role='alert'
+          >
+            <span className='font-medium'>Danger alert!</span> {authState.error}
+          </div>
+        ) : null}
         <form className='w-full max-w-sm'>
           <div className='md:flex md:items-center mb-6'>
             <div className='md:w-1/3 content-center'>
@@ -130,6 +149,7 @@ const RegBlock = ({ title, inputs, handleChangeInput, type }: Props) => {
                 className='shadow bg-gray-700 hover:bg-gray-500 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded'
                 type='button'
                 disabled={disabled}
+                onClick={handleSubmit}
               >
                 Register
               </button>
