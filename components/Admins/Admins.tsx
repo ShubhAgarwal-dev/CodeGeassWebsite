@@ -49,7 +49,7 @@ const Admins = ({ heading, team_details }: Props) => {
                   >
                     <img
                       className={styles.linkImage}
-                      src='https://img.icons8.com/plasticine/20/gmail-new.png'
+                      src='https://img.icons8.com/material/20/mailbox-closed-flag-down--v1.png'
                       width={20}
                       height={20}
                       alt='Gmail New'
@@ -84,7 +84,7 @@ const Admins = ({ heading, team_details }: Props) => {
                     >
                       <img
                         className={styles.linkImage}
-                        src='https://img.icons8.com/fluency/20/instagram-new.png'
+                        src='https://img.icons8.com/stitch/20/instagram-new.png'
                         width={20}
                         height={20}
                         alt='insta images'

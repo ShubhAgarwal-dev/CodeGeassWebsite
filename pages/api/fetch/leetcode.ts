@@ -13,7 +13,7 @@ export default async function handler(
     try {
       lt_ppl = await prisma.leetCodeLeaderBoard.findMany({
         orderBy: {
-          ranking: 'desc',
+          ranking: 'asc',
         },
         select: {
           rollNumber: true,
