@@ -11,7 +11,7 @@ for projects and events so we converted them to block */
   padding: 3rem 3rem 3rem;
   border-radius: 24px;
   border: 2px solid var(--text-black);
-  box-shadow: 6px 6px 0 0 var(--text-black);
+  box-shadow: 6px 6px 0 0 black;
   line-height: 1.5rem;
 }
 
