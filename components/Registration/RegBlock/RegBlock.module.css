@@ -10,7 +10,7 @@
   border: 2px solid var(--text-black);
   line-height: 1.5rem;
   font-family: 'Recursive', cursive;
-  box-shadow: 5px 5px 0 0 var(--text-black);
+  box-shadow: 5px 5px 0 0 black;
 }
 
 .formHeading {
