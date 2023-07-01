@@ -1,4 +1,4 @@
-import blocksData from '@/types/Block/blockCard.types'
+// import blocksData from '@/types/Block/blockCard.types'
 
 // const data: blocksData = [
 //   {
