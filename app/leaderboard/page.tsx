@@ -95,7 +95,7 @@ const Page = async () => {
         >
           <Tabs.Item
             active
-            title='Leetcode'
+            title='LeetCode'
             icon={SiLeetcode}
             className='active:border-gray-500'
           >

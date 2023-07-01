@@ -51,7 +51,7 @@ const Registration: NextPage<Props> = ({}) => {
         </div>
         <div>
           <RegBlock
-            title='Leetcode'
+            title='LeetCode'
             inputs={inputs_lt}
             handleChangeInput={handleChangeInput_lt}
             type={1}

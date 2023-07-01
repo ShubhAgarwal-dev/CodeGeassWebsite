@@ -7,22 +7,29 @@ const HeroSecondry = ({}) => {
 
   return (
     <>
-      <section className="bg-center bg-no-repeat bg-[url('/Hero/JumbotronImages/1080_img.jpg')]  sm:bg-[url('/Hero/JumbotronImages/1080_img.jpg')] md:bg-[url('/Hero/JumbotronImages/1080_img.jpg')] lg:bg-[url('/Hero/JumbotronImages/1080_img.jpg')] xl:bg-[url('/Hero/JumbotronImages/1080_img.jpg')] bg-gray-700 bg-blend-multiply">
-        <div className='px-4 mx-auto min-h-screen max-w-screen-xl text-center py-36 md:py-40 lg:py-80 font-sans'>
+      <section className="bg-center bg-no-repeat bg-[url('/Hero/JumbotronImages/1080_img.jpg')]  sm:bg-[url('/Hero/JumbotronImages/1080_img.jpg')] md:bg-[url('/Hero/JumbotronImages/2400.jpg')] lg:bg-[url('/Hero/JumbotronImages/1080_img.jpg')] xl:bg-[url('/Hero/JumbotronImages/1080_img.jpg')] bg-gray-700 bg-blend-multiply">
+        <div className='px-4 mx-auto min-h-screen max-w-screen-xl text-center py-36 md:py-48 lg:py-72 font-sans'>
           <h1 className='mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-100 md:text-7xl lg:text-6xl'>
             Coding Club, IIT Dharwad
           </h1>
           <h3 className='mb-4 text-xl font-extrabold tracking-tight leading-none text-gray-200 md:text-3xl lg:text-3xl'>
             Put your thinking caps on, It's time to code!
           </h3>
-          <p className='mb-7 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48'>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum
+          <p className='mb-7 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48 tracking-tight text-justify'>
+            The Coding Club, also known as{' '}
+            <span className='font-semibold'>Code Geass</span>, is an
+            enthusiastic community of students dedicated to the realms of
+            coding, Web Development, Game Development, and other programming
+            disciplines. Our team consists of one secretary and five admins who
+            diligently organize a variety of activities throughout the year.
+            These include Development-focused events covering Web Development,
+            Open Source projects, and Game/App Development. Additionally, we
+            host programming contests and hackathons to promote skill-building
+            and engagement.
+            <br /> <br />
+            Should you have any inquiries, please do not hesitate to reach out
+            to any of our esteemed members at your convenience. Join us in
+            exploring the exciting world of programming!
           </p>
           <div className='flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4'>
             <Link
@@ -56,7 +63,7 @@ const HeroSecondry = ({}) => {
               href='/members/wanna_join'
               className='inline-flex items-center font-medium text-gray-500 hover:underline'
             >
-              Want to apply for membership
+              Want to apply for membership?
               <svg
                 aria-hidden='true'
                 className='w-5 h-5 ml-1'
