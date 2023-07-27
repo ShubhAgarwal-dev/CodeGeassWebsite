@@ -47,7 +47,7 @@ export default function AppBar() {
             <div
               className={`${styles.optionsMenu} ${
                 active && styles.activeSidebar
-              }`}
+              } font-sans`}
             >
               <div className={styles.option}>
                 <Link href='/' scroll={false}>
