@@ -1,7 +1,7 @@
 import blocksData from '@/types/Block/blockCard.types'
 
-import basic_img from '@/public/Projects/Images/GRAND.png'
 import SCA from '@/public/Projects/Images/IMG_1_Stock.png'
+import gd from '@/public/Projects/Images/Gaming Image.jpg'
 
 const data: blocksData = [
   {
@@ -20,8 +20,7 @@ const data: blocksData = [
       This game boasts a rich world filled with exploration and adventure.',
     knowMoreLink:
       'https://docs.google.com/document/d/1QNEcDAQeoi_AZt7qXQF7T2RmdZCxovqfjODHy5joCzw/edit?usp=sharing',
-    image:
-      'https://drive.google.com/uc?export=view&id=1zaKxFVD8LoDrH5obpxL_UKkAqzbdM-PR',
+    image: gd.src,
     time: 'Game Dev',
   },
 ]

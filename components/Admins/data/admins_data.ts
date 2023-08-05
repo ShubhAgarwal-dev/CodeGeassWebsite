@@ -4,7 +4,7 @@ import { admin_data } from '@/types/Admins/admins.types'
 const club_admis: admin_data = [
   {
     name: 'Saksham Chhimwal',
-    img: 'https://drive.google.com/uc?export=view&id=1mdOZPULdmdDgjJNnDIRYnXsrIfCwg_QW',
+    img: '/adms/Saksham_Chhimwal.jpg',
     email: '210010046@iitdh.ac.in',
     linkedIn: 'https://www.linkedin.com/in/saksham-chhimwal-838baa25a/',
     instagram: 'https://www.instagram.com/sakshamchhimwal/',
@@ -12,7 +12,7 @@ const club_admis: admin_data = [
   },
   {
     name: 'Arvind Kumar',
-    img: 'https://drive.google.com/uc?export=view&id=1cPjKKAAaI3nkHT5vcFkgjNPnJvQuG1VM',
+    img: '/adms/Arvind_Kumar_M.jpeg',
     email: '200020008@iitdh.ac.in',
     linkedIn: 'https://www.linkedin.com/in/arvind-kumar-m-7a12b6200/',
     instagram: 'https://instagram.com/_arvind_._kumar_/',
@@ -20,7 +20,7 @@ const club_admis: admin_data = [
   },
   {
     name: 'Sarth Rajain',
-    img: 'https://drive.google.com/uc?export=view&id=181fyBfFvnu1RDt1W0Kq7w1v4-C4uk9dj',
+    img: '/adms/Sarth_Rajain.jpg',
     email: '210010048@iitdh.ac.in',
     linkedIn: 'https://www.linkedin.com/in/sarth-rajain-a89637228/',
     instagram: 'https://www.instagram.com/invisibletroll.54219/',
@@ -28,7 +28,7 @@ const club_admis: admin_data = [
   },
   {
     name: 'Aryan Bandaru',
-    img: 'https://drive.google.com/uc?export=view&id=1u9pH3slwvnMeXBCQmhvkmdJ0BPKPOzdH',
+    img: '/adms/Aryan_Bandaru.jpg',
     email: '220020009@iitdh.ac.in',
     linkedIn: 'linkedin.com/in/aryan-bandaru-441a90262',
     instagram: 'https://instagram.com/aryanb2211/',
