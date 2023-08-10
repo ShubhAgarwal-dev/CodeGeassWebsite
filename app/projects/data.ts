@@ -7,7 +7,11 @@ const data: blocksData = [
   {
     heading: 'Student Companion App',
     content:
-      'We will try to replicate GRAND Chip, or try to get near that to make a universal encoding and decoding FPGA',
+      "We're developing an inclusive mobile app for an educational institution, providing personalized timetables, \
+      instant notifications, in-class quizzes, and admin interaction. Key features: accessible timetables, real-time updates, \
+      in-class quizzes, and an admin dashboard. The app ensures secure communication, user profiles, and resource sharing, \
+      boosting student engagement, efficient communication, administrative efficiency, and tech integration. It centralizes \
+      academic resources, creating a dynamic learning environment and improving student-admin interaction.",
     knowMoreLink:
       'https://docs.google.com/document/d/1Xg70yNGxvFGi6nF9kM9sy2WNs6MPmpqwWJGSUkJJ5DY/edit?usp=sharing',
     image: SCA.src,
