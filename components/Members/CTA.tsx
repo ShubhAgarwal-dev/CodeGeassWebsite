@@ -25,14 +25,76 @@ const CTA = () => {
               <ol className='space-y-4 text-white text-2xl sm:text-3xl list-inside list-decimal font-sans font-bold pt-4 tracking-tight'>
                 <li>Free and Open Source Software</li>
                 <ul className='pl-5 mt-1 space-y-1 list-disc list-inside font-light text-base sm:text-xl text-gray-300 tracking-normal'>
-                  <li>Add the content here later</li>
-                  <li>Add the content here later</li>
-                  <li>Add the content here later</li>
-                  <li>Add the content here later</li>
+                  <p>
+                    The prescribed procedure for applying for membership in the
+                    esteemed coding club is to be comprehensively formalized as
+                    follows:
+                  </p>
+                  <li>
+                    <span className='font-semibold'>Initial Application: </span>
+                    Interested individuals must send their resume to the FOSS
+                    Wing Lead, who manages the coding club. The specific skills
+                    required may vary depending on the task or projects
+                    undertaken by the club. Applicants should have prior
+                    experience in coding or programming, demonstrated through
+                    personal projects or work experience.
+                  </li>
+                  <li>
+                    <span className='font-semibold'>
+                      Contribution from Experienced Developers:{' '}
+                    </span>
+                    Individuals with experience in open-source development may
+                    submit their contributions to relevant projects. This
+                    includes submitting code changes, bug fixes, or other
+                    valuable contributions to open-source projects.
+                  </li>
+                  <li>
+                    <span className='font-semibold'>Shortlisting: </span>
+                    Resumes submitted by applicants will be reviewed, and
+                    shortlisted candidates will be selected for the next stage.
+                    Shortlisting criteria may include relevant coding skills,
+                    project experience, and open-source contributions.
+                  </li>
+                  <li>
+                    <span className='font-semibold'>Selection: </span>
+                    Successful candidates, based on their interview performance
+                    and overall qualifications, will be offered membership in
+                    the coding club.
+                  </li>
+                  <li>
+                    <span className='font-semibold'>Open-to-All Tasks: </span>
+                    The coding club will have certain tasks that are open to
+                    all, including individuals who are not yet members of the
+                    club. Anyone can participate and contribute to these tasks,
+                    showcasing their skills and interest in coding.
+                  </li>
+                  <li>
+                    <span className='font-semibold'>
+                      Invitation based on Performance:{' '}
+                    </span>
+                    Exceptional contributors from the open-to-all tasks may
+                    receive invitations to join the club, even if they were not
+                    initially shortlisted.
+                  </li>
+                  <li>
+                    <span className='font-semibold'>Contribution Proof: </span>
+                    Individuals who have contributed to the open-to-all tasks
+                    should send proof of their contributions to the FOSS Wing
+                    Lead. Proof may include links to code repositories, pull
+                    requests, or any other relevant evidence of their
+                    contributions.
+                  </li>
+                  <p className='text-white'>
+                    IPlease note that the specific tasks, projects, and club
+                    membership criteria may be subject to change or elaboration
+                    by the FOSS Wing Lead or the club's Secretary. Interested
+                    individuals should contact the club for the most up-to-date
+                    information on the application process and club guidelines.
+                  </p>
                 </ul>
                 <li>Competetive Programming</li>
                 <ul className='pl-5 mt-1 space-y-1 list-disc list-inside font-light text-base sm:text-xl text-gray-300 tracking-normal'>
-                  <p className='text-white'>
+                  <p>
                     At present, our membership application process exclusively
                     acknowledges Codeforces and LeetCode as the recognized
                     platforms. The criteria for each platform are outlined as
@@ -118,16 +180,45 @@ const CTA = () => {
                 </ul>
                 <li>Game Development Wing</li>
                 <ul className='pl-5 mt-1 space-y-1 list-disc list-inside font-light text-base sm:text-xl text-gray-300 tracking-normal'>
-                  <li>Add the content here later</li>
-                  <li>Add the content here later</li>
-                  <li>Add the content here later</li>
-                  <li>Add the content here later</li>
+                  <p>
+                    For membership application and recruitment into the club,
+                    prospective members are required to take up and complete a
+                    task posted on a need basis at{' '}
+                    <Link href={'/projects'} className='font-semibold'>
+                      Projects Page
+                    </Link>
+                    . The club will then evaluate them, and an acceptance mail
+                    will be sent to the respective member. <br />
+                    Some important rules to keep in mind while taking up a task:
+                  </p>
+                  <li>
+                    The task must be completed within the stipulated time;
+                    otherwise, it will incur a penalty, and two such penalties
+                    might result in the rejection of future applications.
+                  </li>
+                  <li>
+                    The tasks shall be divided into three categories based on
+                    the complexity and urgency of the task.
+                  </li>
+                  <li>
+                    The applicant will only be accepted into the club if the
+                    task is done to the evaluator's level of expectation.
+                  </li>
+                  <li>
+                    The tasks for the coding division of the game dev wing will
+                    be listed for the Unity platform. There shall be another
+                    field for specifying the version of Unity being used.
+                  </li>
+                  <li>
+                    The tasks for the design division of the game dev will be
+                    done in the same method.
+                  </li>
                 </ul>
               </ol>
             </div>
             <div className='flex flex-col mt-8 space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4'>
               <Link
-                href='https://youtu.be/dQw4w9WgXcQ'
+                href='https://docs.google.com/document/d/1jRucEzPliQFMyHNJ87l-4Q3br8EcPv0_HPgkKTX51Vo/edit?usp=sharing'
                 target='_top'
                 className='inline-flex items-center justify-center px-4 py-2.5 text-base font-medium text-center border rounded-lg focus:ring-4 text-white border-gray-600 hover:bg-gray-700 focus:ring-gray-600'
               >
@@ -141,7 +232,7 @@ const CTA = () => {
                   <path d='M14.066 0H7v5a2 2 0 0 1-2 2H0v11a1.97 1.97 0 0 0 1.934 2h12.132A1.97 1.97 0 0 0 16 18V2a1.97 1.97 0 0 0-1.934-2Zm-3 15H4.828a1 1 0 0 1 0-2h6.238a1 1 0 0 1 0 2Zm0-4H4.828a1 1 0 0 1 0-2h6.238a1 1 0 1 1 0 2Z' />
                   <path d='M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.98 2.98 0 0 0 .13 5H5Z' />
                 </svg>
-                Get PDF
+                FAQs
               </Link>
             </div>
           </div>
