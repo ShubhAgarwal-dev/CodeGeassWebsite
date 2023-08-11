@@ -53,10 +53,6 @@ export default function AppBar() {
                 <Link href='/' scroll={false}>
                   <div>Home</div>
                 </Link>
-
-              </div>
-              {/* <div className={styles.option}>
-
                 <Link href='/events' scroll={false}>
                   <div>Events</div>
                 </Link>
