@@ -1,6 +1,6 @@
 import { SessionProvider } from 'next-auth/react'
 import { AppProps } from 'next/app'
-import ProtectedLayout from './../app/protectedLayouts'
+import ProtectedLayout from '../app/protectedLayouts'
 import { ReactNode } from 'react' // Import ReactNode type
 
 type AppPropsWithAuth = AppProps & {
