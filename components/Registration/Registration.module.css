@@ -16,3 +16,7 @@
     padding-bottom: 1rem;
   }
 }
+
+.tabGroup > button {
+  border-radius: 0.5rem;
+}
