@@ -16,6 +16,8 @@ import { SiBmcsoftware, SiCodeforces } from 'react-icons/si'
 import { IoGameController } from 'react-icons/io5'
 import { IoIosPeople } from 'react-icons/io'
 
+import Header from '@/components/Members/Header'
+
 const MEMBERS_REVALIDATION_TIME = 60 * 60 * 12
 // Keep this very high in the deployed version
 
@@ -160,6 +162,7 @@ const Page = async () => {
   return (
     <>
       <div className={styles.membersWrapper}>
+        <Header />
         <Tabs.Group
           aria-label='Default tabs'
           style='default'

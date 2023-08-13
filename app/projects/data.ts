@@ -17,16 +17,16 @@ const data: blocksData = [
     image: SCA.src,
     time: 'FOSS',
   },
-  {
-    heading: '2D-Platformer Game',
-    content:
-      'Currently we are developing a 2D top down game ,based on the theme of ruin exploration, set on a fictional stage. \
-      This game boasts a rich world filled with exploration and adventure.',
-    knowMoreLink:
-      'https://docs.google.com/document/d/1QNEcDAQeoi_AZt7qXQF7T2RmdZCxovqfjODHy5joCzw/edit?usp=sharing',
-    image: gd.src,
-    time: 'Game Dev',
-  },
+  // {
+  //   heading: '2D-Platformer Game',
+  //   content:
+  //     'Currently we are developing a 2D top down game ,based on the theme of ruin exploration, set on a fictional stage. \
+  //     This game boasts a rich world filled with exploration and adventure.',
+  //   knowMoreLink:
+  //     'https://docs.google.com/document/d/1QNEcDAQeoi_AZt7qXQF7T2RmdZCxovqfjODHy5joCzw/edit?usp=sharing',
+  //   image: gd.src,
+  //   time: 'Game Dev',
+  // },
 ]
 
 export default data

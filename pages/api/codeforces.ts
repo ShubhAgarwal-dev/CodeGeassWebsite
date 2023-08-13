@@ -24,10 +24,10 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
         }),
         errorMessage: 'Invalid Length Roll Number Detected',
       },
-      {
-        valid: validator.isNumeric(rollNumber),
-        errorMessage: 'Invalid Characters Detected in Roll Number',
-      },
+      // {
+      //   valid: validator.isNumeric(rollNumber),
+      //   errorMessage: 'Invalid Characters Detected in Roll Number',
+      // },
     ]
 
     validtionSchema.forEach(check => {
@@ -46,7 +46,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
     try {
       const userWithRollNumber = await prisma.codeforcesLeaderBoard.findUnique({
-        where: { rollNumber: BigInt(rollNumber) },
+        where: { rollNumber: String(rollNumber) },
       })
       if (userWithRollNumber) {
         return res.status(400).json({
@@ -96,11 +96,17 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       })
     }
 
+    if (num_contest === 0) {
+      return res.status(400).json({
+        errorMessage: 'Number of contests given are nill',
+      })
+    }
+
     try {
       const coder = await prisma.codeforcesLeaderBoard.create({
         data: {
           name: fullName,
-          rollNumber: BigInt(rollNumber),
+          rollNumber: String(rollNumber),
           rating: Number(rating),
           last_contest_id: Number(last_contest),
           contests: Number(num_contest),

@@ -54,9 +54,9 @@ const RegBlock = ({ title, inputs, handleChangeInput, type }: Props) => {
       },
       setAuthState,
     )
-    if (authState.error === null) {
-      router.push('/leaderboard')
-    }
+    // if (authState.error === null) {
+    //   router.push('/leaderboard')
+    // }
   }
 
   return (
