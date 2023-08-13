@@ -100,3 +100,38 @@ model LeetCodeLeaderBoard {
 
   @@index([rollNumber])
 }
+
+enum Month {
+  January
+  February
+  March
+  April
+  May
+  June
+  July
+  August
+  September
+  October
+  November
+  December
+}
+
+model Event {
+  id          String   @id @default(uuid())
+  title       String
+  description String
+  start_month Month // Store the month as an enum
+  url         String // URL for event details
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+}
+
+model Project {
+  id          String   @id @default(uuid())
+  title       String
+  description String
+  start_month Month // Store the start month as an enum
+  url         String // URL for project details
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+}
