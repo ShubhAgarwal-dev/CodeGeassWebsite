@@ -25,6 +25,37 @@ export default async function handler(req, res) {
       console.error('Error adding event to database:', error)
       res.status(500).json({ error: 'Internal server error' })
     }
+  } else if (req.method === 'PUT') {
+    const { id, ...eventData } = req.body
+
+    try {
+      const updatedEvent = await prisma.event.update({
+        where: { id },
+        data: eventData,
+      })
+
+      console.log('Event updated in database:', updatedEvent)
+      res.status(200).json(updatedEvent)
+    } catch (error) {
+      console.error('Error updating event in database:', error)
+      res.status(500).json({ error: 'Internal server error' })
+    }
+  } else if (req.method === 'DELETE') {
+    const eventId = req.query.id
+
+    try {
+      await prisma.event.delete({
+        where: {
+          id: eventId,
+        },
+      })
+
+      console.log('Event deleted from database')
+      res.status(204).send()
+    } catch (error) {
+      console.error('Error deleting event from database:', error)
+      res.status(500).json({ error: 'Internal server error' })
+    }
   } else {
     res.status(405).json({ error: 'Method not allowed' })
   }

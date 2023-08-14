@@ -122,6 +122,7 @@ model Event {
   description String
   start_month Month // Store the month as an enum
   url         String // URL for event details
+  image_url   String   @default("") // URL for project image
   created_at  DateTime @default(now())
   updated_at  DateTime @updatedAt
 }
@@ -132,6 +133,7 @@ model Project {
   description String
   start_month Month // Store the start month as an enum
   url         String // URL for project details
+  image_url   String   @default("") // URL for project image
   created_at  DateTime @default(now())
   updated_at  DateTime @updatedAt
 }
