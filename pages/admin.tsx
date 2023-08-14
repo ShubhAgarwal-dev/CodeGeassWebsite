@@ -1,7 +1,6 @@
 import { useSession } from 'next-auth/react'
 import AdminMembers from '@/components/Admins/AdminMember'
 import Hero from '@/components/Hero/Hero'
-import Image from 'next/image'
 
 const admin = () => {
   const { data: session } = useSession()

@@ -1,9 +1,10 @@
 export interface ind_block_data {
-  heading: string
-  content: string
-  knowMoreLink: string
-  image: string
-  time?: string
+  id: string
+  title: string
+  description: string
+  url: string
+  image_url: string
+  start_month: string
 }
 
 export default interface blocksData extends Array<ind_block_data> {}

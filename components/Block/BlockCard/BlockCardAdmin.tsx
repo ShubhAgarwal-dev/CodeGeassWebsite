@@ -1,19 +1,46 @@
-import styles from './BlockCard.module.css'
+import React from 'react'
 import Image from 'next/image'
-
 import { ind_block_data } from '@/types/Block/blockCard.types'
+import styles from './BlockCard.module.css'
 
 interface Props {
   leftSideImage: boolean
   data: ind_block_data
   number: number
+  onEdit: (data: ind_block_data) => void
+  onDelete: (id: string) => void
 }
 
-export default function BlockCard({ leftSideImage, data, number }: Props) {
+export default function BlockCardAdmin({
+  leftSideImage,
+  data,
+  number,
+  onEdit,
+  onDelete,
+}: Props) {
+  const handleEdit = () => {
+    onEdit(data)
+  }
+
+  const handleDelete = () => {
+    onDelete(data.id)
+  }
+
   return (
     <>
       <div className={styles.blockCardWrapper}>
         <div className={styles.blockCardMain}>
+          <div>
+            <button onClick={handleEdit} style={{ backgroundColor: 'yellow' }}>
+              Edit
+            </button>
+            <button
+              onClick={handleDelete}
+              style={{ backgroundColor: 'yellow' }}
+            >
+              Delete
+            </button>
+          </div>
           <div
             className={`${styles.blockInfo} ${
               leftSideImage && styles.blockInfoLeft
