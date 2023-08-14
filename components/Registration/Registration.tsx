@@ -40,13 +40,14 @@ const Registration: NextPage<Props> = ({}) => {
   return (
     <>
       <div
-        className={`${styles.RegWrapper} grid gap-flow-col grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1`}
+        className={`${styles.RegWrapper} grid gap-0 grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1`}
       >
         <Tabs.Group
           aria-label='Pills'
           style='default'
           className={
-            styles.tabGroup + ' text-center justify-center text-sm border-b-0'
+            styles.tabGroup +
+            ' text-center justify-center text-sm border-b-0 my-0 gap-y-0 gap-x-0.5 py-0'
           }
         >
           <Tabs.Item active title='Codeforces'>
