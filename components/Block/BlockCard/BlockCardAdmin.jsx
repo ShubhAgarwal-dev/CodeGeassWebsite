@@ -4,8 +4,15 @@ import styles from './BlockCard.module.css'
 import axios from 'axios'
 
 const BlockCardAdmin = ({ leftSideImage, data, number, getEvents }) => {
-  const handleEdit = () => {
-    onEdit(data)
+  const handleEdit = async () => {
+    try {
+      const eventId = data.id
+      console.log('eventId:', eventId)
+      await axios.put(`/api/events/?eventId=${eventId}`, data)
+      getEvents()
+    } catch (error) {
+      console.error('Error editing event:', error)
+    }
   }
 
   const handleDelete = async () => {
@@ -13,7 +20,7 @@ const BlockCardAdmin = ({ leftSideImage, data, number, getEvents }) => {
       const eventId = data.id
       console.log('eventId:', eventId)
 
-      await axios.delete('/api/events/', eventId)
+      await axios.delete(`/api/events/?eventId=${eventId}`)
       getEvents()
     } catch (error) {
       console.error('Error deleting event:', error)
