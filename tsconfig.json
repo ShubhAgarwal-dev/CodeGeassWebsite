@@ -32,7 +32,9 @@
     "components/Block/BlockCard/BlockCard.jsx",
     "components/Block/Block.tsx",
     "pages/_app.js",
-    "pages/admin/events.jsx"
+    "pages/admin/events.jsx",
+    "components/Block/BlockAdmin.jsx",
+    "components/Block/BlockCard/BlockCardAdmin.jsx"
   ],
   "exclude": [
     "node_modules",
