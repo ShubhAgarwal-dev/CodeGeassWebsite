@@ -1,29 +1,21 @@
 import React from 'react'
 import Image from 'next/image'
-import { ind_block_data } from '@/types/Block/blockCard.types'
 import styles from './BlockCard.module.css'
 
-interface Props {
-  leftSideImage: boolean
-  data: ind_block_data
-  number: number
-  onEdit: (data: ind_block_data) => void
-  onDelete: (id: string) => void
-}
-
-export default function BlockCardAdmin({
+const BlockCardAdmin = ({
   leftSideImage,
   data,
   number,
   onEdit,
   onDelete,
-}: Props) {
+  getEvents,
+}) => {
   const handleEdit = () => {
     onEdit(data)
   }
 
   const handleDelete = () => {
-    onDelete(data.id)
+    onDelete(data)
   }
 
   return (
@@ -76,7 +68,13 @@ export default function BlockCardAdmin({
             }`}
           >
             <div className={styles.blockImageCard}>
-              <Image src={data.image_url} fill alt='user provided image' />
+              <Image
+                src={data.image_url}
+                fill
+                alt={
+                  'https://drive.google.com/file/d/1NvfHESPsWNBuLEu7s6pRXmeg7kaVf2iA/view?usp=drive_link'
+                }
+              />
             </div>
           </div>
         </div>
@@ -84,3 +82,5 @@ export default function BlockCardAdmin({
     </>
   )
 }
+
+export default BlockCardAdmin

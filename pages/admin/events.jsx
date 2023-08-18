@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import Modal from 'react-modal'
 import axios from 'axios'
 import BlockAdmin from '@/components/Block/BlockAdmin'
 import styles from './../../app/events/page.module.css'
@@ -7,16 +6,20 @@ import styles from './../../app/events/page.module.css'
 const Events = () => {
   const [events, setEvents] = useState([])
 
-  useEffect(() => {
+  const getEvents = () => {
     axios.get('/api/events').then(response => {
       setEvents(response.data)
     })
+  }
+
+  useEffect(() => {
+    getEvents()
   }, [])
 
   return (
     <div>
       <div className={styles.eventsWrapper}>
-        <BlockAdmin title='Events' blocksData={events} />
+        <BlockAdmin title='Events' events={events} getEvents={getEvents} />
       </div>
     </div>
   )
