@@ -9,7 +9,7 @@ const Block = ({ title, events, getEvents }) => {
   const [eventData, setEventData] = useState({
     title: '',
     description: '',
-    start_month: '',
+    start_month: 'January',
     url: '',
     image_url: '',
   })
@@ -29,7 +29,7 @@ const Block = ({ title, events, getEvents }) => {
       setEventData({
         title: '',
         description: '',
-        start_month: '',
+        start_month: 'January',
         url: '',
         image_url: '',
       })
@@ -59,19 +59,19 @@ const Block = ({ title, events, getEvents }) => {
         <Modal
           isOpen={open}
           onRequestClose={handleClose}
+          shouldCloseOnOverlayClick={true}
           style={{
             // change to separate css file
             overlay: {
-              position: 'fixed',
-              height: '70%',
-              width: '70%',
-              backgroundColor: 'green',
               zIndex: '100',
-              top: '50%',
-              left: '50%',
-              transform: 'translate(-50%, -50%)',
-
-              borderRadius: '10px',
+            },
+            content: {
+              backgroundColor: 'green',
+              margin: 'auto',
+              width: '70%',
+              height: '80%',
+              justifyContent: 'center',
+              alignItems: 'center',
             },
           }}
         >
@@ -131,7 +131,6 @@ const Block = ({ title, events, getEvents }) => {
             <BlockCardAdmin
               data={data}
               getEvents={getEvents}
-              key={index}
               number={index + 1}
               leftSideImage={index % 2 === 0}
             />
