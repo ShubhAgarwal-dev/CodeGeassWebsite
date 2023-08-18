@@ -26,11 +26,11 @@ export default async function handler(req, res) {
       res.status(500).json({ error: 'Internal server error' })
     }
   } else if (req.method === 'PUT') {
+    const eventId = req.query.eventId
     const { id, ...eventData } = req.body
-
     try {
       const updatedEvent = await prisma.event.update({
-        where: { id },
+        where: { id: eventId },
         data: eventData,
       })
 
