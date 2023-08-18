@@ -24,13 +24,13 @@ export default function BlockCard({ leftSideImage, data, number }: Props) {
               <div className={styles.styleDiv}></div>
             </div>
             <div className={styles.blockName}>
-              <h1>{data.heading}</h1>
+              <h1>{data.title}</h1>
               <br />
-              <h3>{data.time}</h3>
+              <h3>{data.start_month}</h3>
             </div>
-            <div className={styles.blockInfo}>{data.content}</div>
+            <div className={styles.blockInfo}>{data.description}</div>
             <div className={styles.knowMore}>
-              <a href={data.knowMoreLink} target='_blank'>
+              <a href={data.url} target='_blank'>
                 <div>Know More</div>
                 <div className={styles.buttonImage}>
                   <Image
@@ -49,7 +49,7 @@ export default function BlockCard({ leftSideImage, data, number }: Props) {
             }`}
           >
             <div className={styles.blockImageCard}>
-              <Image src={data.image} fill alt='user provided image' />
+              <Image src={data.image_url} fill alt='user provided image' />
             </div>
           </div>
         </div>
