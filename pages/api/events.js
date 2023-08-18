@@ -3,7 +3,6 @@ import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 
 export default async function handler(req, res) {
-  console.log('req.method', req.method)
   if (req.method === 'GET') {
     try {
       const events = await prisma.event.findMany()
@@ -42,13 +41,12 @@ export default async function handler(req, res) {
       res.status(500).json({ error: 'Internal server error' })
     }
   } else if (req.method === 'DELETE') {
-    const uid = req.body.id
-    console.log('eventId', uid)
+    const eventId = req.query.eventId
 
     try {
       await prisma.event.delete({
         where: {
-          id: uid,
+          id: eventId,
         },
       })
 
