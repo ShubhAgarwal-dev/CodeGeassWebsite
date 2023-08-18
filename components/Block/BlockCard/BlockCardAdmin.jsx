@@ -1,21 +1,23 @@
 import React from 'react'
 import Image from 'next/image'
 import styles from './BlockCard.module.css'
+import axios from 'axios'
 
-const BlockCardAdmin = ({
-  leftSideImage,
-  data,
-  number,
-  onEdit,
-  onDelete,
-  getEvents,
-}) => {
+const BlockCardAdmin = ({ leftSideImage, data, number, getEvents }) => {
   const handleEdit = () => {
     onEdit(data)
   }
 
-  const handleDelete = () => {
-    onDelete(data)
+  const handleDelete = async () => {
+    try {
+      const eventId = data.id
+      console.log('eventId:', eventId)
+
+      await axios.delete('/api/events/', eventId)
+      getEvents()
+    } catch (error) {
+      console.error('Error deleting event:', error)
+    }
   }
 
   return (
