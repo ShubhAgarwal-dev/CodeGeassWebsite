@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'Coding Club Website',
-  description: 'Coded by Shubh Agarwal (https://github.com/ShubhAgarwal-dev)',
+  description: 'The official website of the Coding Club of IIT Dharwad',
 }
 
 interface RootLayoutProps {

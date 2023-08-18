@@ -49,14 +49,14 @@ export default function AppBar() {
                 active && styles.activeSidebar
               } font-sans`}
             >
-              {/* <div className={styles.option}>
-                <Link href='/' scroll={false}>
+              <div className={styles.option}>
+                {/* <Link href='/' scroll={false}>
                   <div>Home</div>
-                </Link>
+                </Link> */}
                 <Link href='/events' scroll={false}>
                   <div>Events</div>
                 </Link>
-              </div> */}
+              </div>
               <div className={styles.option}>
                 <Link href='/projects' scroll={false}>
                   <div>Projects</div>
