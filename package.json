@@ -48,10 +48,5 @@
     "@types/react-modal": "^3.16.0",
     "eslint": "8.43.0",
     "eslint-config-next": "13.4.6"
-  },
-  "author": {
-    "name": "Shubh Agarwal",
-    "email": "shubhagarwal539@gmail.com",
-    "url": "https://shubhagarwal-dev.github.io"
   }
 }

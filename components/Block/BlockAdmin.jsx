@@ -4,12 +4,13 @@ import BlockCardAdmin from './BlockCard/BlockCardAdmin'
 import Modal from 'react-modal'
 import axios from 'axios'
 
-const Block = ({ title, events, getEvents }) => {
+const Block = ({ title, events, getEvents, type }) => {
+  const typeText = type === 'events' ? 'Event' : 'Project'
   const [open, setOpen] = useState(false)
   const [eventData, setEventData] = useState({
     title: '',
     description: '',
-    start_month: 'January',
+    start_month: '',
     url: '',
     image_url: '',
   })
@@ -23,7 +24,7 @@ const Block = ({ title, events, getEvents }) => {
 
   const handleAddEvent = async () => {
     try {
-      await axios.post('/api/events', eventData)
+      await axios.post(`/api/admin/${type}`, eventData)
       handleClose()
       getEvents()
       setEventData({
@@ -54,7 +55,7 @@ const Block = ({ title, events, getEvents }) => {
           </div>
         </div>
         <button style={{ backgroundColor: 'red' }} onClick={handleOpen}>
-          Add Event
+          Add {typeText}
         </button>
         <Modal
           isOpen={open}
@@ -133,6 +134,8 @@ const Block = ({ title, events, getEvents }) => {
               getEvents={getEvents}
               number={index + 1}
               leftSideImage={index % 2 === 0}
+              type={type}
+              typeText={typeText}
             />
           ))}
         </div>

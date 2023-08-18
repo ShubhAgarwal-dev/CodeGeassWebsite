@@ -4,7 +4,14 @@ import styles from './BlockCard.module.css'
 import axios from 'axios'
 import Modal from 'react-modal'
 
-const BlockCardAdmin = ({ leftSideImage, data, number, getEvents }) => {
+const BlockCardAdmin = ({
+  leftSideImage,
+  data,
+  number,
+  getEvents,
+  type,
+  typeText,
+}) => {
   const [open, setOpen] = useState(false)
   const [eventData, setEventData] = useState({
     title: data.title,
@@ -33,7 +40,7 @@ const BlockCardAdmin = ({ leftSideImage, data, number, getEvents }) => {
   const handleEdit = async () => {
     try {
       const eventId = data.id
-      await axios.put(`/api/events/?eventId=${eventId}`, eventData)
+      await axios.put(`/api/admin/${type}?eventId=${eventId}`, eventData)
       getEvents()
       handleClose()
     } catch (error) {
@@ -46,7 +53,7 @@ const BlockCardAdmin = ({ leftSideImage, data, number, getEvents }) => {
       const eventId = data.id
       console.log('eventId:', eventId)
 
-      await axios.delete(`/api/events/?eventId=${eventId}`)
+      await axios.delete(`/api/admin/${type}/?eventId=${eventId}`)
       getEvents()
     } catch (error) {
       console.error('Error deleting event:', error)
@@ -86,20 +93,20 @@ const BlockCardAdmin = ({ leftSideImage, data, number, getEvents }) => {
                 },
               }}
             >
-              <h2>Edit Event</h2>
+              <h2>Edit {typeText}</h2>
               <input
                 type='text'
                 name='title'
                 value={eventData.title}
                 onChange={handleInputChange}
-                placeholder='Event Title'
+                placeholder={`Edit ${typeText}`}
               />
               <input
                 type='text'
                 name='description'
                 value={eventData.description}
                 onChange={handleInputChange}
-                placeholder='Event Description'
+                placeholder={`${typeText} Description`}
               />
               <select
                 value={eventData.start_month}
@@ -125,7 +132,7 @@ const BlockCardAdmin = ({ leftSideImage, data, number, getEvents }) => {
                 name='url'
                 value={eventData.url}
                 onChange={handleInputChange}
-                placeholder='Event URL'
+                placeholder={`${typeText} URL`}
               />
               <input
                 type='text'
@@ -134,7 +141,7 @@ const BlockCardAdmin = ({ leftSideImage, data, number, getEvents }) => {
                 onChange={handleInputChange}
                 placeholder='Image URL'
               />
-              <button onClick={handleEdit}>Edit Event</button>
+              <button onClick={handleEdit}>Edit {typeText}</button>
               <button onClick={handleClose}>Cancel</button>
             </Modal>
           </div>

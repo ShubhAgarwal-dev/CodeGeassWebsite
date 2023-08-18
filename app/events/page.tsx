@@ -9,7 +9,7 @@ export default function Events() {
   const [eventsData, setEventsData] = useState([])
 
   const getEvents = () => {
-    axios.get('/api/events').then(response => {
+    axios.get('/api/admin/events').then(response => {
       setEventsData(response.data)
     })
   }

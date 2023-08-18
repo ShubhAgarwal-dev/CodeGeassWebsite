@@ -7,7 +7,7 @@ const Events = () => {
   const [events, setEvents] = useState([])
 
   const getEvents = () => {
-    axios.get('/api/events').then(response => {
+    axios.get('/api/admin/events').then(response => {
       setEvents(response.data)
     })
   }
@@ -19,7 +19,12 @@ const Events = () => {
   return (
     <div>
       <div className={styles.eventsWrapper}>
-        <BlockAdmin title='Events' events={events} getEvents={getEvents} />
+        <BlockAdmin
+          title='Events'
+          events={events}
+          getEvents={getEvents}
+          type={'events'}
+        />
       </div>
     </div>
   )

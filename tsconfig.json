@@ -36,7 +36,9 @@
     "components/Block/BlockAdmin.jsx",
     "components/Block/BlockCard/BlockCardAdmin.jsx",
     "app/events/page.jsx",
-    "app/layout.jsx"
+    "app/layout.jsx",
+    "pages/admin/projects.jsx",
+    "pages/admin/members.jsx"
   ],
   "exclude": [
     "node_modules",

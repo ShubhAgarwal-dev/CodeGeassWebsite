@@ -1,50 +1,48 @@
-import { PrismaClient } from '@prisma/client'
-
-const prisma = new PrismaClient()
+import prisma from './prismaClient'
 
 export default async function handler(req, res) {
   if (req.method === 'GET') {
     try {
-      const events = await prisma.event.findMany()
-      res.status(200).json(events)
+      const projects = await prisma.project.findMany()
+      res.status(200).json(projects)
     } catch (error) {
-      console.error('Error fetching events:', error)
+      console.error('Error fetching projects:', error)
       res.status(500).json({ error: 'Internal server error' })
     }
   } else if (req.method === 'POST') {
     const eventData = req.body
 
     try {
-      const createdEvent = await prisma.event.create({
+      const createdEvent = await prisma.project.create({
         data: eventData,
       })
 
-      console.log('Event added to database:', createdEvent)
+      console.log('Event added to database:')
       res.status(201).json(createdEvent)
     } catch (error) {
-      console.error('Error adding event to database:', error)
+      console.error('Error adding project to database:', error)
       res.status(500).json({ error: 'Internal server error' })
     }
   } else if (req.method === 'PUT') {
     const eventId = req.query.eventId
     const { id, ...eventData } = req.body
     try {
-      const updatedEvent = await prisma.event.update({
+      const updatedEvent = await prisma.project.update({
         where: { id: eventId },
         data: eventData,
       })
 
-      console.log('Event updated in database:', updatedEvent)
+      console.log('Event updated in database:')
       res.status(200).json(updatedEvent)
     } catch (error) {
-      console.error('Error updating event in database:', error)
+      console.error('Error updating project in database:', error)
       res.status(500).json({ error: 'Internal server error' })
     }
   } else if (req.method === 'DELETE') {
     const eventId = req.query.eventId
 
     try {
-      await prisma.event.delete({
+      await prisma.project.delete({
         where: {
           id: eventId,
         },
@@ -53,7 +51,7 @@ export default async function handler(req, res) {
       console.log('Event deleted from database')
       res.status(204).send()
     } catch (error) {
-      console.error('Error deleting event from database:', error)
+      console.error('Error deleting project from database:', error)
       res.status(500).json({ error: 'Internal server error' })
     }
   } else {
