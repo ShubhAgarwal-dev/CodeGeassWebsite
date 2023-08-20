@@ -8,7 +8,6 @@ generator client {
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
-  // directUrl = env("DIRECT_URL")S
 }
 
 model Members {
@@ -120,9 +119,9 @@ model Event {
   id          String   @id @default(uuid())
   title       String
   description String
-  start_month Month // Store the month as an enum
-  url         String // URL for event details
-  image_url   String   @default("") // URL for project image
+  start_month Month
+  url         String
+  image_url   String   @default("")
   created_at  DateTime @default(now())
   updated_at  DateTime @updatedAt
 }
@@ -131,9 +130,9 @@ model Project {
   id          String   @id @default(uuid())
   title       String
   description String
-  start_month Month // Store the start month as an enum
-  url         String // URL for project details
-  image_url   String   @default("") // URL for project image
+  start_month Month
+  url         String
+  image_url   String   @default("")
   created_at  DateTime @default(now())
   updated_at  DateTime @updatedAt
 }

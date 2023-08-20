@@ -38,7 +38,7 @@
     "app/events/page.jsx",
     "app/layout.jsx",
     "pages/admin/projects.jsx",
-    "pages/admin/members.jsx"
+    "pages/admin/members.tsx"
   ],
   "exclude": [
     "node_modules",
