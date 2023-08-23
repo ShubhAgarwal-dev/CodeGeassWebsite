@@ -46,14 +46,14 @@ model Leetcode {
 model GameDev {
   id        Int     @id @default(autoincrement())
   role      Role
-  member    Members @relation(fields: [member_id], references: [id])
+  member    Members @relation(fields: [member_id], references: [id], onDelete: Cascade)
   member_id String  @unique
 }
 
 model FOSS {
   id           Int     @id @default(autoincrement())
   github_uname String  @unique
-  member       Members @relation(fields: [member_id], references: [id])
+  member       Members @relation(fields: [member_id], references: [id], onDelete: Cascade)
   member_id    String  @unique
 }
 

@@ -19,6 +19,10 @@ interface FormData {
   name: string
   roll_number: string
   wing: string
+  github_id?: string
+  role?: string
+  leetCode_id?: string
+  codeForces_id?: string
 }
 
 const Page = () => {
@@ -35,6 +39,10 @@ const Page = () => {
     name: '',
     roll_number: '',
     wing: 'FOSS',
+    github_id: '',
+    role: 'DEVELOPER',
+    leetCode_id: '',
+    codeForces_id: '',
   })
 
   const handleOpen = () => {
@@ -200,6 +208,8 @@ const Page = () => {
   const headings_cp: string[] = ['Name', 'Roll Number', 'handle']
   const headings_gd: string[] = ['Name', 'Roll Number', 'Role']
 
+  console.log(memArr)
+
   return (
     <>
       <div className={styles.membersWrapper}>
@@ -253,8 +263,69 @@ const Page = () => {
                 <option value='FOSS'>FOSS</option>
                 <option value='GAME_DEV'>Game Dev</option>
                 <option value='CP'>Competitive Programming</option>
+                <option value='NETWORKING'>Networking</option>
+                <option value='CYBERSECURITY'>Cyber Security</option>
               </select>
             </label>
+            <br />
+            {formData.wing === 'FOSS' && (
+              <div>
+                <label>
+                  Git hub Id:
+                  <input
+                    type='text'
+                    name='github_id'
+                    value={formData.github_id}
+                    onChange={handleFormChange}
+                  />
+                </label>
+                <br />
+              </div>
+            )}
+            {formData.wing === 'GAME_DEV' && (
+              <div>
+                <label>
+                  Role :
+                  <select
+                    name='role'
+                    value={formData.role}
+                    onChange={handleFormChange}
+                  >
+                    <option value=' DEVELOPER'>Developer</option>
+                    <option value='ASSET_DES'>asset des</option>
+                    <option value='MUSIC_COMP'>music comp</option>
+                    <option value=' STORY_WRITING'>story writing</option>
+                    <option value='ENV_DES'>env des</option>
+                  </select>
+                </label>
+                <br />
+              </div>
+            )}
+            {formData.wing === 'CP' && (
+              <div>
+                <label>
+                  Leet code:
+                  <input
+                    type='text'
+                    name='leetCode_id'
+                    value={formData.leetCode_id}
+                    onChange={handleFormChange}
+                  />
+                </label>
+                <br />
+                <label>
+                  Code Forces:
+                  <input
+                    type='text'
+                    name='codeForces_id'
+                    value={formData.codeForces_id}
+                    onChange={handleFormChange}
+                  />
+                </label>
+                <br />
+              </div>
+            )}
+
             <br />
             <button type='submit'>Submit</button>
           </form>

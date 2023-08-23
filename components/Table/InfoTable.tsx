@@ -10,6 +10,7 @@ interface Props {
 }
 
 const InfoTable = ({ table_heading, headings, row_data }: Props) => {
+  // console.log(row_data)
   return (
     <>
       <div className={styles.headingWrapper}>
