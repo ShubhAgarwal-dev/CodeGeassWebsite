@@ -30,6 +30,6 @@ const Events = () => {
   )
 }
 
-Events.requireAuth = true
+Events.requireAuth = true // Required Authentication
 
 export default Events

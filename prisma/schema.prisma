@@ -26,20 +26,20 @@ model Members {
 }
 
 model Codeforces {
-  id               Int     @id @default(autoincrement())
-  handle           String  @unique
-  rating           Int
-  num_participants Int
-  member           Members @relation(fields: [member_id], references: [id])
-  member_id        String  @unique
+  id        Int     @id @default(autoincrement())
+  handle    String  @unique
+  // rating           Int
+  // num_participants Int
+  member    Members @relation(fields: [member_id], references: [id], onDelete: Cascade)
+  member_id String  @unique
 }
 
 model Leetcode {
   id        Int     @id @default(autoincrement())
   handle    String  @unique
-  rank      Int
-  solved    Int
-  member    Members @relation(fields: [member_id], references: [id])
+  // rank      Int
+  // solved    Int
+  member    Members @relation(fields: [member_id], references: [id], onDelete: Cascade)
   member_id String  @unique
 }
 

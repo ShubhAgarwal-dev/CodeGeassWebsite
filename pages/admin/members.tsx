@@ -12,6 +12,8 @@ import { SiBmcsoftware, SiCodeforces } from 'react-icons/si'
 import { IoGameController } from 'react-icons/io5'
 import { IoIosPeople } from 'react-icons/io'
 import Modal from 'react-modal'
+import Alert from '@mui/material/Alert'
+import data from '../../app/events/data'
 
 const MEMBERS_REVALIDATION_TIME = 60 * 60 * 12
 
@@ -24,16 +26,15 @@ interface FormData {
   leetCode_id?: string
   codeForces_id?: string
 }
-
 const Page = () => {
   const [memArr, setMemArr] = useState<string[][]>([[]])
   const [cpArr, setCpArr] = useState<string[][]>([[]])
   const [gdArr, setGdArr] = useState<string[][]>([[]])
   const [fossArr, SetFossArr] = useState<string[][]>([[]])
   const [activeTab, setActiveTab] = useState<number>(0)
+  const [error, setError] = useState<string | null>(null)
   const tabsRef = useRef<TabsRef>(null)
   const props = { setActiveTab, tabsRef }
-
   const [isModalVisible, setIsModalVisible] = useState(false)
   const [formData, setFormData] = useState<FormData>({
     name: '',
@@ -70,11 +71,13 @@ const Page = () => {
       const response = await axios.post('/api/admin/members', formData)
       console.log(response.data)
       fetchDataMembers()
+      fetchCpData()
+      fetchDataGameDev()
       fetchDataFoss()
-    } catch (error) {
-      console.error('Error adding member:', error)
+    } catch (error: any) {
+      setError(error.response.data.error)
+      console.log('Error adding member:', error)
     }
-
     handleClose()
   }
 
@@ -97,81 +100,71 @@ const Page = () => {
     setMemArr(arr)
   }
 
-  useEffect(() => {
-    fetchDataMembers()
-  }, [])
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const res = await fetch(`/api/fetch/cpmembers`, {
-        next: {
-          revalidate: MEMBERS_REVALIDATION_TIME,
-        },
-        method: 'GET',
-      })
-      if (res.status !== 200) {
-        setCpArr([[]])
-      }
-      const data = await res.json()
-      const cf_data: CP[] = JSON.parse(data.codeforces)
-      const lt_data: CP[] = JSON.parse(data.leetcode)
-      const arr: string[][] = []
-      cf_data.forEach(element => {
-        let new_ele = {
-          name: '',
-          roll_number: 0,
-          handle: '',
-        }
-        new_ele['name'] = element.member.name
-        new_ele['roll_number'] = element.member.roll_number
-        new_ele['handle'] = element.handle
-        arr.push(Object.values(new_ele).map(e => e.toString()))
-      })
-      lt_data.forEach(element => {
-        let new_ele = {
-          name: '',
-          roll_number: 0,
-          handle: '',
-        }
-        new_ele['name'] = element.member.name
-        new_ele['roll_number'] = element.member.roll_number
-        new_ele['handle'] = element.handle
-        arr.push(Object.values(new_ele).map(e => e.toString()))
-      })
-      setCpArr(arr)
+  const fetchCpData = async () => {
+    const res = await fetch(`/api/fetch/cpmembers`, {
+      next: {
+        revalidate: MEMBERS_REVALIDATION_TIME,
+      },
+      method: 'GET',
+    })
+    if (res.status !== 200) {
+      setCpArr([[]])
     }
-    fetchData()
-  }, [])
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const res = await fetch(`/api/fetch/gdmembers`, {
-        next: {
-          revalidate: MEMBERS_REVALIDATION_TIME,
-        },
-        method: 'GET',
-      })
-      if (res.status !== 200) {
-        setGdArr([[]])
+    const data = await res.json()
+    const cf_data: CP[] = JSON.parse(data.codeforces)
+    const lt_data: CP[] = JSON.parse(data.leetcode)
+    const arr: string[][] = []
+    cf_data.forEach(element => {
+      let new_ele = {
+        name: '',
+        roll_number: 0,
+        handle: '',
       }
-      const data = await res.json()
-      const dict_data: GD[] = JSON.parse(data.gameDevMembers)
-      const arr: string[][] = []
-      dict_data.forEach(element => {
-        let new_ele = {
-          name: '',
-          roll_number: 0,
-          role: '',
-        }
-        new_ele['name'] = element.member.name
-        new_ele['roll_number'] = element.member.roll_number
-        new_ele['role'] = element.role
-        arr.push(Object.values(new_ele).map(e => e.toString()))
-      })
-      setGdArr(arr)
+      new_ele['name'] = element.member.name
+      new_ele['roll_number'] = element.member.roll_number
+      new_ele['handle'] = element.handle
+      arr.push(Object.values(new_ele).map(e => e.toString()))
+    })
+    lt_data.forEach(element => {
+      let new_ele = {
+        name: '',
+        roll_number: 0,
+        handle: '',
+      }
+      new_ele['name'] = element.member.name
+      new_ele['roll_number'] = element.member.roll_number
+      new_ele['handle'] = element.handle
+      arr.push(Object.values(new_ele).map(e => e.toString()))
+    })
+    setCpArr(arr)
+  }
+
+  const fetchDataGameDev = async () => {
+    const res = await fetch(`/api/fetch/gdmembers`, {
+      next: {
+        revalidate: MEMBERS_REVALIDATION_TIME,
+      },
+      method: 'GET',
+    })
+    if (res.status !== 200) {
+      setGdArr([[]])
     }
-    fetchData()
-  }, [])
+    const data = await res.json()
+    const dict_data: GD[] = JSON.parse(data.gameDevMembers)
+    const arr: string[][] = []
+    dict_data.forEach(element => {
+      let new_ele = {
+        name: '',
+        roll_number: 0,
+        role: '',
+      }
+      new_ele['name'] = element.member.name
+      new_ele['roll_number'] = element.member.roll_number
+      new_ele['role'] = element.role
+      arr.push(Object.values(new_ele).map(e => e.toString()))
+    })
+    setGdArr(arr)
+  }
 
   const fetchDataFoss = async () => {
     const res = await fetch(`/api/fetch/fossmembers`, {
@@ -200,18 +193,38 @@ const Page = () => {
     SetFossArr(arr)
   }
   useEffect(() => {
+    fetchDataMembers()
+    fetchCpData()
+    fetchDataGameDev()
     fetchDataFoss()
   }, [])
 
-  const headings_mem: string[] = ['Name', 'Roll Number', 'Wing']
+  const headings_mem: string[] = ['Name', 'Roll Number', 'Wing', '']
   const headings_foss: string[] = ['Name', 'Roll Number', 'GitHub ID']
   const headings_cp: string[] = ['Name', 'Roll Number', 'handle']
   const headings_gd: string[] = ['Name', 'Roll Number', 'Role']
 
-  console.log(memArr)
-
   return (
     <>
+      {error ? (
+        <Alert
+          sx={{
+            position: 'absolute',
+            top: '2%',
+            left: '43%',
+            transform: 'translateY(0% ,-43%)',
+            zIndex: '100',
+          }}
+          severity='error'
+          onClose={() => {
+            setError(null)
+          }}
+        >
+          {JSON.stringify(error, null, 2).replace(/"/g, '')}{' '}
+          {/* Remove double quotes */}
+        </Alert>
+      ) : null}
+
       <div className={styles.membersWrapper}>
         <Modal
           isOpen={isModalVisible}
@@ -391,5 +404,7 @@ const Page = () => {
     </>
   )
 }
+
+Page.requireAuth = true // Required Authentication
 
 export default Page

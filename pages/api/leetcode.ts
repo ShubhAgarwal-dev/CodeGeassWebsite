@@ -16,7 +16,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     }
 
     const errors: string[] = []
-
+    //need to add validation for roll , for both leetcode and codeforces
     const validtionSchema = [
       {
         valid: validator.isLength(rollNumber, {
@@ -47,7 +47,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
     try {
       const userWithRollNumber = await prisma.leetCodeLeaderBoard.findUnique({
-        where: { rollNumber: BigInt(rollNumber) },
+        where: { rollNumber: String(rollNumber) },
       })
       if (userWithRollNumber) {
         return res.status(400).json({
@@ -108,7 +108,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       const coder = await prisma.leetCodeLeaderBoard.create({
         data: {
           name: fullName,
-          rollNumber: BigInt(rollNumber),
+          rollNumber: String(rollNumber),
           userHandle: userHandle,
           ranking: ranking,
           stars: points,
