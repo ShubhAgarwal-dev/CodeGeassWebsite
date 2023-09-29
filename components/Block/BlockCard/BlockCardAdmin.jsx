@@ -13,6 +13,7 @@ const BlockCardAdmin = ({
   typeText,
 }) => {
   const [open, setOpen] = useState(false)
+  const [formError, setFromError] = useState('')
   const [eventData, setEventData] = useState({
     title: data.title,
     description: data.description,
@@ -27,6 +28,7 @@ const BlockCardAdmin = ({
       ...prevData,
       [name]: value,
     }))
+    setFromError('')
   }
 
   const handleOpen = () => {
@@ -38,14 +40,19 @@ const BlockCardAdmin = ({
   }
 
   const handleEdit = async () => {
-    try {
-      const eventId = data.id
-      await axios.put(`/api/admin/${type}?eventId=${eventId}`, eventData)
-      getEvents()
-      handleClose()
-    } catch (error) {
-      console.error('Error editing event:', error)
-    }
+    if (eventData.title.trim() == '') {
+      setFromError('Enter a valid title')
+    } else if (eventData.start_month == '') {
+      setFromError('Pick a starting Month')
+    } else
+      try {
+        const eventId = data.id
+        await axios.put(`/api/admin/${type}?eventId=${eventId}`, eventData)
+        getEvents()
+        handleClose()
+      } catch (error) {
+        console.error('Error editing event:', error)
+      }
   }
 
   const handleDelete = async () => {
@@ -127,6 +134,7 @@ const BlockCardAdmin = ({
                 onChange={handleInputChange}
                 placeholder='Image URL'
               />
+              <h4>{formError}</h4>
               <button onClick={handleEdit}>Edit {typeText}</button>
               <button onClick={handleClose}>Cancel</button>
             </Modal>

@@ -7,6 +7,7 @@ import axios from 'axios'
 const Block = ({ title, events, getEvents, type }) => {
   const typeText = type === 'events' ? 'Event' : 'Project'
   const [open, setOpen] = useState(false)
+  const [formError, setFromError] = useState('')
   const [eventData, setEventData] = useState({
     title: '',
     description: '',
@@ -20,23 +21,29 @@ const Block = ({ title, events, getEvents, type }) => {
       ...prevData,
       [name]: value,
     }))
+    setFromError('')
   }
 
   const handleAddEvent = async () => {
-    try {
-      await axios.post(`/api/admin/${type}`, eventData)
-      handleClose()
-      getEvents()
-      setEventData({
-        title: '',
-        description: '',
-        start_month: 'January',
-        url: '',
-        image_url: '',
-      })
-    } catch (error) {
-      console.error('Error adding event:', error)
-    }
+    if (eventData.title.trim() == '') {
+      setFromError('Enter a valid title')
+    } else if (eventData.start_month == '') {
+      setFromError('Pick a starting Month')
+    } else
+      try {
+        await axios.post(`/api/admin/${type}`, eventData)
+        handleClose()
+        getEvents()
+        setEventData({
+          title: '',
+          description: '',
+          start_month: 'January',
+          url: '',
+          image_url: '',
+        })
+      } catch (error) {
+        console.error('Error adding event:', error)
+      }
   }
   const handleOpen = () => {
     setOpen(true)
@@ -118,6 +125,7 @@ const Block = ({ title, events, getEvents, type }) => {
             onChange={handleInputChange}
             placeholder='Image URL'
           />
+          <h4>{formError}</h4>
           <button onClick={handleAddEvent}>Add {typeText}</button>
           <button onClick={handleClose}>Cancel</button>
         </Modal>

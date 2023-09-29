@@ -113,3 +113,10 @@
   background: white;
   box-shadow: 3px 3px 0 0 black;
 }
+
+/* error box */
+.blockModal > h4 {
+  height: 20px;
+  color: #ed3636;
+  transition: all;
+}

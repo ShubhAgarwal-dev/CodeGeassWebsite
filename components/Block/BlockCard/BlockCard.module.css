@@ -228,3 +228,10 @@ for projects and events so we converted them to block */
   background: white;
   box-shadow: 2px 2px 0 0 black;
 }
+
+/* error box */
+.blockCardModal > h4 {
+  height: 20px;
+  color: #ed3636;
+  transition: all;
+}
