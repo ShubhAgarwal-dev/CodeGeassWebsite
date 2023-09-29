@@ -54,7 +54,7 @@ const Block = ({ title, events, getEvents, type }) => {
             <h2>{title}</h2>
           </div>
         </div>
-        <button style={{ backgroundColor: 'red' }} onClick={handleOpen}>
+        <button className={styles.typeButton} onClick={handleOpen}>
           Add {typeText}
         </button>
         <Modal
@@ -66,30 +66,24 @@ const Block = ({ title, events, getEvents, type }) => {
             overlay: {
               zIndex: '100',
             },
-            content: {
-              backgroundColor: 'green',
-              margin: 'auto',
-              width: '70%',
-              height: '80%',
-              justifyContent: 'center',
-              alignItems: 'center',
-            },
           }}
+          className={styles.blockModal}
         >
-          <h2>Add New Event</h2>
+          <h2>Add New {typeText}</h2>
           <input
             type='text'
             name='title'
             value={eventData.title}
             onChange={handleInputChange}
-            placeholder='Event Title'
+            placeholder={typeText + ' Title'}
           />
+
           <input
             type='text'
             name='description'
             value={eventData.description}
             onChange={handleInputChange}
-            placeholder='Event Description'
+            placeholder={typeText + ' Description'}
           />
           <select
             value={eventData.start_month}
@@ -115,7 +109,7 @@ const Block = ({ title, events, getEvents, type }) => {
             name='url'
             value={eventData.url}
             onChange={handleInputChange}
-            placeholder='Event URL'
+            placeholder={typeText + ' URL'}
           />
           <input
             type='text'
@@ -124,7 +118,7 @@ const Block = ({ title, events, getEvents, type }) => {
             onChange={handleInputChange}
             placeholder='Image URL'
           />
-          <button onClick={handleAddEvent}>Add Event</button>
+          <button onClick={handleAddEvent}>Add {typeText}</button>
           <button onClick={handleClose}>Cancel</button>
         </Modal>
         <div className={styles.blocksCardWrapper}>

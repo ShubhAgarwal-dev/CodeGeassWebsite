@@ -19,7 +19,7 @@ export default function Events() {
   }, [])
 
   return (
-    <div className={styles.eventsWrapper}>
+    <div className={styles.projectWrapper}>
       <Block title='Projects' blocksData={eventsData} />
     </div>
   )

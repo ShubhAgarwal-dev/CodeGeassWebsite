@@ -18,7 +18,7 @@ const Projects = () => {
 
   return (
     <div>
-      <div className={styles.eventsWrapper}>
+      <div className={styles.projectWrapper}>
         <BlockAdmin
           title='Projects'
           events={projects}

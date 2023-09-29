@@ -64,16 +64,9 @@ const BlockCardAdmin = ({
     <>
       <div className={styles.blockCardWrapper}>
         <div className={styles.blockCardMain}>
-          <div>
-            <button onClick={handleOpen} style={{ backgroundColor: 'yellow' }}>
-              Edit
-            </button>
-            <button
-              onClick={handleDelete}
-              style={{ backgroundColor: 'yellow' }}
-            >
-              Delete
-            </button>
+          <div className={styles.adminButtons}>
+            <button onClick={handleOpen}>Edit</button>
+            <button onClick={handleDelete}>Delete</button>
             <Modal
               isOpen={open}
               onRequestClose={handleClose}
@@ -83,15 +76,8 @@ const BlockCardAdmin = ({
                 overlay: {
                   zIndex: '100',
                 },
-                content: {
-                  backgroundColor: 'green',
-                  margin: 'auto',
-                  width: '70%',
-                  height: '80%',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                },
               }}
+              className={styles.blockCardModal}
             >
               <h2>Edit {typeText}</h2>
               <input
