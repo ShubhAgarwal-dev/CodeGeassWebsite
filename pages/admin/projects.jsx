@@ -30,6 +30,6 @@ const Projects = () => {
   )
 }
 
-Projects.requireAuth = true
+Projects.requireAuth = true // Required Authentication
 
 export default Projects
