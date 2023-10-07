@@ -4,9 +4,7 @@ import React, { useEffect, useState } from 'react'
 import Loading from '@/components/Loading/Loading'
 import useAuth from '@/hooks/useAuth'
 import { useRouter } from 'next/navigation'
-
 import styles from './RegBlock.module.css'
-
 import { State } from '@/types/AuthContext/AuthContext.type'
 import { reg_inputs } from '@/types/Registration/RegBlock.types'
 

@@ -15,18 +15,19 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     }
 
     const errors: string[] = []
-    //need to add validation for roll , for both leetcode and codeforces
+    const regex =
+      /^(?:\d+|(?:cs|ee|me|ch|mc|ep|ce|is|ma|hs|bb|ph|cy|xm|xc)([2][0-3]|[2][0-3])(bt|mt|ms)\d{3})$/
     const validtionSchema = [
+      {
+        valid: regex.test(rollNumber),
+        errorMessage: 'Invalid Format for Roll Number',
+      },
       {
         valid: validator.isLength(rollNumber, {
           min: 9,
           max: 9,
         }),
-        errorMessage: 'Invalid Length Roll Number Detected',
-      },
-      {
-        valid: validator.isNumeric(rollNumber),
-        errorMessage: 'Invalid Characters Detected in Roll Number',
+        errorMessage: 'Invalid Length for Roll Number',
       },
     ]
 

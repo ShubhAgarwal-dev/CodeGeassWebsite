@@ -7,10 +7,24 @@ interface Props {
   table_heading: string
   headings: string[]
   row_data: string[][]
+  setRowData: ((data: string[][]) => void) | null
+  userType?: string
 }
 
-const InfoTable = ({ table_heading, headings, row_data }: Props) => {
-  // console.log(row_data)
+const InfoTable = ({
+  table_heading,
+  headings,
+  row_data,
+  setRowData,
+  userType,
+}: Props) => {
+  const handleDelete = (indexToDelete: any) => {
+    if (setRowData !== null) {
+      const updatedRowData = [...row_data]
+      updatedRowData.splice(indexToDelete, 1)
+      setRowData(updatedRowData)
+    }
+  }
   return (
     <>
       <div className={styles.headingWrapper}>
@@ -24,7 +38,14 @@ const InfoTable = ({ table_heading, headings, row_data }: Props) => {
               {row_data ? (
                 <tbody>
                   {row_data.map((row, index) => {
-                    return <IndividualCol data_items={row} index_row={index} />
+                    return (
+                      <IndividualCol
+                        data_items={row}
+                        index_row={index}
+                        userType={userType}
+                        onDelete={() => handleDelete(index)}
+                      />
+                    )
                   })}
                 </tbody>
               ) : (

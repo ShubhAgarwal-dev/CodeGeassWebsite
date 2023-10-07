@@ -307,7 +307,7 @@ const Page = () => {
                     <option value=' DEVELOPER'>Developer</option>
                     <option value='ASSET_DES'>asset des</option>
                     <option value='MUSIC_COMP'>music comp</option>
-                    <option value=' STORY_WRITING'>story writing</option>
+                    <option value='STORY_WRITING'>story writing</option>
                     <option value='ENV_DES'>env des</option>
                   </select>
                 </label>
@@ -359,7 +359,9 @@ const Page = () => {
                 <InfoTable
                   headings={headings_mem}
                   row_data={memArr}
+                  setRowData={setMemArr}
                   table_heading='Members'
+                  userType={'admin'}
                 />
               </>
             ) : (
@@ -372,6 +374,7 @@ const Page = () => {
                 headings={headings_foss}
                 row_data={fossArr}
                 table_heading='FOSS MEMBERS'
+                setRowData={null}
               />
             ) : (
               <Loading />
@@ -383,6 +386,7 @@ const Page = () => {
                 headings={headings_cp}
                 row_data={cpArr}
                 table_heading='Competitive Programming'
+                setRowData={null}
               />
             ) : (
               <Loading />
@@ -394,6 +398,7 @@ const Page = () => {
                 headings={headings_gd}
                 row_data={gdArr}
                 table_heading='Game Development'
+                setRowData={null}
               />
             ) : (
               <Loading />

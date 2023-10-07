@@ -64,17 +64,30 @@ export default async function handler(req, res) {
   } else if (req.method === 'DELETE') {
     try {
       const { id } = req.query
+      console.log(req.query)
       if (!id) {
         return res.status(400).json({ error: 'Missing member ID' })
       }
 
+      // Check if the member with the provided id exists in the database
+      const existingMember = await prisma.members.findUnique({
+        where: {
+          id: id,
+        },
+      })
+
+      if (!existingMember) {
+        return res.status(404).json({ error: 'Member not found' })
+      }
+
+      // Member exists, proceed with deletion
       const deletedMember = await prisma.members.delete({
         where: {
           id: id,
         },
       })
 
-      res.status(200).json(deletedMember)
+      res.status(204).end() // Respond with 204 No Content for successful deletion
     } catch (error) {
       console.error('Error deleting member:', error)
       res.status(500).json({ error: 'Could not delete member' })
