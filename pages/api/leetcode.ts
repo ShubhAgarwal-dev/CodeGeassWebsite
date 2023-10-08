@@ -17,17 +17,19 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
     const errors: string[] = []
 
+    const regex =
+      /^(?:\d+|(?:cs|ee|me|ch|mc|ep|ce|is|ma|hs|bb|ph|cy|xm|xc)([2][0-3]|[2][0-3])(bt|mt|ms)\d{3})$/
     const validtionSchema = [
+      {
+        valid: regex.test(rollNumber),
+        errorMessage: 'Invalid Format for Roll Number',
+      },
       {
         valid: validator.isLength(rollNumber, {
           min: 9,
           max: 9,
         }),
-        errorMessage: 'Invalid Length Roll Number Detected',
-      },
-      {
-        valid: validator.isNumeric(rollNumber),
-        errorMessage: 'Invalid Characters Detected in Roll Number',
+        errorMessage: 'Invalid Length for Roll Number',
       },
     ]
 
@@ -47,7 +49,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
     try {
       const userWithRollNumber = await prisma.leetCodeLeaderBoard.findUnique({
-        where: { rollNumber: BigInt(rollNumber) },
+        where: { rollNumber: String(rollNumber) },
       })
       if (userWithRollNumber) {
         return res.status(400).json({
@@ -108,7 +110,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       const coder = await prisma.leetCodeLeaderBoard.create({
         data: {
           name: fullName,
-          rollNumber: BigInt(rollNumber),
+          rollNumber: String(rollNumber),
           userHandle: userHandle,
           ranking: ranking,
           stars: points,

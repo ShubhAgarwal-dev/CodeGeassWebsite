@@ -4,11 +4,10 @@ import React, { useEffect, useState } from 'react'
 import Loading from '@/components/Loading/Loading'
 import useAuth from '@/hooks/useAuth'
 import { useRouter } from 'next/navigation'
-
 import styles from './RegBlock.module.css'
-
 import { State } from '@/types/AuthContext/AuthContext.type'
 import { reg_inputs } from '@/types/Registration/RegBlock.types'
+import axios from 'axios'
 
 interface Props {
   title: string
@@ -43,7 +42,25 @@ const RegBlock = ({ title, inputs, handleChangeInput, type }: Props) => {
   const handleSubmit = (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
   ) => {
+    console.log('Sending Email')
+    const data = {
+      name: inputs.fullName,
+      email: `${inputs.rollNumber}@iitdh.ac.in`,
+      userHandle: inputs.userHandle,
+    }
+
+    axios
+      .post('/api/email/sendEmail', data)
+      .then(response => {
+        // Handle the successful response from the server
+        console.log('Server Response:', response.data)
+      })
+      .catch(error => {
+        // Handle any errors that occurred during the request
+        console.error('Error:', error)
+      })
     event.preventDefault()
+
     const url = type ? url_lt : url_cf
     registerIn(
       {

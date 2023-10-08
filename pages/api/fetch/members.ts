@@ -16,6 +16,7 @@ export default async function handler(
           name: true,
           roll_number: true,
           wing: true,
+          id: true,
         },
       })
     } catch (error) {
