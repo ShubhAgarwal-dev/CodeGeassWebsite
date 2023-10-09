@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import styles from './AppBar.module.css'
 import { useSession, signOut } from 'next-auth/react'
+import './Logout.css'
 
 export default function AppBarAdmin() {
   const { data: session } = useSession()
@@ -12,7 +13,6 @@ export default function AppBarAdmin() {
   const clickHandler = () => {
     setActive(prevActive => !prevActive)
   }
-
   const [visible, setVisible] = useState(true)
   const [previousScrollPosition, setPreviousScrollPosition] = useState(0)
   useEffect(() => {
@@ -73,7 +73,7 @@ export default function AppBarAdmin() {
               </div>
               {session && session.user && session.user.image ? (
                 <div className={styles.option} onClick={() => signOut()}>
-                  <img
+                  {/* <img
                     src={session.user.image}
                     alt='User'
                     style={{
@@ -81,7 +81,51 @@ export default function AppBarAdmin() {
                       width: '50px',
                       height: '50px',
                     }}
-                  />
+                  /> */}
+                  <button
+                    style={{
+                      content: "''",
+                      backgroundImage: `linear-gradient(
+                          45deg,
+                          #ff0000,
+                          #ff7300,
+                          #fffb00,
+                          #48ff00,
+                          #00ffd5,
+                          #002bff,
+                          #7a00ff,
+                          #ff00c8,
+                          #ff0000
+                        )`,
+                      top: '-2px',
+                      left: '-2px',
+                      backgroundSize: '400%',
+                      borderRadius: '10px',
+                      width: 'calc(100% + 4px)',
+                      height: 'calc(100% + 9px)',
+                      animation: 'glowing-button-85 20s linear infinite',
+                      transition: 'opacity 0.3s ease-in-out',
+                      zIndex: -1,
+                      border: 'none',
+                      outline: 'none',
+                    }}
+                    role='button'
+                  >
+                    <span
+                      style={{
+                        padding: '0.2em 0.8em',
+                        zIndex: '0',
+                        color: 'rgb(255, 255, 255)',
+                        backgroundColor: '#2b2b2b',
+                        position: 'relative',
+                        borderRadius: '10px',
+                        userSelect: 'none',
+                        touchAction: 'manipulation',
+                      }}
+                    >
+                      Logout
+                    </span>
+                  </button>
                 </div>
               ) : (
                 <></>
