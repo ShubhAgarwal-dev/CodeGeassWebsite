@@ -95,7 +95,7 @@
   padding: 1vh;
   border-radius: 5px;
   border: 0;
-  margin: 1vh;
+  margin-top: 1vh;
   background-color: rgb(0, 0, 0);
 }
 .blockModal > textarea {

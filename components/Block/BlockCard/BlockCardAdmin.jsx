@@ -106,13 +106,6 @@ const BlockCardAdmin = ({
                 onChange={handleInputChange}
                 placeholder={`Edit ${typeText}`}
               />
-              <textarea
-                type='text'
-                name='description'
-                value={eventData.description}
-                onChange={handleInputChange}
-                placeholder={`${typeText} Description`}
-              />
               <select
                 value={eventData.start_month}
                 onChange={handleInputChange}
@@ -144,6 +137,13 @@ const BlockCardAdmin = ({
                 value={eventData.image_url}
                 onChange={handleInputChange}
                 placeholder='Image URL'
+              />
+              <textarea
+                type='text'
+                name='description'
+                value={eventData.description}
+                onChange={handleInputChange}
+                placeholder={`${typeText} Description`}
               />
               <br />
               <button onClick={handleEdit}>Edit {typeText}</button>
