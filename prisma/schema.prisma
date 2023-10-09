@@ -136,3 +136,14 @@ model Project {
   created_at  DateTime @default(now())
   updated_at  DateTime @updatedAt
 }
+
+model Achievement {
+  id          String   @id @default(uuid())
+  title       String
+  description String
+  start_month Month
+  url         String
+  image_url   String   @default("")
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+}

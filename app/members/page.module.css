@@ -15,7 +15,7 @@
   font-weight: normal;
 }
 
-/* Adding Styles of admin/members add popup below */
+/* Styles for admin/members page here */
 .addButton {
   color: white;
   background-color: #212830;
@@ -61,6 +61,7 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 4);
   text-align: center;
   color: white;
+  border-radius: 10px;
 }
 
 .membersModal > h1 {
@@ -75,10 +76,10 @@
 .membersModal * select {
   width: 80%;
   resize: vertical;
-  padding: 1%;
+  padding: 1vh;
   border-radius: 5px;
   border: 0;
-  margin: 1%;
+  margin: 1vh;
   background-color: rgb(0, 0, 0);
 }
 
@@ -121,4 +122,20 @@
   transform: translateX(-50%);
   z-index: 101;
   font-size: larger;
+}
+
+@media (max-width: 768px) {
+  .membersModal {
+    width: 95%;
+    font-size: smaller;
+    padding: 1px 0px;
+  }
+  .membersModal * label {
+    flex-direction: row;
+    margin-top: 3px 0px;
+  }
+  .membersModal * input,
+  .membersModal * select {
+    width: 60%;
+  }
 }

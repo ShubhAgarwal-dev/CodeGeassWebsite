@@ -83,7 +83,7 @@ const BlockCardAdmin = ({
       ) : null}
       <div className={styles.blockCardWrapper}>
         <div className={styles.blockCardMain}>
-          <div className={styles.adminButtons}>
+          <div className={styles.updateButtons}>
             <button onClick={handleOpen}>Edit</button>
             <button onClick={handleDelete}>Delete</button>
             <Modal

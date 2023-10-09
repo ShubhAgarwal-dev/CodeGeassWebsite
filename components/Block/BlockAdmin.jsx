@@ -6,7 +6,12 @@ import axios from 'axios'
 import Alert from '@mui/material/Alert'
 
 const Block = ({ title, events, getEvents, type }) => {
-  const typeText = type === 'events' ? 'Event' : 'Project'
+  const typeText =
+    type === 'events'
+      ? 'Event'
+      : type === 'achievements'
+      ? 'Achievement'
+      : 'Project'
   const [open, setOpen] = useState(false)
   const [formError, setFromError] = useState('')
   const [eventData, setEventData] = useState({
@@ -75,7 +80,7 @@ const Block = ({ title, events, getEvents, type }) => {
               <h2>{title}</h2>
             </div>
           </div>
-          <button className={styles.typeButton} onClick={handleOpen}>
+          <button className={styles.addButton} onClick={handleOpen}>
             Add {typeText}
           </button>
           <Modal

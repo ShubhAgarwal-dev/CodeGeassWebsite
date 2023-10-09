@@ -169,6 +169,7 @@ for projects and events so we converted them to block */
   box-shadow: 0 0 10px rgba(0, 0, 0, 4);
   text-align: center;
   color: white;
+  border-radius: 10px;
 }
 .blockCardModal > h2 {
   font-size: larger;
@@ -183,15 +184,16 @@ for projects and events so we converted them to block */
 .blockCardModal > textarea {
   width: 80%;
   resize: vertical;
-  padding: 1%;
+  padding: 1vh;
   border-radius: 5px;
   border: 0;
-  margin: 1%;
+  margin: 1vh;
   background-color: rgb(0, 0, 0);
 }
 .blockCardModal > textarea {
   resize: vertical;
-  min-height: 70px;
+  min-height: 100px;
+  max-height: 350px;
 }
 
 .blockCardModal > button {
@@ -214,7 +216,7 @@ for projects and events so we converted them to block */
 }
 
 /* Blockcard button (edit, delete) css here*/
-.adminButtons > button {
+.updateButtons > button {
   color: white;
   background-color: black;
   border-radius: 4px;
@@ -229,7 +231,7 @@ for projects and events so we converted them to block */
     'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
-.adminButtons > button:hover {
+.updateButtons > button:hover {
   color: black;
   background: white;
   box-shadow: 2px 2px 0 0 black;
@@ -242,4 +244,13 @@ for projects and events so we converted them to block */
   transform: translateX(-50%);
   z-index: 101;
   font-size: larger;
+}
+
+@media (max-width: 768px) {
+  .blockCardModal,
+  .errorBox {
+    width: 95%;
+    font-size: smaller;
+    padding: 1px 0px;
+  }
 }
