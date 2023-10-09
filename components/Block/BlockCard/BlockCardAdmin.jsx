@@ -3,7 +3,7 @@ import Image from 'next/image'
 import styles from './BlockCard.module.css'
 import axios from 'axios'
 import Modal from 'react-modal'
-
+import Alert from '@mui/material/Alert'
 const BlockCardAdmin = ({
   leftSideImage,
   data,
@@ -37,13 +37,12 @@ const BlockCardAdmin = ({
 
   const handleClose = () => {
     setOpen(false)
+    setFromError(null)
   }
 
   const handleEdit = async () => {
     if (eventData.title.trim() == '') {
-      setFromError('Enter a valid title')
-    } else if (eventData.start_month == '') {
-      setFromError('Pick a starting Month')
+      setFromError('Title should not be empty')
     } else
       try {
         const eventId = data.id
@@ -51,7 +50,8 @@ const BlockCardAdmin = ({
         getEvents()
         handleClose()
       } catch (error) {
-        console.error('Error editing event:', error)
+        console.error('Error editing ' + typeText + ' :', error)
+        setFromError('Error editing  ' + typeText)
       }
   }
 
@@ -69,6 +69,18 @@ const BlockCardAdmin = ({
 
   return (
     <>
+      {formError ? (
+        <Alert
+          className={styles.errorBox}
+          severity='error'
+          onClose={() => {
+            setFromError(null)
+          }}
+        >
+          {JSON.stringify(formError, null, 2).replace(/"/g, '')}{' '}
+          {/* Remove double quotes */}
+        </Alert>
+      ) : null}
       <div className={styles.blockCardWrapper}>
         <div className={styles.blockCardMain}>
           <div className={styles.adminButtons}>
@@ -94,7 +106,7 @@ const BlockCardAdmin = ({
                 onChange={handleInputChange}
                 placeholder={`Edit ${typeText}`}
               />
-              <input
+              <textarea
                 type='text'
                 name='description'
                 value={eventData.description}
@@ -106,7 +118,6 @@ const BlockCardAdmin = ({
                 onChange={handleInputChange}
                 name='start_month'
               >
-                <option value=''>Select Month</option>
                 <option value='January'>January</option>
                 <option value='February'>February</option>
                 <option value='March'>March</option>
@@ -134,7 +145,7 @@ const BlockCardAdmin = ({
                 onChange={handleInputChange}
                 placeholder='Image URL'
               />
-              <h4>{formError}</h4>
+              <br />
               <button onClick={handleEdit}>Edit {typeText}</button>
               <button onClick={handleClose}>Cancel</button>
             </Modal>

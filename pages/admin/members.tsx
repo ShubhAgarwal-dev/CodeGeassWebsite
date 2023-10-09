@@ -62,23 +62,42 @@ const Page = () => {
       ...formData,
       [name]: value,
     })
+    setError(null)
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-
-    try {
-      const response = await axios.post('/api/admin/members', formData)
-      console.log(response.data)
-      fetchDataMembers()
-      fetchCpData()
-      fetchDataGameDev()
-      fetchDataFoss()
-    } catch (error: any) {
-      setError(error.response.data.error)
-      console.log('Error adding member:', error)
+    if (formData.name == '') {
+      setError('Name should not be empty')
+    } else if (formData.roll_number == '') {
+      // add regex of roll number here
+      setError('Roll Number should not be empty')
+    } else if (formData.wing === 'FOSS' && formData.github_id == '') {
+      setError('Github Id should not be empty')
+    } else if (
+      formData.wing === 'CP' &&
+      formData.codeForces_id == '' &&
+      formData.leetCode_id == ''
+    ) {
+      setError('Provide details for atleast 1 CP handle')
+    } else if (error == null) {
+      try {
+        const response = await axios.post('/api/admin/members', formData)
+        // BUG : adding FOSS members with same github id -->> members table is updated, but it should not be
+        //     : similarly for CP's codeforces and leetcode attributes
+        console.log(response.data)
+        fetchDataMembers()
+        fetchCpData()
+        fetchDataGameDev()
+        fetchDataFoss()
+        console.log('Member added successfully')
+      } catch (error: any) {
+        setError(error.response.data.error)
+        console.log('Error adding member:', error)
+      } finally {
+        handleClose()
+      }
     }
-    handleClose()
   }
 
   const fetchDataMembers = async () => {
@@ -208,13 +227,7 @@ const Page = () => {
     <>
       {error ? (
         <Alert
-          sx={{
-            position: 'absolute',
-            top: '2%',
-            left: '43%',
-            transform: 'translateY(0% ,-43%)',
-            zIndex: '100',
-          }}
+          className={styles.errorBox}
           severity='error'
           onClose={() => {
             setError(null)
@@ -235,16 +248,10 @@ const Page = () => {
             overlay: {
               zIndex: '100',
             },
-            content: {
-              backgroundColor: 'green',
-              margin: 'auto',
-              width: '70%',
-              height: '80%',
-              justifyContent: 'center',
-              alignItems: 'center',
-            },
           }}
+          className={styles.membersModal}
         >
+          <h1>Add Member</h1>
           <form onSubmit={handleSubmit}>
             <label>
               Name:
@@ -255,7 +262,7 @@ const Page = () => {
                 onChange={handleFormChange}
               />
             </label>
-            <br />
+
             <label>
               Roll Number:
               <input
@@ -265,7 +272,7 @@ const Page = () => {
                 onChange={handleFormChange}
               />
             </label>
-            <br />
+
             <label>
               Wing:
               <select
@@ -280,7 +287,7 @@ const Page = () => {
                 <option value='CYBERSECURITY'>Cyber Security</option>
               </select>
             </label>
-            <br />
+
             {formData.wing === 'FOSS' && (
               <div>
                 <label>
@@ -292,7 +299,6 @@ const Page = () => {
                     onChange={handleFormChange}
                   />
                 </label>
-                <br />
               </div>
             )}
             {formData.wing === 'GAME_DEV' && (
@@ -311,7 +317,6 @@ const Page = () => {
                     <option value='ENV_DES'>env des</option>
                   </select>
                 </label>
-                <br />
               </div>
             )}
             {formData.wing === 'CP' && (
@@ -325,7 +330,7 @@ const Page = () => {
                     onChange={handleFormChange}
                   />
                 </label>
-                <br />
+
                 <label>
                   Code Forces:
                   <input
@@ -335,11 +340,9 @@ const Page = () => {
                     onChange={handleFormChange}
                   />
                 </label>
-                <br />
               </div>
             )}
 
-            <br />
             <button type='submit'>Submit</button>
           </form>
         </Modal>
@@ -353,7 +356,7 @@ const Page = () => {
           <Tabs.Item active title='Members' icon={IoIosPeople}>
             {memArr ? (
               <>
-                <button style={{ backgroundColor: 'red' }} onClick={handleOpen}>
+                <button className={styles.addButton} onClick={handleOpen}>
                   Add Data
                 </button>
                 <InfoTable
