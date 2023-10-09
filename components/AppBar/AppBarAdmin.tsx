@@ -66,11 +66,7 @@ export default function AppBarAdmin() {
                   <div>Members</div>
                 </Link>
               </div>
-              <div className={styles.option}>
-                <Link href='/admin/register' scroll={false}>
-                  <div>Register</div>
-                </Link>
-              </div>
+
               {session && session.user && session.user.image ? (
                 <div className={styles.option} onClick={() => signOut()}>
                   {/* <img
