@@ -15,13 +15,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     }
 
     const errors: string[] = []
-    const regex =
-      /^(?:\d+|(?:cs|ee|me|ch|mc|ep|ce|is|ma|hs|bb|ph|cy|xm|xc)([2][0-3]|[2][0-3])(bt|mt|ms)\d{3})$/
+
     const validtionSchema = [
-      {
-        valid: regex.test(rollNumber),
-        errorMessage: 'Invalid Format for Roll Number',
-      },
       {
         valid: validator.isLength(rollNumber, {
           min: 9,

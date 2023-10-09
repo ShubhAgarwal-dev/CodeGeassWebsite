@@ -9,13 +9,14 @@ import { State } from '@/types/AuthContext/AuthContext.type'
 import { reg_inputs } from '@/types/Registration/RegBlock.types'
 import axios from 'axios'
 import Modal from 'react-modal'
+import data from '../../../app/achievements/data'
 
 interface Props {
   title: string
   inputs: reg_inputs
   handleChangeInput: (e: React.ChangeEvent<HTMLInputElement>) => void
   type: number // 0 for Codeforces and 1 for Leetcode
-  handleOpen: () => void
+  handleOpen: (data: any) => void
 }
 
 const RegBlock = ({
@@ -51,7 +52,15 @@ const RegBlock = ({
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
   ) => {
     event.preventDefault()
-    handleOpen()
+    const url = type ? url_lt : url_cf
+
+    handleOpen({
+      fullName: inputs.fullName,
+      rollNumber: inputs.rollNumber,
+      userHandle: inputs.userHandle,
+      url: url,
+    })
+
     console.log('Sending Email')
     // Open the modal after sending the email
     const data = {
@@ -70,20 +79,6 @@ const RegBlock = ({
         // Handle any errors that occurred during the request
         console.error('Error:', error)
       })
-
-    const url = type ? url_lt : url_cf
-    registerIn(
-      {
-        fullName: inputs.fullName,
-        rollNumber: inputs.rollNumber,
-        userHandle: inputs.userHandle,
-        url: url,
-      },
-      setAuthState,
-    )
-    if (authState.error === null) {
-      router.push('/leaderboard')
-    }
   }
 
   return (
