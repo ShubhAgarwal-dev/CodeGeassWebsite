@@ -8,15 +8,23 @@ import styles from './RegBlock.module.css'
 import { State } from '@/types/AuthContext/AuthContext.type'
 import { reg_inputs } from '@/types/Registration/RegBlock.types'
 import axios from 'axios'
+import Modal from 'react-modal'
 
 interface Props {
   title: string
   inputs: reg_inputs
   handleChangeInput: (e: React.ChangeEvent<HTMLInputElement>) => void
   type: number // 0 for Codeforces and 1 for Leetcode
+  handleOpen: () => void
 }
 
-const RegBlock = ({ title, inputs, handleChangeInput, type }: Props) => {
+const RegBlock = ({
+  title,
+  inputs,
+  handleChangeInput,
+  type,
+  handleOpen,
+}: Props) => {
   const [authState, setAuthState] = useState<State>({
     loading: false,
     data: null,
@@ -42,7 +50,10 @@ const RegBlock = ({ title, inputs, handleChangeInput, type }: Props) => {
   const handleSubmit = (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
   ) => {
+    event.preventDefault()
+    handleOpen()
     console.log('Sending Email')
+    // Open the modal after sending the email
     const data = {
       name: inputs.fullName,
       email: `${inputs.rollNumber}@iitdh.ac.in`,
@@ -59,7 +70,6 @@ const RegBlock = ({ title, inputs, handleChangeInput, type }: Props) => {
         // Handle any errors that occurred during the request
         console.error('Error:', error)
       })
-    event.preventDefault()
 
     const url = type ? url_lt : url_cf
     registerIn(

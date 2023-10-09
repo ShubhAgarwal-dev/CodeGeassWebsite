@@ -35,7 +35,7 @@ const handler = async (req, res) => {
       html: htmlTemplate,
     }
 
-    await transporter.sendMail(message)
+    // await transporter.sendMail(message)
 
     return res.status(201).json({
       msg: 'You should receive an email',
