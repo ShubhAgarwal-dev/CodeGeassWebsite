@@ -1,64 +1,48 @@
 const nodemailer = require('nodemailer')
-const Mailgen = require('mailgen')
+const ejs = require('ejs')
+const fs = require('fs')
+const path = require('path')
 
-const handler = (req, res) => {
+const handler = async (req, res) => {
   const { name, email, userHandle } = req.body
-  console.log(req.body)
 
-  let config = {
-    service: 'gmail',
-    auth: {
-      user: '210020040@iitdh.ac.in',
-      pass: process.env.EMAIL_PASSWORD,
-    },
-  }
+  try {
+    const __dirname = path.dirname(new URL(import.meta.url).pathname)
+    const templatePath = path.join(__dirname, 'emailTemplate.ejs')
+    const ejsTemplate = fs.readFileSync(templatePath, 'utf-8')
 
-  let transporter = nodemailer.createTransport(config)
-
-  let MailGenerator = new Mailgen({
-    theme: 'default',
-    product: {
-      name: 'Mailgen',
-      link: 'https://mailgen.js/',
-    },
-  })
-
-  let response = {
-    body: {
+    const templateData = {
       name: name,
-      intro: 'Your bill has arrived!',
-      table: {
-        data: [
-          {
-            item: 'Nodemailer Stack Book',
-            description: 'A Backend application',
-            price: '$10.99',
-          },
-        ],
+      email: email,
+      userHandle: userHandle,
+      otp: '1234',
+    }
+
+    const htmlTemplate = ejs.render(ejsTemplate, templateData)
+
+    let transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: '210020040@iitdh.ac.in', // Replace  Gmail address
+        pass: process.env.EMAIL_PASSWORD, // Replace  Gmail password in .env
       },
-      outro: 'Looking forward to do more business',
-    },
-  }
-
-  let mail = MailGenerator.generate(response)
-
-  let message = {
-    from: '210020040@iitdh.ac.in',
-    to: 'pjayasurya2711@gmail.com',
-    subject: 'Place Order',
-    html: mail,
-  }
-
-  transporter
-    .sendMail(message)
-    .then(() => {
-      return res.status(201).json({
-        msg: 'you should receive an email',
-      })
     })
-    .catch(error => {
-      return res.status(500).json({ error })
+
+    let message = {
+      from: '210020040@iitdh.ac.in', // change this email address
+      to: 'pjayasurya2711@gmail.com', // this also
+      subject: 'Place Order',
+      html: htmlTemplate,
+    }
+
+    await transporter.sendMail(message)
+
+    return res.status(201).json({
+      msg: 'You should receive an email',
     })
+  } catch (error) {
+    console.error(error)
+    return res.status(500).json({ error: 'Internal Server Error' })
+  }
 }
-
 export default handler

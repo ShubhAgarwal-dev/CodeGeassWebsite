@@ -1,0 +1,32 @@
+<html>
+
+<body>
+  <h1>Your bill has arrived!</h1>
+  <p>Hello <%= name %>,</p>
+  <p>Here is the details of your order:</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Email</th>
+        <th>userHandle</th>
+        <th>otp</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <%= email %>
+        </td>
+        <td>
+          <%= userHandle %>
+        </td>
+        <td>
+          <%= otp %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Looking forward to do more business</p>
+</body>
+
+</html>
