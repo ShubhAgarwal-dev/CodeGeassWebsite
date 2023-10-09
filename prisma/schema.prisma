@@ -8,13 +8,12 @@ generator client {
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
-  // directUrl = env("DIRECT_URL")S
 }
 
 model Members {
   id          String      @id @default(uuid())
   name        String
-  roll_number Int         @unique
+  roll_number String      @unique
   wing        Wing
   created_at  DateTime    @default(now())
   updated_at  DateTime    @updatedAt
@@ -27,34 +26,34 @@ model Members {
 }
 
 model Codeforces {
-  id               Int     @id @default(autoincrement())
-  handle           String  @unique
-  rating           Int
-  num_participants Int
-  member           Members @relation(fields: [member_id], references: [id])
-  member_id        String  @unique
+  id        Int     @id @default(autoincrement())
+  handle    String  @unique
+  // rating           Int
+  // num_participants Int
+  member    Members @relation(fields: [member_id], references: [id], onDelete: Cascade)
+  member_id String  @unique
 }
 
 model Leetcode {
   id        Int     @id @default(autoincrement())
   handle    String  @unique
-  rank      Int
-  solved    Int
-  member    Members @relation(fields: [member_id], references: [id])
+  // rank      Int
+  // solved    Int
+  member    Members @relation(fields: [member_id], references: [id], onDelete: Cascade)
   member_id String  @unique
 }
 
 model GameDev {
   id        Int     @id @default(autoincrement())
   role      Role
-  member    Members @relation(fields: [member_id], references: [id])
+  member    Members @relation(fields: [member_id], references: [id], onDelete: Cascade)
   member_id String  @unique
 }
 
 model FOSS {
   id           Int     @id @default(autoincrement())
   github_uname String  @unique
-  member       Members @relation(fields: [member_id], references: [id])
+  member       Members @relation(fields: [member_id], references: [id], onDelete: Cascade)
   member_id    String  @unique
 }
 
@@ -120,9 +119,9 @@ model Event {
   id          String   @id @default(uuid())
   title       String
   description String
-  start_month Month // Store the month as an enum
-  url         String // URL for event details
-  image_url   String   @default("") // URL for project image
+  start_month Month
+  url         String
+  image_url   String   @default("")
   created_at  DateTime @default(now())
   updated_at  DateTime @updatedAt
 }
@@ -131,9 +130,9 @@ model Project {
   id          String   @id @default(uuid())
   title       String
   description String
-  start_month Month // Store the start month as an enum
-  url         String // URL for project details
-  image_url   String   @default("") // URL for project image
+  start_month Month
+  url         String
+  image_url   String   @default("")
   created_at  DateTime @default(now())
   updated_at  DateTime @updatedAt
 }
