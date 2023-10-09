@@ -77,7 +77,7 @@ enum Role {
 model CodeforcesLeaderBoard {
   id              String   @id @default(uuid())
   name            String
-  rollNumber      BigInt   @unique
+  rollNumber      String   @unique
   userHandle      String   @unique
   rating          Int
   contests        Int
@@ -91,7 +91,7 @@ model CodeforcesLeaderBoard {
 model LeetCodeLeaderBoard {
   id         String   @id @default(uuid())
   name       String
-  rollNumber BigInt   @unique
+  rollNumber String   @unique
   userHandle String   @unique
   ranking    Int
   stars      Int
