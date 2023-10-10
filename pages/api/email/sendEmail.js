@@ -1,64 +1,82 @@
 const nodemailer = require('nodemailer')
-const Mailgen = require('mailgen')
+const ejs = require('ejs')
+const fs = require('fs')
+const path = require('path')
+import { random } from 'gsap'
+import prisma from './../admin/prismaClient'
 
-const handler = (req, res) => {
+const handler = async (req, res) => {
   const { name, email, userHandle } = req.body
-  console.log(req.body)
 
-  let config = {
-    service: 'gmail',
-    auth: {
-      user: '210020040@iitdh.ac.in',
-      pass: process.env.EMAIL_PASSWORD,
-    },
-  }
+  try {
+    const __dirname = path.dirname(new URL(import.meta.url).pathname)
+    const templatePath = path.join(__dirname, 'emailTemplate.ejs')
+    const ejsTemplate = fs.readFileSync(templatePath, 'utf-8')
+    const generateRandom4DigitNumber = () =>
+      Math.floor(Math.random() * 9000) + 1000
 
-  let transporter = nodemailer.createTransport(config)
+    const otp = generateRandom4DigitNumber()
 
-  let MailGenerator = new Mailgen({
-    theme: 'default',
-    product: {
-      name: 'Mailgen',
-      link: 'https://mailgen.js/',
-    },
-  })
-
-  let response = {
-    body: {
-      name: name,
-      intro: 'Your bill has arrived!',
-      table: {
-        data: [
-          {
-            item: 'Nodemailer Stack Book',
-            description: 'A Backend application',
-            price: '$10.99',
-          },
-        ],
+    const existingOtp = await prisma.otp.findUnique({
+      where: {
+        email: email,
       },
-      outro: 'Looking forward to do more business',
-    },
-  }
+    })
 
-  let mail = MailGenerator.generate(response)
-
-  let message = {
-    from: '210020040@iitdh.ac.in',
-    to: 'pjayasurya2711@gmail.com',
-    subject: 'Place Order',
-    html: mail,
-  }
-
-  transporter
-    .sendMail(message)
-    .then(() => {
-      return res.status(201).json({
-        msg: 'you should receive an email',
+    if (existingOtp) {
+      // If an OTP object with the same email exists, update its otp value.
+      await prisma.otp.update({
+        where: {
+          email: email,
+        },
+        data: {
+          otp: toString(otp),
+        },
       })
-    })
-    .catch(error => {
-      return res.status(500).json({ error })
-    })
-}
+    } else {
+      // If no OTP object with the same email exists, create a new one.
+      const createdEvent = await prisma.otp.create({
+        data: {
+          email: email,
+          otp: toString(otp),
+        },
+      })
+    }
 
+    console.log('otp created', otp)
+
+    const templateData = {
+      name: name,
+      email: email,
+      userHandle: userHandle,
+      otp: otp,
+    }
+
+    const htmlTemplate = ejs.render(ejsTemplate, templateData)
+
+    let transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: '210020040@iitdh.ac.in', // Replace  Gmail address
+        pass: process.env.EMAIL_PASSWORD, // Replace  Gmail password in .env
+      },
+    })
+
+    let message = {
+      from: '210020040@iitdh.ac.in', // change this email address
+      to: 'pjayasurya2711@gmail.com', // this also
+      subject: 'OTP for CODE GEASE',
+      html: htmlTemplate,
+    }
+
+    await transporter.sendMail(message)
+
+    return res.status(201).json({
+      msg: 'You should receive an email',
+    })
+  } catch (error) {
+    console.error(error)
+    return res.status(500).json({ error: 'Internal Server Error' })
+  }
+}
 export default handler

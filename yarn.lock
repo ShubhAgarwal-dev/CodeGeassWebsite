@@ -244,6 +244,46 @@
   resolved "https://registry.npmjs.org/@floating-ui/utils/-/utils-0.1.1.tgz"
   integrity sha512-m0G6wlnhm/AX0H12IOWtK8gASEMffnX08RtKkCgTdHb9JpHKGloI7icFfLg9ZmQeavcvR0PKmzxClyuFPSjKWw==
 
+"@fortawesome/fontawesome-common-types@6.4.2":
+  version "6.4.2"
+  resolved "https://registry.npmjs.org/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-6.4.2.tgz"
+  integrity sha512-1DgP7f+XQIJbLFCTX1V2QnxVmpLdKdzzo2k8EmvDOePfchaIGQ9eCHj2up3/jNEbZuBqel5OxiaOJf37TWauRA==
+
+"@fortawesome/fontawesome-svg-core@^6.4.2":
+  version "6.4.2"
+  resolved "https://registry.npmjs.org/@fortawesome/fontawesome-svg-core/-/fontawesome-svg-core-6.4.2.tgz"
+  integrity sha512-gjYDSKv3TrM2sLTOKBc5rH9ckje8Wrwgx1CxAPbN5N3Fm4prfi7NsJVWd1jklp7i5uSCVwhZS5qlhMXqLrpAIg==
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "6.4.2"
+
+"@fortawesome/free-brands-svg-icons@^6.4.2":
+  version "6.4.2"
+  resolved "https://registry.npmjs.org/@fortawesome/free-brands-svg-icons/-/free-brands-svg-icons-6.4.2.tgz"
+  integrity sha512-LKOwJX0I7+mR/cvvf6qIiqcERbdnY+24zgpUSouySml+5w8B4BJOx8EhDR/FTKAu06W12fmUIcv6lzPSwYKGGg==
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "6.4.2"
+
+"@fortawesome/free-regular-svg-icons@^6.4.2":
+  version "6.4.2"
+  resolved "https://registry.npmjs.org/@fortawesome/free-regular-svg-icons/-/free-regular-svg-icons-6.4.2.tgz"
+  integrity sha512-0+sIUWnkgTVVXVAPQmW4vxb9ZTHv0WstOa3rBx9iPxrrrDH6bNLsDYuwXF9b6fGm+iR7DKQvQshUH/FJm3ed9Q==
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "6.4.2"
+
+"@fortawesome/free-solid-svg-icons@^6.4.2":
+  version "6.4.2"
+  resolved "https://registry.npmjs.org/@fortawesome/free-solid-svg-icons/-/free-solid-svg-icons-6.4.2.tgz"
+  integrity sha512-sYwXurXUEQS32fZz9hVCUUv/xu49PEJEyUOsA51l6PU/qVgfbTb2glsTEaJngVVT8VqBATRIdh7XVgV1JF1LkA==
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "6.4.2"
+
+"@fortawesome/react-fontawesome@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.npmjs.org/@fortawesome/react-fontawesome/-/react-fontawesome-0.2.0.tgz"
+  integrity sha512-uHg75Rb/XORTtVt7OS9WoK8uM276Ufi7gCzshVWkUJbHhh3svsUUeqXerrM96Wm7fRiDzfKRwSoahhMIkGAYHw==
+  dependencies:
+    prop-types "^15.8.1"
+
 "@humanwhocodes/config-array@^0.11.10":
   version "0.11.10"
   resolved "https://registry.npmjs.org/@humanwhocodes/config-array/-/config-array-0.11.10.tgz"
@@ -1574,7 +1614,7 @@ ee-first@1.1.1:
   resolved "https://registry.npmjs.org/ee-first/-/ee-first-1.1.1.tgz"
   integrity sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==
 
-ejs@^3.1.6:
+ejs@^3.1.6, ejs@^3.1.9:
   version "3.1.9"
   resolved "https://registry.npmjs.org/ejs/-/ejs-3.1.9.tgz"
   integrity sha512-rC+QVNMJWv+MtPgkt0y+0rVEIdbtxVADApW9JXrUVlzHetgcyczP/E7DJmWJ4fJCZF2cPcBk0laWO9ZHMG3DmQ==

@@ -1,10 +1,10 @@
 'use client'
-
 import React from 'react'
 import Image from 'next/image'
 import classes from './Footer.module.css'
 import Link from 'next/link'
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faGithub } from '@fortawesome/free-brands-svg-icons'
 export default function Footer() {
   const date = new Date()
   const year = date.getFullYear()
@@ -34,9 +34,26 @@ export default function Footer() {
             <div className={`${classes.footerlink} ${classes.navLink}`}>
               <Link href='/leaderboard'>Leaderboard</Link>
             </div>
+            <div className={`${classes.footerlink} ${classes.navLink}`}>
+              <Link href='/events'>Events</Link>
+            </div>
+            <div className={`${classes.footerlink} ${classes.navLink}`}>
+              <Link href='/members/wanna_join'>Membership Norms</Link>
+            </div>
+            <div className={`${classes.footerlink} ${classes.navLink}`}>
+              <Link href='https://docs.google.com/document/d/1jRucEzPliQFMyHNJ87l-4Q3br8EcPv0_HPgkKTX51Vo/edit#heading=h.n2ak0bmfqkfh'>
+                FAQs
+              </Link>
+            </div>
           </div>
 
           <div className={classes.footerContactWrapper}>
+            <h6
+              className={classes.footerlink}
+              style={{ color: 'white', padding: '1rem' }}
+            >
+              Conatct Us!
+            </h6>
             <div>
               <a
                 href='mailto:coding.club@iitdh.ac.in'
@@ -58,24 +75,14 @@ export default function Footer() {
                 target='_blank'
                 className={classes.footerlink}
               >
-                <img
-                  src='https://img.icons8.com/plumpy/48/github.png'
-                  alt='github'
-                  loading='lazy'
-                  className='socialmediaicon'
-                />
+                <FontAwesomeIcon icon={faGithub} />
               </Link>
               <Link
-                href='https://www.github.com/shubhagarwal-dev/'
+                href='https://github.com/oss2019/CodeGeassWebsite'
                 target='_blank'
                 className={classes.footerlink}
               >
-                <img
-                  src='https://img.icons8.com/plumpy/48/github.png'
-                  alt='github'
-                  loading='lazy'
-                  className='socialmediaicon'
-                />
+                <FontAwesomeIcon icon={faGithub} />
               </Link>
             </div>
             <div>© Copyright - {year} Coding Club all right reserved</div>

@@ -137,6 +137,7 @@ model Project {
   updated_at  DateTime @updatedAt
 }
 
+
 model Achievement {
   id          String   @id @default(uuid())
   title       String
@@ -146,4 +147,11 @@ model Achievement {
   image_url   String   @default("")
   created_at  DateTime @default(now())
   updated_at  DateTime @updatedAt
+
+model Otp {
+  id         String   @id @default(uuid())
+  email      String   @unique
+  otp        String
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
 }
