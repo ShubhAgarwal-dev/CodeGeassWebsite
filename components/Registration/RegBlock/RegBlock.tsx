@@ -83,11 +83,11 @@ const RegBlock = ({
 
   return (
     <>
-      <div className={styles.FormHeading}>
+      {/* <div className={styles.FormHeading}>
         <div className={styles.text_block}>
           <h2>{title}</h2>
         </div>
-      </div>
+      </div> */}
       {authState.loading ? (
         <Loading />
       ) : (

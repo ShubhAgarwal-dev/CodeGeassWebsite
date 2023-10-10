@@ -3,7 +3,7 @@ import Image from 'next/image'
 import styles from './BlockCard.module.css'
 import axios from 'axios'
 import Modal from 'react-modal'
-
+import Alert from '@mui/material/Alert'
 const BlockCardAdmin = ({
   leftSideImage,
   data,
@@ -13,6 +13,7 @@ const BlockCardAdmin = ({
   typeText,
 }) => {
   const [open, setOpen] = useState(false)
+  const [formError, setFromError] = useState('')
   const [eventData, setEventData] = useState({
     title: data.title,
     description: data.description,
@@ -27,6 +28,7 @@ const BlockCardAdmin = ({
       ...prevData,
       [name]: value,
     }))
+    setFromError('')
   }
 
   const handleOpen = () => {
@@ -35,17 +37,22 @@ const BlockCardAdmin = ({
 
   const handleClose = () => {
     setOpen(false)
+    setFromError(null)
   }
 
   const handleEdit = async () => {
-    try {
-      const eventId = data.id
-      await axios.put(`/api/admin/${type}?eventId=${eventId}`, eventData)
-      getEvents()
-      handleClose()
-    } catch (error) {
-      console.error('Error editing event:', error)
-    }
+    if (eventData.title.trim() == '') {
+      setFromError('Title should not be empty')
+    } else
+      try {
+        const eventId = data.id
+        await axios.put(`/api/admin/${type}?eventId=${eventId}`, eventData)
+        getEvents()
+        handleClose()
+      } catch (error) {
+        console.error('Error editing ' + typeText + ' :', error)
+        setFromError('Error editing  ' + typeText)
+      }
   }
 
   const handleDelete = async () => {
@@ -62,18 +69,23 @@ const BlockCardAdmin = ({
 
   return (
     <>
+      {formError ? (
+        <Alert
+          className={styles.errorBox}
+          severity='error'
+          onClose={() => {
+            setFromError(null)
+          }}
+        >
+          {JSON.stringify(formError, null, 2).replace(/"/g, '')}{' '}
+          {/* Remove double quotes */}
+        </Alert>
+      ) : null}
       <div className={styles.blockCardWrapper}>
         <div className={styles.blockCardMain}>
-          <div>
-            <button onClick={handleOpen} style={{ backgroundColor: 'yellow' }}>
-              Edit
-            </button>
-            <button
-              onClick={handleDelete}
-              style={{ backgroundColor: 'yellow' }}
-            >
-              Delete
-            </button>
+          <div className={styles.updateButtons}>
+            <button onClick={handleOpen}>Edit</button>
+            <button onClick={handleDelete}>Delete</button>
             <Modal
               isOpen={open}
               onRequestClose={handleClose}
@@ -83,15 +95,8 @@ const BlockCardAdmin = ({
                 overlay: {
                   zIndex: '100',
                 },
-                content: {
-                  backgroundColor: 'green',
-                  margin: 'auto',
-                  width: '70%',
-                  height: '80%',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                },
               }}
+              className={styles.blockCardModal}
             >
               <h2>Edit {typeText}</h2>
               <input
@@ -101,19 +106,11 @@ const BlockCardAdmin = ({
                 onChange={handleInputChange}
                 placeholder={`Edit ${typeText}`}
               />
-              <input
-                type='text'
-                name='description'
-                value={eventData.description}
-                onChange={handleInputChange}
-                placeholder={`${typeText} Description`}
-              />
               <select
                 value={eventData.start_month}
                 onChange={handleInputChange}
                 name='start_month'
               >
-                <option value=''>Select Month</option>
                 <option value='January'>January</option>
                 <option value='February'>February</option>
                 <option value='March'>March</option>
@@ -141,6 +138,14 @@ const BlockCardAdmin = ({
                 onChange={handleInputChange}
                 placeholder='Image URL'
               />
+              <textarea
+                type='text'
+                name='description'
+                value={eventData.description}
+                onChange={handleInputChange}
+                placeholder={`${typeText} Description`}
+              />
+              <br />
               <button onClick={handleEdit}>Edit {typeText}</button>
               <button onClick={handleClose}>Cancel</button>
             </Modal>

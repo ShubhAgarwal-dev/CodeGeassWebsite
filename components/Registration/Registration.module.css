@@ -1,13 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Recursive&display=swap');
+
 .RegWrapper {
   position: relative;
   background-color: var(--primary-light-pastel-gray);
   overflow-x: hidden;
-  padding-top: 6rem;
+  padding-top: 10rem;
   padding-left: 1rem;
   padding-right: 1rem;
-  padding-bottom: 3rem;
+  padding-bottom: 1rem;
   background-image: url(/Events/micro_carbon.png);
-  min-height: 100vh;
+  min-height: 50vh;
 }
 
 @media (max-width: 768px) {
@@ -15,4 +17,37 @@
     padding-top: 5rem;
     padding-bottom: 1rem;
   }
+}
+
+.tabGroup > div > div {
+  padding: 0;
+  margin: 0;
+}
+.tabGroup > div > button {
+  color: black;
+  font-size: 1rem;
+  font-family: 'Recursive', sans-serif;
+  font-weight: bold;
+  padding-top: 1rem;
+}
+
+.tabGroup > div > button[aria-selected='true'] {
+  color: black;
+  background-color: white;
+  box-shadow: 4px 4px 0 0 black;
+  /* border: solid 2px black; */
+}
+
+.tabGroup > div > button[aria-selected='false'] {
+  background-color: transparent;
+  color: rgb(178, 176, 176);
+}
+
+.tabGroup > div > button:focus[aria-selected='false'] {
+  box-shadow: none;
+}
+
+.tabGroup > div > button:hover[aria-selected='false'] {
+  background-color: rgb(48, 48, 48);
+  color: rgb(255, 250, 250);
 }

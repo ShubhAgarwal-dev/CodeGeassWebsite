@@ -5,6 +5,7 @@ import RegBlock from './RegBlock/RegBlock'
 import { useState, useContext } from 'react'
 import Modal from 'react-modal'
 import styles from './Registration.module.css'
+import { Tabs } from 'flowbite-react'
 import axios from 'axios'
 import data from '../../app/achievements/data'
 import useAuth from '@/hooks/useAuth'
@@ -143,26 +144,37 @@ const Registration: NextPage<Props> = ({}) => {
       </Modal>
 
       <div
-        className={`${styles.RegWrapper} grid gap-flow-col grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1`}
+        className={`${styles.RegWrapper} grid gap-0 grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1`}
       >
-        <div>
-          <RegBlock
-            title='Codeforces'
-            inputs={inputs_cf}
-            handleChangeInput={handleChangeInput_cf}
-            handleOpen={handleOpen}
-            type={0}
-          />
-        </div>
-        <div>
-          <RegBlock
-            title='LeetCode'
-            inputs={inputs_lt}
-            handleChangeInput={handleChangeInput_lt}
-            handleOpen={handleOpen}
-            type={1}
-          />
-        </div>
+        <Tabs.Group
+          aria-label='Pills'
+          style='default'
+          className={
+            styles.tabGroup +
+            ' text-center justify-center text-sm border-b-0 my-0 gap-y-0 gap-x-0.5 py-0'
+          }
+        >
+          <Tabs.Item active title='Codeforces'>
+            <div>
+              <RegBlock
+                title='Codeforces'
+                inputs={inputs_cf}
+                handleChangeInput={handleChangeInput_cf}
+                type={0}
+              />
+            </div>
+          </Tabs.Item>
+          <Tabs.Item title='LeetCode'>
+            <div>
+              <RegBlock
+                title='LeetCode'
+                inputs={inputs_lt}
+                handleChangeInput={handleChangeInput_lt}
+                type={1}
+              />
+            </div>
+          </Tabs.Item>
+        </Tabs.Group>
       </div>
     </>
   )
