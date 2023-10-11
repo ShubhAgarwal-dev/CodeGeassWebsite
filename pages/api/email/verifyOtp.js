@@ -4,15 +4,18 @@ const handler = async (req, res) => {
   if (req.method === 'POST') {
     const { userOtp, email } = req.body
     console.log('userOtp', userOtp)
+
     try {
-      const otp = await prisma.otp.findMany({
+      const otp = await prisma.otp.findFirst({
         where: {
           email: email,
-          otp: toString(userOtp),
+          otp: userOtp.toString(),
         },
       })
 
-      if (otp.length > 0) {
+      console.log('otp', otp)
+
+      if (otp) {
         // OTP matched
         console.log(otp)
         console.log(

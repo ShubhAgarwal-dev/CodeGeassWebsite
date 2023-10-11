@@ -72,9 +72,24 @@ const Registration: NextPage<Props> = ({}) => {
   const handleClose = () => {
     setOpen(false)
   }
-  const handleResendOTP = () => {
-    // Handle OTP resend logic here
-  }
+  // const handleResendOTP = () => {
+  //   const data = {
+  //     name: formdata.fullName,
+  //     email: `${formdata.rollNumber}@iitdh.ac.in`,
+  //     userHandle: formdata.userHandle,
+  //   }
+
+  //   axios
+  //     .post('/api/email/sendEmail', data)
+  //     .then(response => {
+  //       // Handle the successful response from the server
+  //       console.log('Server Response:', response.data)
+  //     })
+  //     .catch(error => {
+  //       // Handle any errors that occurred during the request
+  //       console.error('Error:', error)
+  //     })
+  // }
 
   const handleSubmitOTP = () => {
     axios
@@ -139,7 +154,7 @@ const Registration: NextPage<Props> = ({}) => {
             maxLength={4}
           />
           <button onClick={handleSubmitOTP}>Submit</button>
-          <button onClick={handleResendOTP}>Resend OTP</button>
+          {/* <button onClick={handleResendOTP}>Resend OTP</button> */}
         </div>
       </Modal>
 
@@ -160,6 +175,7 @@ const Registration: NextPage<Props> = ({}) => {
                 title='Codeforces'
                 inputs={inputs_cf}
                 handleChangeInput={handleChangeInput_cf}
+                handleOpen={handleOpen}
                 type={0}
               />
             </div>
@@ -170,6 +186,7 @@ const Registration: NextPage<Props> = ({}) => {
                 title='LeetCode'
                 inputs={inputs_lt}
                 handleChangeInput={handleChangeInput_lt}
+                handleOpen={handleOpen}
                 type={1}
               />
             </div>
