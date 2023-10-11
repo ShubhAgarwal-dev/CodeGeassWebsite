@@ -30,7 +30,7 @@ const handler = async (req, res) => {
           email: email,
         },
         data: {
-          otp: toString(otp),
+          otp: otp.toString(), // Corrected this line
         },
       })
     } else {
@@ -38,7 +38,7 @@ const handler = async (req, res) => {
       const createdEvent = await prisma.otp.create({
         data: {
           email: email,
-          otp: toString(otp),
+          otp: otp.toString(), // Corrected this line
         },
       })
     }

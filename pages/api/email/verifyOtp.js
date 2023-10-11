@@ -9,18 +9,18 @@ const handler = async (req, res) => {
       const otp = await prisma.otp.findFirst({
         where: {
           email: email,
-          otp: userOtp.toString(),
         },
       })
 
-      console.log('otp', otp)
+      console.log('otp', otp.otp)
+      console.log(
+        '-------------------- ------------------- ------------------------------------------------',
+      )
 
-      if (otp) {
+      if (otp.otp === userOtp) {
         // OTP matched
         console.log(otp)
-        console.log(
-          '-------------------- ------------------- ------------------------------------------------',
-        )
+
         res.status(200).json({ msg: 'OTP verified' })
       } else {
         // OTP did not match
