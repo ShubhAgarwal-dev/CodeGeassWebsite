@@ -4,7 +4,7 @@ import Image from 'next/image'
 import classes from './Footer.module.css'
 import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faGithub } from '@fortawesome/free-brands-svg-icons'
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 export default function Footer() {
   const date = new Date()
   const year = date.getFullYear()
@@ -70,6 +70,13 @@ export default function Footer() {
           </div>
           <div className={classes.rightFooterWrapper}>
             <div className={classes.footerIconsWrapper}>
+              <Link
+                href='https://in.linkedin.com/company/coding-club-iit-dharwad'
+                target='_blank'
+                className={classes.footerlink}
+              >
+                <FontAwesomeIcon icon={faLinkedin} />
+              </Link>
               <Link
                 href='https://www.github.com/oss2019/'
                 target='_blank'
