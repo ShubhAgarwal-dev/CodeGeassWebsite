@@ -14,7 +14,7 @@ datasource db {
 model Members {
   id          String      @id @default(uuid())
   name        String
-  roll_number Int         @unique
+  roll_number String      @unique
   wing        Wing
   created_at  DateTime    @default(now())
   updated_at  DateTime    @updatedAt

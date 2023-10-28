@@ -14,7 +14,7 @@
     "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
   },
   "dependencies": {
-    "@prisma/client": "4.15.0",
+    "@prisma/client": "^5.1.1",
     "@types/node": "^20.3.1",
     "@types/react": "18.2.7",
     "@types/react-dom": "18.2.4",
@@ -32,7 +32,7 @@
     "next-auth": "^4.23.0",
     "postcss": "8.4.24",
     "prettier": "2.8.8",
-    "prisma": "^4.15.0",
+    "prisma": "^5.1.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.10.1",
