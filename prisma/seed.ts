@@ -4,10 +4,10 @@ const prisma = new PrismaClient()
 
 async function main() {
   const shubh = await prisma.members.upsert({
-    where: { roll_number: 210020047 },
+    where: { roll_number: '210020047' },
     update: {},
     create: {
-      roll_number: 210020047,
+      roll_number: '210020047',
       name: 'Shubh Agarwal',
       wing: 'FOSS',
       leetcode: {
@@ -26,11 +26,11 @@ async function main() {
   })
 
   const saksham = await prisma.members.upsert({
-    where: { roll_number: 210010046 },
+    where: { roll_number: '210010046' },
     update: {},
     create: {
       name: 'Saksham Chhimwal',
-      roll_number: 210010046,
+      roll_number: '210010046',
       wing: 'FOSS',
       codeforces: {
         create: {
@@ -43,11 +43,11 @@ async function main() {
   })
 
   const ayush = await prisma.members.upsert({
-    where: { roll_number: 210020048 },
+    where: { roll_number: '210020048' },
     update: {},
     create: {
       name: 'Ayush Singhi',
-      roll_number: 210020048,
+      roll_number: '210020048',
       wing: 'GAME_DEV',
       game_dev: {
         create: {

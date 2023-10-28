@@ -92,6 +92,12 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       })
     }
 
+    if (num_contest === 0) {
+      return res.status(400).json({
+        errorMessage: 'Number of contests given are nill',
+      })
+    }
+
     try {
       const coder = await prisma.codeforcesLeaderBoard.create({
         data: {
