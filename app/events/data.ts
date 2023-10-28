@@ -17,7 +17,7 @@ const data: blocksData = [
       'Unleash your algorithmic prowess, crafting a symphony from integers. Witness the mesmerizing rise of numbers, powered by bitwise sorcery. Seek the harmonies that transcend ordinariness, forging an ascending masterpiece. Dare you compose the ultimate melody, or chase the enigmatic crescendo? Enter the realm of Bitwise Symphony!.',
     knowMoreLink:
       'https://drive.google.com/file/d/1oYef04uoGGo2glUbUzRyPpaeH74GXIer/view?usp=sharing',
-    image: '/Events/pics/IMAGE_CODING_CLUB_01.jpg',
+    image: '/Events/pics/sar.png',
   },
 ]
 

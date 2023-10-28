@@ -1,5 +1,6 @@
 import axios from 'axios'
 import AuthState, { State } from '@/types/AuthContext/AuthContext.type'
+import data from '@/app/events/data'
 
 const useAuth = () => {
   const registerIn = async (
@@ -33,12 +34,21 @@ const useAuth = () => {
         error: null,
         loading: false,
       })
+      // console.log(res)
+      if (res.status === 400) {
+        setAuthState({
+          data: null,
+          loading: false,
+          error: 'Something is wrong with userHandle or rollNumber',
+        })
+      }
     } catch (error: any) {
       setAuthState({
         data: null,
         error: error.res.data.errorMessage,
         loading: false,
       })
+      console.log(error)
     }
   }
 
