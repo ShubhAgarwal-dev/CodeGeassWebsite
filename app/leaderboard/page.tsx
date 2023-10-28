@@ -104,6 +104,7 @@ const Page = async () => {
                 headings={headings_lt}
                 row_data={arrLt}
                 table_heading='Leetcode'
+                setRowData={null}
               />
             ) : (
               <Loading />
@@ -115,6 +116,7 @@ const Page = async () => {
                 headings={headings_cf}
                 row_data={arrCf}
                 table_heading='Codeforces'
+                setRowData={null}
               />
             ) : (
               <Loading />

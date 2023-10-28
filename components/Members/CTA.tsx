@@ -139,16 +139,16 @@ const CTA = () => {
                     established for each batch year. For{' '}
                     <span className='font-semibold'>2024</span> batch students,
                     the minimum contest rating requirement is set at{' '}
-                    <span className='font-semibold'>1700</span>. Similarly, for{' '}
+                    <span className='font-semibold'>1850</span>. Similarly, for{' '}
                     <span className='font-semibold'>2025</span> batch students,
                     the minimum contest rating is{' '}
-                    <span className='font-semibold'>1600</span>. For{' '}
+                    <span className='font-semibold'>1750</span>. For{' '}
                     <span className='font-semibold'>2026</span> batch students,
                     the minimum contest rating is{' '}
-                    <span className='font-semibold'>1500</span>, and for{' '}
+                    <span className='font-semibold'>1675</span>, and for{' '}
                     <span className='font-semibold'>2027</span> batch students,
                     the minimum contest rating requirement is set at{' '}
-                    <span className='font-semibold'>1400</span>. These ratings
+                    <span className='font-semibold'>1600</span>. These ratings
                     serve as benchmarks to assess your performance and
                     competence in LeetCode contests, ensuring a competitive and
                     balanced membership within the club.
