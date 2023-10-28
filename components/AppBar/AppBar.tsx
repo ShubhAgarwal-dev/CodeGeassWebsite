@@ -50,9 +50,9 @@ export default function AppBar() {
               } font-sans`}
             >
               <div className={styles.option}>
-                <Link href='/' scroll={false}>
+                {/* <Link href='/' scroll={false}>
                   <div>Home</div>
-                </Link>
+                </Link> */}
               </div>
               <div className={styles.option}>
                 <Link href='/events' scroll={false}>

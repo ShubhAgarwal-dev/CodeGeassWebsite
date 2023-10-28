@@ -22,12 +22,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
           min: 9,
           max: 9,
         }),
-        errorMessage: 'Invalid Length Roll Number Detected',
+        errorMessage: 'Invalid Length for Roll Number',
       },
-      // {
-      //   valid: validator.isNumeric(rollNumber),
-      //   errorMessage: 'Invalid Characters Detected in Roll Number',
-      // },
     ]
 
     validtionSchema.forEach(check => {

@@ -31,7 +31,14 @@
     "components/Hero/Hero.tsx",
     "components/Block/BlockCard/BlockCard.jsx",
     "components/Block/Block.tsx",
-    "pages/_app.js"
+    "pages/_app.js",
+    "pages/admin/events.jsx",
+    "components/Block/BlockAdmin.jsx",
+    "components/Block/BlockCard/BlockCardAdmin.jsx",
+    "app/events/page.jsx",
+    "app/layout.jsx",
+    "pages/admin/projects.jsx",
+    "pages/admin/members.tsx"
   ],
   "exclude": [
     "node_modules",

@@ -1,17 +1,14 @@
 'use client'
 
+import React, { useState, useRef, useEffect } from 'react'
 import { Tabs, type TabsRef } from 'flowbite-react'
 import Loading from '@/components/Loading/Loading'
 import InfoTable from '@/components/Table/InfoTable'
-import React, { useState, useRef, useEffect } from 'react'
-
 import styles from './page.module.css'
-
 import { FOSS } from '@/types/Members/foss.types'
 import { CP } from '@/types/Members/cp.types'
 import { GD } from '@/types/Members/gd.types'
 import { members } from '@/types/Members/members.types'
-
 import { SiBmcsoftware, SiCodeforces } from 'react-icons/si'
 import { IoGameController } from 'react-icons/io5'
 import { IoIosPeople } from 'react-icons/io'
@@ -19,9 +16,8 @@ import { IoIosPeople } from 'react-icons/io'
 import Header from '@/components/Members/Header'
 
 const MEMBERS_REVALIDATION_TIME = 60 * 60 * 12
-// Keep this very high in the deployed version
 
-const Page = async () => {
+const Page = () => {
   const [memArr, setMemArr] = useState<string[][]>([[]])
   const [cpArr, setCpArr] = useState<string[][]>([[]])
   const [gdArr, setGdArr] = useState<string[][]>([[]])
@@ -192,12 +188,12 @@ const Page = async () => {
               <Loading />
             )}
           </Tabs.Item>
-          <Tabs.Item title='Competetive Programming' icon={SiCodeforces}>
+          <Tabs.Item title='Competitive Programming' icon={SiCodeforces}>
             {cpArr ? (
               <InfoTable
                 headings={headings_cp}
                 row_data={cpArr}
-                table_heading='Competetive Programming'
+                table_heading='Competitive Programming'
               />
             ) : (
               <Loading />

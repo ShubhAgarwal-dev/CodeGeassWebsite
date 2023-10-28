@@ -1,23 +1,25 @@
 import { useSession, signIn, signOut } from 'next-auth/react'
 
+import styles from './login.module.css'
+
 const login = () => {
   const { data: session, status } = useSession()
 
-  if (session) {
-    return (
-      <>
-        Signed in as {session.user.email} <br />
-        <button onClick={() => signOut()}>Sign out</button>
-      </>
-    )
-  } else {
-    return (
-      <>
-        Not signed in <br />
-        <button onClick={() => signIn()}>Sign In</button>
-      </>
-    )
+  const signFunc = () => {
+    if (session) signOut.apply()
+    else signIn.apply()
   }
+
+  return (
+    <>
+      <div className={styles.loginWrapper}>
+        <p>
+          {session ? 'Signed in as ' + session.user.email : 'Not signed in'}
+        </p>
+        <button onClick={signFunc}>{session ? 'signOut' : 'signIn'}</button>
+      </div>
+    </>
+  )
 }
 
 export default login

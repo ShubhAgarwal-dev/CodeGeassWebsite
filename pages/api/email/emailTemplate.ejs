@@ -1,0 +1,582 @@
+<!-- <html>
+
+<body>
+  <h1>Your bill has arrived!</h1>
+  <p>Hello <%= name %>,</p>
+  <p>Here is the details of your order:</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Email</th>
+        <th>userHandle</th>
+        <th>otp</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <%= email %>
+        </td>
+        <td>
+          <%= userHandle %>
+        </td>
+        <td>
+          <%= otp %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Looking forward to do more business</p>
+</body>
+
+</html> -->
+
+<html>
+
+<!-- <head>
+
+  <style>
+    body {
+      visibility: hidden;
+    }
+  </style>
+
+  <script async src="https://cdn.ampproject.org/v0.js"></script>
+
+  <style>
+    .u-row {
+      display: flex;
+      flex-wrap: nowrap;
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .u-row .u-col {
+      position: relative;
+      width: 100%;
+      padding-right: 0;
+      padding-left: 0;
+    }
+
+    .u-row .u-col.u-col-100 {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+
+    @media (max-width: 767px) {
+      .u-row:not(.no-stack) {
+        flex-wrap: wrap;
+      }
+
+      .u-row:not(.no-stack) .u-col {
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    table,
+    tr,
+    td {
+      vertical-align: top;
+      border-collapse: collapse;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    .ie-container table,
+    .mso-container table {
+      table-layout: fixed;
+    }
+
+    * {
+      line-height: inherit;
+    }
+
+    table,
+    td {
+      color: #000000;
+    }
+
+    #u_body a {
+      color: #0000ee;
+      text-decoration: underline;
+    }
+  </style>
+</head> -->
+
+<body class="clean-body u_body" style="margin: 0; padding: 0; background-color: #f9f9f9; color: #000000">
+  <table id="u_body" style="
+        border-collapse: collapse;
+        table-layout: fixed;
+        border-spacing: 0;
+        vertical-align: top;
+        min-width: 320px;
+        margin: 0 auto;
+        background-color: #f9f9f9;
+        width: 100%;
+      " cellpadding="0" cellspacing="0">
+    <tbody>
+      <tr style="vertical-align: top">
+        <td style="
+              word-break: break-word;
+              border-collapse: collapse;
+              vertical-align: top;
+            ">
+          <div style="padding: 0px">
+            <div style="
+                  max-width: 600px;
+                  margin: 0 auto;
+                  background-color: #ffffff;
+                ">
+              <div class="u-row">
+                <div class="u-col u-col-100" style="
+                      display: flex;
+                      border-top: 0px solid transparent;
+                      border-left: 0px solid transparent;
+                      border-right: 0px solid transparent;
+                      border-bottom: 0px solid transparent;
+                    ">
+                  <div style="width: 100%; padding: 0px">
+                    <table style="font-family: 'Cabin', sans-serif" role="presentation" cellpadding="0" cellspacing="0"
+                      width="100%" border="0">
+                      <tbody>
+                        <tr>
+                          <td style="
+                                overflow-wrap: break-word;
+                                word-break: break-word;
+                                padding: 20px;
+                                font-family: 'Cabin', sans-serif;
+                              " align="left">
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                              <tr>
+                                <td style="
+                                      padding-right: 0px;
+                                      padding-left: 0px;
+                                    " align="center">
+                                  <amp-img alt="Image"
+                                    src="https://codingclub.iitdh.ac.in/_next/image?url=%2FLogo4xWithoutFade.png&w=256&q=75"
+                                    width="256" height="256" layout="intrinsic" style="width: 32%; max-width: 32%">
+                                  </amp-img>
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="padding: 0px">
+            <div style="
+                  max-width: 600px;
+                  margin: 0 auto;
+                  background-color: #003399;
+                ">
+              <div class="u-row">
+                <div class="u-col u-col-100" style="
+                      display: flex;
+                      background-color: #000000;
+                      border-top: 0px solid transparent;
+                      border-left: 0px solid transparent;
+                      border-right: 0px solid transparent;
+                      border-bottom: 0px solid transparent;
+                    ">
+                  <div style="width: 100%; padding: 0px">
+                    <table style="font-family: 'Cabin', sans-serif" role="presentation" cellpadding="0" cellspacing="0"
+                      width="100%" border="0">
+                      <tbody>
+                        <tr>
+                          <td style="
+                                overflow-wrap: break-word;
+                                word-break: break-word;
+                                padding: 40px 10px 10px;
+                                font-family: 'Cabin', sans-serif;
+                              " align="left">
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                              <tr>
+                                <td style="
+                                      padding-right: 0px;
+                                      padding-left: 0px;
+                                    " align="center">
+                                  <amp-img alt="Image"
+                                    src="https://cdn.templates.unlayer.com/assets/1597218650916-xxxxc.png" width="335"
+                                    height="93" layout="intrinsic" style="width: 26%; max-width: 26%">
+                                  </amp-img>
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <table style="font-family: 'Cabin', sans-serif" role="presentation" cellpadding="0" cellspacing="0"
+                      width="100%" border="0">
+                      <tbody>
+                        <tr>
+                          <td style="
+                                overflow-wrap: break-word;
+                                word-break: break-word;
+                                padding: 10px;
+                                font-family: 'Cabin', sans-serif;
+                              " align="left">
+                            <div style="
+                                  font-size: 14px;
+                                  color: #e5eaf5;
+                                  line-height: 140%;
+                                  text-align: center;
+                                  word-wrap: break-word;
+                                ">
+                              <p style="font-size: 14px; line-height: 140%">
+                                <strong>T H A N K S&nbsp; &nbsp;F O R&nbsp; &nbsp;
+                                  S H O W I N G &nbsp; I N T R E S T !</strong>
+                              </p>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <table style="font-family: 'Cabin', sans-serif" role="presentation" cellpadding="0" cellspacing="0"
+                      width="100%" border="0">
+                      <tbody>
+                        <tr>
+                          <td style="
+                                overflow-wrap: break-word;
+                                word-break: break-word;
+                                padding: 0px 10px 31px;
+                                font-family: 'Cabin', sans-serif;
+                              " align="left">
+                            <div style="
+                                  font-size: 14px;
+                                  color: #e5eaf5;
+                                  line-height: 140%;
+                                  text-align: center;
+                                  word-wrap: break-word;
+                                ">
+                              <p style="font-size: 14px; line-height: 140%">
+                                <span style="font-size: 28px; line-height: 39.2px"><strong><span style="
+                                          line-height: 39.2px;
+                                          font-size: 14px;
+                                        ">
+                                      <%= email %>
+                                    </span></strong></span>
+                              </p>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="padding: 0px">
+            <div style="
+                  max-width: 600px;
+                  margin: 0 auto;
+                  background-color: #ffffff;
+                ">
+              <div class="u-row">
+                <div class="u-col u-col-100" style="
+                      display: flex;
+                      border-top: 0px solid transparent;
+                      border-left: 0px solid transparent;
+                      border-right: 0px solid transparent;
+                      border-bottom: 0px solid transparent;
+                    ">
+                  <div style="width: 100%; padding: 0px">
+                    <table style="font-family: 'Cabin', sans-serif" role="presentation" cellpadding="0" cellspacing="0"
+                      width="100%" border="0">
+                      <tbody>
+                        <tr>
+                          <td style="
+                                overflow-wrap: break-word;
+                                word-break: break-word;
+                                padding: 33px 55px;
+                                font-family: 'Cabin', sans-serif;
+                              " align="left">
+                            <div style="
+                                  font-size: 14px;
+                                  line-height: 160%;
+                                  text-align: center;
+                                  word-wrap: break-word;
+                                ">
+                              <p style="font-size: 14px; line-height: 160%">
+                                <span style="font-size: 22px; line-height: 35.2px">Hi <%= name %>,
+                                </span>
+                              </p>
+                              <p style="font-size: 14px; line-height: 160%">
+                                <span style="font-size: 18px; line-height: 28.8px">You're almost ready to get started.
+                                  To
+                                  verify your userHandle <%= userHandle>, you
+                                    need to verify your email. Here is the
+                                    verification code&nbsp; below to verify your
+                                    email address.</span>
+                              </p>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <table style="font-family: 'Cabin', sans-serif" role="presentation" cellpadding="0" cellspacing="0"
+                      width="100%" border="0">
+                      <tbody>
+                        <tr>
+                          <td style="
+                                overflow-wrap: break-word;
+                                word-break: break-word;
+                                padding: 10px;
+                                font-family: 'Cabin', sans-serif;
+                              " align="left">
+                            <div align="center">
+                              <a target="_blank" class="v-button" style="
+                                    box-sizing: border-box;
+                                    display: inline-block;
+                                    text-decoration: none;
+                                    text-align: center;
+                                    color: #ffffff;
+                                    background-color: #000000;
+                                    border-radius: 4px;
+                                    width: auto;
+                                    max-width: 100%;
+                                    overflow-wrap: break-word;
+                                    word-break: break-word;
+                                    word-wrap: break-word;
+                                    font-size: 14px;
+                                  ">
+                                <span style="
+                                      display: block;
+                                      padding: 14px 44px 13px;
+                                      line-height: 120%;
+                                    ">
+                                  <%= otp %>
+                                </span>
+                              </a>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <table style="font-family: 'Cabin', sans-serif" role="presentation" cellpadding="0" cellspacing="0"
+                      width="100%" border="0">
+                      <tbody>
+                        <tr>
+                          <td style="
+                                overflow-wrap: break-word;
+                                word-break: break-word;
+                                padding: 33px 55px 60px;
+                                font-family: 'Cabin', sans-serif;
+                              " align="left">
+                            <div style="
+                                  font-size: 14px;
+                                  line-height: 160%;
+                                  text-align: center;
+                                  word-wrap: break-word;
+                                ">
+                              <p style="line-height: 160%; font-size: 14px">
+                                <span style="font-size: 18px; line-height: 28.8px">Thanks,</span>
+                              </p>
+                              <p style="line-height: 160%; font-size: 14px">
+                                <span style="font-size: 18px; line-height: 28.8px">CodeGease,</span><span
+                                  style="font-size: 18px; line-height: 28.8px"></span>
+                              </p>
+                              <p style="line-height: 160%; font-size: 14px">
+                                <span style="font-size: 18px; line-height: 28.8px">Coding Club, IITDh</span>
+                              </p>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="padding: 0px">
+            <div style="
+                  max-width: 600px;
+                  margin: 0 auto;
+                  background-color: #000000;
+                ">
+              <div class="u-row">
+                <div class="u-col u-col-100" style="
+                      display: flex;
+                      background-color: #000000;
+                      border-top: 0px solid transparent;
+                      border-left: 0px solid transparent;
+                      border-right: 0px solid transparent;
+                      border-bottom: 0px solid transparent;
+                    ">
+                  <div style="width: 100%; padding: 0px">
+                    <table style="font-family: 'Cabin', sans-serif" role="presentation" cellpadding="0" cellspacing="0"
+                      width="100%" border="0">
+                      <tbody>
+                        <tr>
+                          <td style="
+                                overflow-wrap: break-word;
+                                word-break: break-word;
+                                padding: 41px 55px 18px;
+                                font-family: 'Cabin', sans-serif;
+                              " align="left">
+                            <div style="
+                                  font-size: 14px;
+                                  color: #ffffff;
+                                  line-height: 160%;
+                                  text-align: center;
+                                  word-wrap: break-word;
+                                ">
+                              <p style="line-height: 160%">
+                                <span style="font-size: 20px; line-height: 32px"><strong>Contact Us!</strong></span>
+                              </p>
+                              <p style="font-size: 14px; line-height: 160%">
+                                <span style="line-height: 22.4px"><span style="
+                                        color: #ffffff;
+                                        line-height: 22.4px;
+                                      "><a style="
+                                          color: #ffffff;
+                                          text-decoration: underline;
+                                        " target="_blank" href="oss@iitdh.ac.in"
+                                      rel="noopener">oss@iitdh.ac.in</a></span></span>
+                              </p>
+                              <p style="font-size: 14px; line-height: 160%">
+                                <span style="
+                                      text-decoration: underline;
+                                      line-height: 22.4px;
+                                    "><a target="_blank" href="https://coding.club@iitdh.ac.in" rel="noopener"><span
+                                      style="
+                                          font-size: 16px;
+                                          line-height: 25.6px;
+                                          color: #ffffff;
+                                          text-decoration: underline;
+                                        ">coding.club@iitdh.ac.in</span></a></span>
+                              </p>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <table style="font-family: 'Cabin', sans-serif" role="presentation" cellpadding="0" cellspacing="0"
+                      width="100%" border="0">
+                      <tbody>
+                        <tr>
+                          <td style="
+                                overflow-wrap: break-word;
+                                word-break: break-word;
+                                padding: 10px 10px 33px;
+                                font-family: 'Cabin', sans-serif;
+                              " align="left">
+                            <div style="text-align: center; line-height: 0px">
+                              <a href="coding.club@iitdh.ac.in" target="_blank" style="
+                                    display: inline-block;
+                                    width: 32px;
+                                    height: 32px;
+                                    margin-right: 17px;
+                                  "><amp-img src="https://cdn.tools.unlayer.com/social/icons/circle-black/email.png"
+                                  width="32" height="32" /></a><a href="https://github.com/oss2019/" target="_blank"
+                                style="
+                                    display: inline-block;
+                                    width: 32px;
+                                    height: 32px;
+                                    margin-right: 17px;
+                                  "><amp-img src="https://cdn.tools.unlayer.com/social/icons/circle-black/github.png"
+                                  width="32" height="32" /></a><a
+                                href="https://in.linkedin.com/company/coding-club-iit-dharwad" target="_blank" style="
+                                    display: inline-block;
+                                    width: 32px;
+                                    height: 32px;
+                                    margin-right: 17px;
+                                  "><amp-img src="https://cdn.tools.unlayer.com/social/icons/circle-black/linkedin.png"
+                                  width="32" height="32" /></a><a
+                                href="https://www.instagram.com/technical.council_iitdh/" target="_blank" style="
+                                    display: inline-block;
+                                    width: 32px;
+                                    height: 32px;
+                                    margin-right: 0px;
+                                  "><amp-img
+                                  src="https://cdn.tools.unlayer.com/social/icons/circle-black/instagram.png" width="32"
+                                  height="32" /></a>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="padding: 0px">
+            <div style="
+                  max-width: 600px;
+                  margin: 0 auto;
+                  background-color: #003399;
+                ">
+              <div class="u-row">
+                <div class="u-col u-col-100" style="
+                      display: flex;
+                      background-color: #000000;
+                      border-top: 0px solid transparent;
+                      border-left: 0px solid transparent;
+                      border-right: 0px solid transparent;
+                      border-bottom: 0px solid transparent;
+                    ">
+                  <div style="width: 100%; padding: 0px">
+                    <table style="font-family: 'Cabin', sans-serif" role="presentation" cellpadding="0" cellspacing="0"
+                      width="100%" border="0">
+                      <tbody>
+                        <tr>
+                          <td style="
+                                overflow-wrap: break-word;
+                                word-break: break-word;
+                                padding: 10px;
+                                font-family: 'Cabin', sans-serif;
+                              " align="left">
+                            <div style="
+                                  font-size: 14px;
+                                  color: #fafafa;
+                                  line-height: 180%;
+                                  text-align: center;
+                                  word-wrap: break-word;
+                                ">
+                              <p style="font-size: 14px; line-height: 180%">
+                                <span style="font-size: 16px; line-height: 28.8px">Copyrights © Coding Club all right
+                                  reserved
+                                </span>
+                              </p>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+
+</html>

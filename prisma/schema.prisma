@@ -8,7 +8,6 @@ generator client {
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
-  // directUrl = env("DIRECT_URL")S
 }
 
 model Members {
@@ -27,34 +26,34 @@ model Members {
 }
 
 model Codeforces {
-  id               Int     @id @default(autoincrement())
-  handle           String  @unique
-  rating           Int
-  num_participants Int
-  member           Members @relation(fields: [member_id], references: [id])
-  member_id        String  @unique
+  id        Int     @id @default(autoincrement())
+  handle    String  @unique
+  // rating           Int
+  // num_participants Int
+  member    Members @relation(fields: [member_id], references: [id], onDelete: Cascade)
+  member_id String  @unique
 }
 
 model Leetcode {
   id        Int     @id @default(autoincrement())
   handle    String  @unique
-  rank      Int
-  solved    Int
-  member    Members @relation(fields: [member_id], references: [id])
+  // rank      Int
+  // solved    Int
+  member    Members @relation(fields: [member_id], references: [id], onDelete: Cascade)
   member_id String  @unique
 }
 
 model GameDev {
   id        Int     @id @default(autoincrement())
   role      Role
-  member    Members @relation(fields: [member_id], references: [id])
+  member    Members @relation(fields: [member_id], references: [id], onDelete: Cascade)
   member_id String  @unique
 }
 
 model FOSS {
   id           Int     @id @default(autoincrement())
   github_uname String  @unique
-  member       Members @relation(fields: [member_id], references: [id])
+  member       Members @relation(fields: [member_id], references: [id], onDelete: Cascade)
   member_id    String  @unique
 }
 
@@ -99,4 +98,60 @@ model LeetCodeLeaderBoard {
   updated_at DateTime @updatedAt
 
   @@index([rollNumber])
+}
+
+enum Month {
+  January
+  February
+  March
+  April
+  May
+  June
+  July
+  August
+  September
+  October
+  November
+  December
+}
+
+model Event {
+  id          String   @id @default(uuid())
+  title       String
+  description String
+  start_month Month
+  url         String
+  image_url   String   @default("")
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+}
+
+model Project {
+  id          String   @id @default(uuid())
+  title       String
+  description String
+  start_month Month
+  url         String
+  image_url   String   @default("")
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+}
+
+model Achievement {
+  id          String   @id @default(uuid())
+  title       String
+  description String
+  start_month Month
+  url         String
+  image_url   String   @default("")
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+}
+
+model Otp {
+  id         String   @id @default(uuid())
+  email      String   @unique
+  otp        String
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
 }

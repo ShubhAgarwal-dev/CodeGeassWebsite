@@ -4,9 +4,137 @@
 }
 
 .membersWrapper {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   padding-top: 6rem;
   background-color: var(--primary-light-pastel-gray);
   background-image: url(/Events/micro_carbon.png);
   padding-bottom: 3rem;
   min-height: 100vh;
+  font-weight: normal;
+}
+
+/* Styles for admin/members page here */
+.addButton {
+  color: white;
+  background-color: #212830;
+  border-radius: 4px;
+  margin: 3px;
+  padding: 4px;
+  margin: 2px auto;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: large;
+  width: 125px;
+  box-shadow: 2px 2px 0 0 black;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+.addButton:hover {
+  color: white;
+  background: black;
+  box-shadow: 2px 2px 0 0 white;
+}
+
+.membersModal {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  margin: auto;
+  width: 65%;
+  height: fit-content;
+  justify-content: center;
+  align-items: center;
+  background: #e1e1e1;
+  background-color: rgb(46, 46, 46);
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  padding: 1% 2%;
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 4);
+  text-align: center;
+  color: white;
+  border-radius: 10px;
+}
+
+.membersModal > h1 {
+  font-size: larger;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 2%;
+  margin-bottom: 4%;
+}
+
+.membersModal * input,
+.membersModal * select {
+  width: 80%;
+  resize: vertical;
+  padding: 1vh;
+  border-radius: 5px;
+  border: 0;
+  background-color: rgb(0, 0, 0);
+}
+
+.membersModal * button {
+  color: white;
+  background-color: black;
+  border-radius: 5px;
+  padding: 4px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: large;
+  width: 10%;
+  min-width: fit-content;
+  margin: 2%;
+  justify-content: center;
+}
+.membersModal * button:hover {
+  color: black;
+  background: white;
+  box-shadow: 3px 3px 0 0 black;
+}
+
+.membersModal * label {
+  text-align: right;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-end;
+  width: 80%;
+  align-items: center;
+  margin: 1vh auto;
+  justify-content: space-between;
+}
+
+.errorBox {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 101;
+  font-size: larger;
+}
+
+@media (max-width: 768px) {
+  .membersModal,
+  .errorBox {
+    width: 95%;
+    font-size: smaller;
+    padding: 1px 0px;
+  }
+  .membersModal * label {
+    flex-direction: row;
+    margin-top: 3px 0px;
+  }
+  .membersModal * input,
+  .membersModal * select {
+    width: 60%;
+  }
 }
