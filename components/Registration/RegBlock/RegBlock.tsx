@@ -8,8 +8,6 @@ import styles from './RegBlock.module.css'
 import { State } from '@/types/AuthContext/AuthContext.type'
 import { reg_inputs } from '@/types/Registration/RegBlock.types'
 import axios from 'axios'
-import Modal from 'react-modal'
-import data from '../../../app/achievements/data'
 
 interface Props {
   title: string

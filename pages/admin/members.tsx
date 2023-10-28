@@ -13,7 +13,6 @@ import { IoGameController } from 'react-icons/io5'
 import { IoIosPeople } from 'react-icons/io'
 import Modal from 'react-modal'
 import Alert from '@mui/material/Alert'
-import data from '../../app/events/data'
 
 const MEMBERS_REVALIDATION_TIME = 60 * 60 * 12
 

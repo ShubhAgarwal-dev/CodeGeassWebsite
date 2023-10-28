@@ -172,6 +172,7 @@ const Page = () => {
                 headings={headings_mem}
                 row_data={memArr}
                 table_heading='Members'
+                setRowData={null}
               />
             ) : (
               <Loading />
@@ -183,6 +184,7 @@ const Page = () => {
                 headings={headings_foss}
                 row_data={fossArr}
                 table_heading='FOSS MEMBERS'
+                setRowData={null}
               />
             ) : (
               <Loading />
@@ -194,6 +196,7 @@ const Page = () => {
                 headings={headings_cp}
                 row_data={cpArr}
                 table_heading='Competitive Programming'
+                setRowData={null}
               />
             ) : (
               <Loading />
@@ -205,6 +208,7 @@ const Page = () => {
                 headings={headings_gd}
                 row_data={gdArr}
                 table_heading='Game Development'
+                setRowData={null}
               />
             ) : (
               <Loading />
