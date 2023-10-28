@@ -117,43 +117,31 @@ const Registration: NextPage<Props> = ({}) => {
       <Modal
         isOpen={open}
         onRequestClose={handleClose}
-        shouldCloseOnOverlayClick={false}
-        className='custom-modal'
-        overlayClassName='custom-modal-overlay'
-        style={{
-          // change to separate css file
-          overlay: {
-            zIndex: '100',
-          },
-          content: {
-            top: '50%',
-            left: '50%',
-            right: 'auto',
-            bottom: 'auto',
-
-            position: 'absolute',
-            backgroundColor: 'green',
-            margin: 'auto',
-            width: '40%',
-            height: '40%',
-            justifyContent: 'center',
-            alignItems: 'center',
-          },
-        }}
+        shouldCloseOnOverlayClick={true}
+        className={styles.customModal}
       >
-        <div className='modal-content'>
-          <span className='close-icon' onClick={handleClose}>
+        <div className='modal-content grid grid-col-1 gap-2'>
+          <button
+            className='close-icon w-max justify-self-end text-2xl'
+            onClick={handleClose}
+          >
             &times;
-          </span>
-          <h2>Enter OTP</h2>
+          </button>
+          <h2 className='text-left justify-self-center mt-10'>Enter OTP</h2>
           <input
+            className='bg-black c-white text-left mx-3 rounded w-fit justify-self-center'
             type='text'
             placeholder='Enter OTP'
             value={otp}
             onChange={e => setOtp(e.target.value)}
             maxLength={4}
           />
-          <button onClick={handleSubmitOTP}>Submit</button>
+          <button
+            className='bg-gray-800 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded justify-self-center w-fit mt-24 mb-5'
+            onClick={handleSubmitOTP}
+          >
+            Submit
+          </button>
           {/* <button onClick={handleResendOTP}>Resend OTP</button> */}
         </div>
       </Modal>

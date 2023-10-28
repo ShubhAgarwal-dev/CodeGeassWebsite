@@ -24,21 +24,19 @@ const handler = async (req, res) => {
     })
 
     if (existingOtp) {
-      // If an OTP object with the same email exists, update its otp value.
       await prisma.otp.update({
         where: {
           email: email,
         },
         data: {
-          otp: otp.toString(), // Corrected this line
+          otp: otp.toString(),
         },
       })
     } else {
-      // If no OTP object with the same email exists, create a new one.
       const createdEvent = await prisma.otp.create({
         data: {
           email: email,
-          otp: otp.toString(), // Corrected this line
+          otp: otp.toString(),
         },
       })
     }
@@ -57,14 +55,14 @@ const handler = async (req, res) => {
     let transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: '210020040@iitdh.ac.in', // Replace  Gmail address
+        user: 'pjayasurya2711@gmail.com', // Replace  Gmail address
         pass: process.env.EMAIL_PASSWORD, // Replace  Gmail password in .env
       },
     })
 
     let message = {
-      from: '210020040@iitdh.ac.in', // change this email address
-      to: 'pjayasurya2711@gmail.com', // this also
+      from: 'pjayasurya2711@gmail.com', // change this email address
+      to: email,
       subject: 'OTP for CODE GEASE',
       html: htmlTemplate,
     }
